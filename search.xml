@@ -11,18 +11,30 @@
         <content type="html"><![CDATA[<h2 id="这是我的第二篇文章"><a href="#这是我的第二篇文章" class="headerlink" title="这是我的第二篇文章"></a>这是我的第二篇文章</h2>]]></content>
       
       
+      <categories>
+          
+          <category> C </category>
+          
+      </categories>
+      
       
     </entry>
     
     
     
     <entry>
-      <title>第三篇文章</title>
+      <title>第二篇文章</title>
       <link href="/2023/12/17/3/"/>
       <url>/2023/12/17/3/</url>
       
         <content type="html"><![CDATA[<h2 id="这是我的第三篇文章"><a href="#这是我的第三篇文章" class="headerlink" title="这是我的第三篇文章"></a>这是我的第三篇文章</h2>]]></content>
       
+      
+      <categories>
+          
+          <category> Embedded </category>
+          
+      </categories>
       
       
     </entry>
@@ -37,6 +49,12 @@
         <content type="html"><![CDATA[<h2 id="这是我的第一篇文章"><a href="#这是我的第一篇文章" class="headerlink" title="这是我的第一篇文章"></a>这是我的第一篇文章</h2>]]></content>
       
       
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
       
     </entry>
     
@@ -46,9 +64,9 @@
     
     
     <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -57,20 +75,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -90,11 +97,55 @@
     
     
     <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
+      
+        <content type="html"><![CDATA[/* 页脚与头图透明 */#footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[function createtime() {    var now = new Date(); // 获取当前时间    var startDate = new Date("12/17/2023 21:00:00"); // 网站开始运行的日期，按需更改    var elapsed = now - startDate; // 计算流逝的时间    var seconds = Math.floor(elapsed / 1000);    var minutes = Math.floor(seconds / 60);    var hours = Math.floor(minutes / 60);    var days = Math.floor(hours / 24);    seconds %= 60; // 剩余秒数    minutes %= 60; // 剩余分钟数    hours %= 24; // 剩余小时数    // 确保时间是两位数字格式    var secondsStr = seconds < 10 ? "0" + seconds : seconds;    var minutesStr = minutes < 10 ? "0" + minutes : minutes;    var hoursStr = hours < 10 ? "0" + hours : hours;    // 更新网站内容    var c = `<div style="font-size:13px;font-weight:bold">本站居然运行了 ${days} 天 ${hoursStr} 小时 ${minutesStr} 分 ${secondsStr} 秒</div>`;    document.getElementById("workboard").innerHTML = c;}setInterval(createtime, 1000); // 每秒更新一次]]></content>
       
     </entry>
     
