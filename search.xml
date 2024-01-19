@@ -59,7 +59,7 @@
       <link href="/Image-basic/"/>
       <url>/Image-basic/</url>
       
-        <content type="html"><![CDATA[<h2 id="JPG-转-Tensor"><a href="#JPG-转-Tensor" class="headerlink" title="JPG 转 Tensor"></a>JPG 转 Tensor</h2><p>这里是详细说明 JPG 图像通过 OpenCV 的 <code>imread</code> 读取，然后转换为 PyTorch 张量的整个流程，包括数据格式和通道的变化：</p><h3 id="1-JPG-图像通过-OpenCV-imread-读取："><a href="#1-JPG-图像通过-OpenCV-imread-读取：" class="headerlink" title="1. JPG 图像通过 OpenCV imread 读取："></a>1. <strong>JPG 图像通过 OpenCV <code>imread</code> 读取</strong>：</h3><ul><li>JPG 图像是一种常用的压缩图像格式。</li><li>当使用 OpenCV 的 <code>imread</code> 函数读取 JPG 图像时，图像被加载为一个 NumPy 数组。</li><li>此数组的形状是 <code>(Height, Width, Channels)</code>，其中 Height 和 Width 分别是图像的高度和宽度（以像素为单位），Channels 是颜色通道的数量。</li><li>对于彩色图像，OpenCV 默认以 BGR（蓝、绿、红）格式读取，所以 Channels = 3。</li><li>数组中的每个元素是一个 0 到 255 之间的整数，代表相应像素的颜色强度。</li></ul><h3 id="2-转换为-PyTorch-张量："><a href="#2-转换为-PyTorch-张量：" class="headerlink" title="2. 转换为 PyTorch 张量："></a>2. <strong>转换为 PyTorch 张量</strong>：</h3><ul><li>PyTorch 通常处理的是张量（Tensor）格式的数据。</li><li>当将 OpenCV 读取的图像转换为 PyTorch 张量时，数据格式会从 NumPy 数组变为 PyTorch 张量。</li><li>这个转换过程通常包括改变通道的顺序和数据类型。</li><li>PyTorch 中的张量通常使用 <code>(Channels, Height, Width)</code> 的顺序，这与 OpenCV 的 <code>(Height, Width, Channels)</code> 不同。</li><li>因此，通常会对图像数据进行转置操作，比如 <code>np.transpose(image, (2, 0, 1))</code>，以将其从 <code>(H, W, C)</code> 转换为 <code>(C, H, W)</code>。</li><li>此外，如果原始图像是以 BGR 格式读取的，可能还需要将其转换为 RGB 格式，因为 PyTorch 通常使用 RGB 格式。</li></ul><h3 id="3-通道的变化："><a href="#3-通道的变化：" class="headerlink" title="3. 通道的变化："></a>3. <strong>通道的变化</strong>：</h3><ul><li>在 OpenCV 中，彩色图像默认以 BGR 格式读取，且尺寸顺序为‘HWC’</li><li>在 PyTorch 中，彩色图像通常表示为 RGB 格式，且尺寸顺序为‘CHW’</li><li>因此，在转换过程中需要将 BGR 格式转换为 RGB 格式，这通常通过重新排列通道来实现。</li></ul><h3 id="4-整个流程的示例代码如下："><a href="#4-整个流程的示例代码如下：" class="headerlink" title="4. 整个流程的示例代码如下："></a>4. <strong>整个流程的示例代码如下</strong>：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用OpenCV读取图像</span></span><br><span class="line">image = cv2.imread(<span class="string">&#x27;path_to_image.jpg&#x27;</span>)  <span class="comment"># 图像为 (H, W, C) 和 BGR 格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将BGR转换为RGB</span></span><br><span class="line">image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将图像从 (H, W, C) 转换为 (C, H, W)</span></span><br><span class="line">image = np.transpose(image, (<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将NumPy数组转换为PyTorch张量</span></span><br><span class="line">tensor = torch.from_numpy(image)</span><br><span class="line"></span><br><span class="line"><span class="comment"># tensor 现在是 (C, H, W) 格式的张量</span></span><br></pre></td></tr></table></figure><p>这样，JPG 图像就被转换成了 PyTorch 可以直接处理的张量格式。在这个张量中，图像数据的每个元素都代表对应像素点在特定通道上的颜色强度。</p><h2 id="灰度图像和黑白图像"><a href="#灰度图像和黑白图像" class="headerlink" title="灰度图像和黑白图像"></a>灰度图像和黑白图像</h2><p>灰度图像和黑白图像是两种常见的图像类型，它们在图像处理和计算机视觉中有着广泛的应用。下面是对它们的介绍以及它们的数据特征：</p><h3 id="1-灰度图像："><a href="#1-灰度图像：" class="headerlink" title="1. 灰度图像："></a>1. <strong>灰度图像</strong>：</h3><ul><li>灰度图像是指只有灰度级别的图像，没有彩色信息。在灰度图像中，每个像素只有一个亮度值，通常表示为 0（黑色）到 255（白色）之间的整数。</li><li>在灰度图像中，像素值较低（接近0）的区域看起来更黑，像素值较高（接近255）的区域看起来更亮。</li><li>灰度图像的数据结构较为简单，每个像素只有一个通道（通常是单通道），这使得处理速度更快，占用的存储空间也更小。</li><li>灰度图像常用于图像处理中的各种算法，如边缘检测、图像分割等，因为去除了色彩信息，可以更专注于图像的结构和形状。</li></ul><h3 id="2-黑白图像（二值图像）："><a href="#2-黑白图像（二值图像）：" class="headerlink" title="2. 黑白图像（二值图像）："></a>2. <strong>黑白图像（二值图像）</strong>：</h3><ul><li>黑白图像，也称为二值图像，是一种特殊的灰度图像，每个像素只有两种可能的值：0（黑色）或 255（白色）。</li><li>在二值图像中，图像通常是高对比度的，只显示黑色和白色，没有灰度中间值。</li><li>二值图像常用于阈值处理、文档扫描、某些类型的图像分析（如形态学操作）等应用。</li><li>生成二值图像的一种常见方法是应用阈值处理，将灰度图像中的每个像素转换为黑色或白色，这个过程称为二值化。</li></ul><p>在数据表示上，灰度图像通常是一个二维数组（Height x Width），其中每个元素代表一个像素的亮度值。而二值图像同样是二维数组，但每个元素只有两种可能的值（0或255）。在图像处理库中，如OpenCV或Pillow，通常提供了将彩色图像转换为灰度图像或二值图像的功能。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="JPG-转-Tensor"><a href="#JPG-转-Tensor" class="headerlink" title="JPG 转 Tensor"></a>JPG 转 Tensor</h2><p>这里是详细说明 JPG 图像通过 OpenCV 的 <code>imread</code> 读取，然后转换为 PyTorch 张量的整个流程，包括数据格式和通道的变化：</p><h3 id="1-JPG-图像通过-OpenCV-imread-读取："><a href="#1-JPG-图像通过-OpenCV-imread-读取：" class="headerlink" title="1. JPG 图像通过 OpenCV imread 读取："></a>1. <strong>JPG 图像通过 OpenCV <code>imread</code> 读取</strong>：</h3><ul><li>JPG 图像是一种常用的压缩图像格式。</li><li>当使用 OpenCV 的 <code>imread</code> 函数读取 JPG 图像时，图像被加载为一个 NumPy 数组。</li><li>此数组的形状是 <code>(Height, Width, Channels)</code>，其中 Height 和 Width 分别是图像的高度和宽度（以像素为单位），Channels 是颜色通道的数量。</li><li>对于彩色图像，OpenCV 默认以 BGR（蓝、绿、红）格式读取，所以 Channels = 3。</li><li>数组中的每个元素是一个 0 到 255 之间的整数，代表相应像素的颜色强度。</li></ul><h3 id="2-转换为-PyTorch-张量："><a href="#2-转换为-PyTorch-张量：" class="headerlink" title="2. 转换为 PyTorch 张量："></a>2. <strong>转换为 PyTorch 张量</strong>：</h3><ul><li>PyTorch 通常处理的是张量（Tensor）格式的数据。</li><li>当将 OpenCV 读取的图像转换为 PyTorch 张量时，数据格式会从 NumPy 数组变为 PyTorch 张量。</li><li>这个转换过程通常包括改变通道的顺序和数据类型。</li><li>PyTorch 中的张量通常使用 <code>(Channels, Height, Width)</code> 的顺序，这与 OpenCV 的 <code>(Height, Width, Channels)</code> 不同。</li><li>因此，通常会对图像数据进行转置操作，比如 <code>np.transpose(image, (2, 0, 1))</code>，以将其从 <code>(H, W, C)</code> 转换为 <code>(C, H, W)</code>。</li><li>此外，如果原始图像是以 BGR 格式读取的，可能还需要将其转换为 RGB 格式，因为 PyTorch 通常使用 RGB 格式。</li></ul><h3 id="3-通道的变化："><a href="#3-通道的变化：" class="headerlink" title="3. 通道的变化："></a>3. <strong>通道的变化</strong>：</h3><ul><li>在 OpenCV 中，彩色图像默认以 BGR 格式读取，且尺寸顺序为‘HWC’</li><li>在 PyTorch 中，彩色图像通常表示为 RGB 格式，且尺寸顺序为‘CHW’</li><li>因此，在转换过程中需要将 BGR 格式转换为 RGB 格式，这通常通过重新排列通道来实现。</li></ul><h3 id="4-整个流程的示例代码如下："><a href="#4-整个流程的示例代码如下：" class="headerlink" title="4. 整个流程的示例代码如下："></a>4. <strong>整个流程的示例代码如下</strong>：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用OpenCV读取图像</span></span><br><span class="line">image = cv2.imread(<span class="string">&#x27;path_to_image.jpg&#x27;</span>)  <span class="comment"># 图像为 (H, W, C) 和 BGR 格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将BGR转换为RGB</span></span><br><span class="line">image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将图像从 (H, W, C) 转换为 (C, H, W)</span></span><br><span class="line">image = np.transpose(image, (<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将NumPy数组转换为PyTorch张量</span></span><br><span class="line">tensor = torch.from_numpy(image)</span><br><span class="line"></span><br><span class="line"><span class="comment"># tensor 现在是 (C, H, W) 格式的张量</span></span><br></pre></td></tr></table></figure><p>这样，JPG 图像就被转换成了 PyTorch 可以直接处理的张量格式。在这个张量中，图像数据的每个元素都代表对应像素点在特定通道上的颜色强度。</p><h2 id="灰度图像和黑白图像"><a href="#灰度图像和黑白图像" class="headerlink" title="灰度图像和黑白图像"></a>灰度图像和黑白图像</h2><p>灰度图像和黑白图像是两种常见的图像类型，它们在图像处理和计算机视觉中有着广泛的应用。下面是对它们的介绍以及它们的数据特征：</p><h3 id="1-灰度图像："><a href="#1-灰度图像：" class="headerlink" title="1. 灰度图像："></a>1. <strong>灰度图像</strong>：</h3><ul><li>灰度图像是指只有灰度级别的图像，没有彩色信息。在灰度图像中，每个像素只有一个亮度值，通常表示为 0（黑色）到 255（白色）之间的整数。</li><li>在灰度图像中，像素值较低（接近0）的区域看起来更黑，像素值较高（接近255）的区域看起来更亮。</li><li>灰度图像的数据结构较为简单，每个像素只有一个通道（通常是单通道），这使得处理速度更快，占用的存储空间也更小。</li><li>灰度图像常用于图像处理中的各种算法，如边缘检测、图像分割等，因为去除了色彩信息，可以更专注于图像的结构和形状。</li></ul><h3 id="2-黑白图像（二值图像）："><a href="#2-黑白图像（二值图像）：" class="headerlink" title="2. 黑白图像（二值图像）："></a>2. <strong>黑白图像（二值图像）</strong>：</h3><ul><li>黑白图像，也称为二值图像，是一种特殊的灰度图像，每个像素只有两种可能的值：0（黑色）或 255（白色）。</li><li>在二值图像中，图像通常是高对比度的，只显示黑色和白色，没有灰度中间值。</li><li>二值图像常用于阈值处理、文档扫描、某些类型的图像分析（如形态学操作）等应用。</li><li>生成二值图像的一种常见方法是应用阈值处理，将灰度图像中的每个像素转换为黑色或白色，这个过程称为二值化。</li></ul><p>在数据表示上，灰度图像通常是一个二维数组（Height x Width），其中每个元素代表一个像素的亮度值。而二值图像同样是二维数组，但每个元素只有两种可能的值（0或255）。在图像处理库中，如OpenCV或Pillow，通常提供了将彩色图像转换为灰度图像或二值图像的功能。</p><h2 id="读取图像文件"><a href="#读取图像文件" class="headerlink" title="读取图像文件"></a>读取图像文件</h2><h3 id="1-Scikit-image-io-imread"><a href="#1-Scikit-image-io-imread" class="headerlink" title="1. Scikit-image (io.imread)"></a>1. Scikit-image (<code>io.imread</code>)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line">image = io.imread(image_path)</span><br></pre></td></tr></table></figure><ul><li><strong>特点</strong>：默认以 RGB 格式读取图像。适用于科学计算和图像分析。</li><li><strong>颜色格式</strong>：RGB。</li><li><strong>适用场景</strong>：图像处理、计算机视觉研究和分析。</li></ul><h3 id="2-OpenCV-cv2-imread"><a href="#2-OpenCV-cv2-imread" class="headerlink" title="2. OpenCV (cv2.imread)"></a>2. OpenCV (<code>cv2.imread</code>)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line">image = cv2.imread(image_path)</span><br></pre></td></tr></table></figure><ul><li><strong>特点</strong>：默认以 BGR 格式读取图像。提供了丰富的图像处理和计算机视觉功能。</li><li><strong>颜色格式</strong>：BGR。</li><li><strong>适用场景</strong>：实时图像处理、计算机视觉和机器学习应用。</li></ul><h3 id="3-PIL-Pillow-Image-open"><a href="#3-PIL-Pillow-Image-open" class="headerlink" title="3. PIL / Pillow (Image.open)"></a>3. PIL / Pillow (<code>Image.open</code>)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">image = Image.<span class="built_in">open</span>(image_path)</span><br></pre></td></tr></table></figure><ul><li><strong>特点</strong>：以 PIL 图像对象形式读取图像，需要转换为 numpy 数组才能用于像素级操作。</li><li><strong>颜色格式</strong>：RGB（或原图像的格式）。</li><li><strong>适用场景</strong>：基本图像处理，与其他Python库集成。</li></ul><h3 id="4-Matplotlib-plt-imread"><a href="#4-Matplotlib-plt-imread" class="headerlink" title="4. Matplotlib (plt.imread)"></a>4. Matplotlib (<code>plt.imread</code>)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">image = plt.imread(image_path)</span><br></pre></td></tr></table></figure><ul><li><strong>特点</strong>：以 numpy 数组形式读取图像，通常用于图像展示和绘图。</li><li><strong>颜色格式</strong>：RGB。</li><li><strong>适用场景</strong>：图像展示和绘制图表。</li></ul><h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><ul><li><strong>颜色格式</strong>：OpenCV 默认以 BGR 格式读取，而其他库通常以 RGB 格式读取。</li><li><strong>数据类型</strong>：OpenCV 和 Matplotlib 返回 numpy 数组，PIL 返回一个图像对象，scikit-image 也返回 numpy 数组。</li><li><strong>用途</strong>：OpenCV 更适合复杂的图像处理和计算机视觉任务。PIL 简单易用，适合基本图像处理。Matplotlib 主要用于绘图和图像展示，scikit-image 适合科学研究中的图像分析。</li></ul><p>根据您的具体需求和项目环境，您可以选择最适合您的图像读取方法。</p>]]></content>
       
       
       
@@ -463,44 +463,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
-      
-        <content type="html"><![CDATA[function createtime() {    var now = new Date(); // 获取当前时间    var startDate = new Date("12/17/2023 21:00:00"); // 网站开始运行的日期，按需更改    var elapsed = now - startDate; // 计算流逝的时间    var seconds = Math.floor(elapsed / 1000);    var minutes = Math.floor(seconds / 60);    var hours = Math.floor(minutes / 60);    var days = Math.floor(hours / 24);    seconds %= 60; // 剩余秒数    minutes %= 60; // 剩余分钟数    hours %= 24; // 剩余小时数    // 确保时间是两位数字格式    var secondsStr = seconds < 10 ? "0" + seconds : seconds;    var minutesStr = minutes < 10 ? "0" + minutes : minutes;    var hoursStr = hours < 10 ? "0" + hours : hours;    // 更新网站内容    var c = `<div style="font-size:13px;font-weight:bold">本站居然运行了 ${days} 天 ${hoursStr} 小时 ${minutesStr} 分 ${secondsStr} 秒</div>`;    document.getElementById("workboard").innerHTML = c;}setInterval(createtime, 1000); // 每秒更新一次]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/light.js"/>
-      <url>/js/light.js</url>
-      
-        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {                    }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {                    }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       
         <content type="html"><![CDATA[<!-- GitCalendar容器 --><div id="gitZone"></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -519,6 +486,28 @@
     
     <entry>
       <title></title>
+      <link href="/js/cursor.js"/>
+      <url>/js/cursor.js</url>
+      
+        <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='1.0' fill='rgb(0, 0, 255)'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/light.js"/>
+      <url>/js/light.js</url>
+      
+        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {                    }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {                    }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/js/universe.js"/>
       <url>/js/universe.js</url>
       
@@ -529,31 +518,9 @@
     
     
     <entry>
-      <title>添加我的QQ</title>
-      <link href="/qq/index.html"/>
-      <url>/qq/index.html</url>
-      
-        <content type="html"><![CDATA[<p><img src="../img/QQ.jpg" alt="我的QQ二维码"></p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -573,11 +540,44 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/cursor.js"/>
-      <url>/js/cursor.js</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
-        <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='1.0' fill='rgb(0, 0, 255)'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>添加我的QQ</title>
+      <link href="/qq/index.html"/>
+      <url>/qq/index.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="../img/QQ.jpg" alt="我的QQ二维码"></p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[function createtime() {    var now = new Date(); // 获取当前时间    var startDate = new Date("12/17/2023 21:00:00"); // 网站开始运行的日期，按需更改    var elapsed = now - startDate; // 计算流逝的时间    var seconds = Math.floor(elapsed / 1000);    var minutes = Math.floor(seconds / 60);    var hours = Math.floor(minutes / 60);    var days = Math.floor(hours / 24);    seconds %= 60; // 剩余秒数    minutes %= 60; // 剩余分钟数    hours %= 24; // 剩余小时数    // 确保时间是两位数字格式    var secondsStr = seconds < 10 ? "0" + seconds : seconds;    var minutesStr = minutes < 10 ? "0" + minutes : minutes;    var hoursStr = hours < 10 ? "0" + hours : hours;    // 更新网站内容    var c = `<div style="font-size:13px;font-weight:bold">本站居然运行了 ${days} 天 ${hoursStr} 小时 ${minutesStr} 分 ${secondsStr} 秒</div>`;    document.getElementById("workboard").innerHTML = c;}setInterval(createtime, 1000); // 每秒更新一次]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
