@@ -46,7 +46,7 @@
       <link href="/datasets/"/>
       <url>/datasets/</url>
       
-        <content type="html"><![CDATA[<h2 id="PASCAL-VOC2012"><a href="#PASCAL-VOC2012" class="headerlink" title="PASCAL VOC2012"></a>PASCAL VOC2012</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>PASCALVOC挑战赛 (The PASCAL Visual object Classes ) 是一个世界级的<strong>计算机视觉挑战赛</strong>，PASCAL全称: Pattern Analysis, StaticalModeling and Computational Learning，是一个由欧盟资助的网络组织PASCALVOC挑战赛主要包括以下几类: <strong>图像分类</strong>(object classification)，<strong>目标检测</strong>(Object Detection)，<strong>目标分割</strong>(Object Segmentation)，<strong>动作识别</strong>(Action Classification)等</p><p>注意：2012年的test数据集不公开。故可以使用VOC2012的trainval进行训练，VOC2007的test进行测试。</p><h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">VOC2012</span><br><span class="line">├── Annotations所有的图像标注信息（XML文件```</span><br><span class="line">├── ImageSets</span><br><span class="line">│   ├── Action人的行为动作图像信息</span><br><span class="line">│   ├── Layout人的各个部位图像信息</span><br><span class="line">│   ├── Main目标检测分类图像信息```</span><br><span class="line">│   │   ├── train.txt训练集 5717```</span><br><span class="line">│   │   ├── val.txt验证集 5823```</span><br><span class="line">│   │   └── trainval.txt训练集+验证集 11540```</span><br><span class="line">│   └── Segmentation目标分割图像信息</span><br><span class="line">├── JPEGImages所有图像文件```</span><br><span class="line">├── SegmentationClass图像分割png图（基于分类）</span><br><span class="line">└── SegmentationObject图像分割png图（基于目标）</span><br></pre></td></tr></table></figure><h3 id="XML格式"><a href="#XML格式" class="headerlink" title="XML格式"></a>XML格式</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;annotation&gt;  标注</span><br><span class="line">&lt;folder&gt;JPEGImages&lt;/folder&gt;文件夹名</span><br><span class="line">&lt;filename&gt;2007_000027.jpg&lt;/filename&gt;文件名</span><br><span class="line">&lt;source&gt;来源</span><br><span class="line">&lt;database&gt;The VOC2007 Database&lt;/database&gt;数据库</span><br><span class="line">&lt;annotation&gt;PASCAL VOC2007&lt;/annotation&gt;标注</span><br><span class="line">&lt;image&gt;flickr&lt;/image&gt;图像来源</span><br><span class="line">&lt;/source&gt;来源关</span><br><span class="line">&lt;size&gt;大小</span><br><span class="line">&lt;width&gt;486&lt;/width&gt;宽486</span><br><span class="line">&lt;height&gt;500&lt;/height&gt;高500</span><br><span class="line">&lt;depth&gt;3&lt;/depth&gt;通道3</span><br><span class="line">&lt;/size&gt;大小结束</span><br><span class="line">&lt;segmented&gt;0&lt;/segmented&gt;分割</span><br><span class="line">&lt;object&gt;物体</span><br><span class="line">&lt;name&gt;person&lt;/name&gt;名称</span><br><span class="line">&lt;pose&gt;Unspecified&lt;/pose&gt;姿势确定</span><br><span class="line">&lt;truncated&gt;0&lt;/truncated&gt;是否截断</span><br><span class="line">&lt;difficult&gt;0&lt;/difficult&gt;训练难易</span><br><span class="line">&lt;bndbox&gt;边界框</span><br><span class="line">&lt;xmin&gt;174&lt;/xmin&gt;左上角坐标x</span><br><span class="line">&lt;ymin&gt;101&lt;/ymin&gt;左上角坐标y</span><br><span class="line">&lt;xmax&gt;349&lt;/xmax&gt;右下角坐标x</span><br><span class="line">&lt;ymax&gt;351&lt;/ymax&gt;右下角坐标y</span><br><span class="line">&lt;/bndbox&gt;边界框结束</span><br><span class="line">&lt;part&gt;部位</span><br><span class="line">&lt;name&gt;head&lt;/name&gt;部位名称</span><br><span class="line">&lt;bndbox&gt;边界框</span><br><span class="line">&lt;xmin&gt;169&lt;/xmin&gt;左上角坐标x</span><br><span class="line">&lt;ymin&gt;104&lt;/ymin&gt;左上角坐标y</span><br><span class="line">&lt;xmax&gt;209&lt;/xmax&gt;右下角坐标x</span><br><span class="line">&lt;ymax&gt;146&lt;/ymax&gt;右下角坐标y</span><br><span class="line">&lt;/bndbox&gt;边界框结束</span><br><span class="line">&lt;/part&gt;部位结束</span><br><span class="line">&lt;/object&gt;物体结束</span><br><span class="line">&lt;/annotation&gt;标注结束</span><br></pre></td></tr></table></figure><h3 id="自建数据集"><a href="#自建数据集" class="headerlink" title="自建数据集"></a>自建数据集</h3><p>将图像和XML标注文件分别存于两个文件夹，并应用算法从中生成训练集和测试集。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="PASCAL-VOC2012"><a href="#PASCAL-VOC2012" class="headerlink" title="PASCAL VOC2012"></a>PASCAL VOC2012</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>PASCALVOC挑战赛 (The PASCAL Visual object Classes ) 是一个世界级的<strong>计算机视觉挑战赛</strong>，PASCAL全称: Pattern Analysis, StaticalModeling and Computational Learning，是一个由欧盟资助的网络组织PASCALVOC挑战赛主要包括以下几类: <strong>图像分类</strong>(object classification)，<strong>目标检测</strong>(Object Detection)，<strong>目标分割</strong>(Object Segmentation)，<strong>动作识别</strong>(Action Classification)等</p><p>注意：2012年的test数据集不公开。故可以使用VOC2012的trainval进行训练，VOC2007的test进行测试。</p><h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">VOC2012</span><br><span class="line">├── Annotations             所有的图像标注信息（XML文件```</span><br><span class="line">├── ImageSets</span><br><span class="line">│   ├── Action              人的行为动作图像信息</span><br><span class="line">│   ├── Layout              人的各个部位图像信息</span><br><span class="line">│   ├── Main                目标检测分类图像信息```</span><br><span class="line">│   │   ├── train.txt       训练集 5717```</span><br><span class="line">│   │   ├── val.txt         验证集 5823```</span><br><span class="line">│   │   └── trainval.txt    训练集+验证集 11540```</span><br><span class="line">│   └── Segmentation        目标分割图像信息</span><br><span class="line">├── JPEGImages              所有图像文件```</span><br><span class="line">├── SegmentationClass       图像分割png图（基于分类）</span><br><span class="line">└── SegmentationObject      图像分割png图（基于目标）</span><br></pre></td></tr></table></figure><h3 id="XML格式"><a href="#XML格式" class="headerlink" title="XML格式"></a>XML格式</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;annotation&gt;                                 标注</span><br><span class="line">  &lt;folder&gt;JPEGImages&lt;/folder&gt;                   文件夹名</span><br><span class="line">  &lt;filename&gt;2007_000027.jpg&lt;/filename&gt;          文件名</span><br><span class="line">  &lt;source&gt;                                      来源</span><br><span class="line">    &lt;database&gt;The VOC2007 Database&lt;/database&gt;       数据库</span><br><span class="line">    &lt;annotation&gt;PASCAL VOC2007&lt;/annotation&gt;         标注</span><br><span class="line">    &lt;image&gt;flickr&lt;/image&gt;                           图像来源</span><br><span class="line">  &lt;/source&gt;                                     来源结束</span><br><span class="line">  &lt;size&gt;                                        大小</span><br><span class="line">    &lt;width&gt;486&lt;/width&gt;                              宽486</span><br><span class="line">    &lt;height&gt;500&lt;/height&gt;                            高500</span><br><span class="line">    &lt;depth&gt;3&lt;/depth&gt;                                通道3</span><br><span class="line">  &lt;/size&gt;                                       大小结束</span><br><span class="line">  &lt;segmented&gt;0&lt;/segmented&gt;                      分割</span><br><span class="line">  &lt;object&gt;                                      物体</span><br><span class="line">    &lt;name&gt;person&lt;/name&gt;                              名称</span><br><span class="line">    &lt;pose&gt;Unspecified&lt;/pose&gt;                         姿势确定</span><br><span class="line">    &lt;truncated&gt;0&lt;/truncated&gt;                        是否截断</span><br><span class="line">    &lt;difficult&gt;0&lt;/difficult&gt;                        训练难易</span><br><span class="line">    &lt;bndbox&gt;                                        边界框</span><br><span class="line">      &lt;xmin&gt;174&lt;/xmin&gt;                                  左上角坐标x</span><br><span class="line">      &lt;ymin&gt;101&lt;/ymin&gt;                                  左上角坐标y</span><br><span class="line">      &lt;xmax&gt;349&lt;/xmax&gt;                                  右下角坐标x</span><br><span class="line">      &lt;ymax&gt;351&lt;/ymax&gt;                                  右下角坐标y</span><br><span class="line">    &lt;/bndbox&gt;                                           边界框结束</span><br><span class="line">    &lt;part&gt;                                          部位</span><br><span class="line">      &lt;name&gt;head&lt;/name&gt;                                 部位名称</span><br><span class="line">      &lt;bndbox&gt;                                          边界框</span><br><span class="line">        &lt;xmin&gt;169&lt;/xmin&gt;                                    左上角坐标x</span><br><span class="line">        &lt;ymin&gt;104&lt;/ymin&gt;                                    左上角坐标y</span><br><span class="line">        &lt;xmax&gt;209&lt;/xmax&gt;                                    右下角坐标x</span><br><span class="line">        &lt;ymax&gt;146&lt;/ymax&gt;                                    右下角坐标y</span><br><span class="line">      &lt;/bndbox&gt;                                         边界框结束</span><br><span class="line">    &lt;/part&gt;                                         部位结束</span><br><span class="line">  &lt;/object&gt;                                     物体结束</span><br><span class="line">&lt;/annotation&gt;                                标注结束</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="自建数据集"><a href="#自建数据集" class="headerlink" title="自建数据集"></a>自建数据集</h3><p>将图像和XML标注文件分别存于两个文件夹，并应用算法从中生成训练集和测试集。</p>]]></content>
       
       
       <categories>
@@ -462,31 +462,6 @@
     
     
     <entry>
-      <title>第二篇文章</title>
-      <link href="/2023-12-17-2/"/>
-      <url>/2023-12-17-2/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是我的第二篇文章"><a href="#这是我的第二篇文章" class="headerlink" title="这是我的第二篇文章"></a>这是我的第二篇文章</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> C </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 标签2 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>第三篇文章</title>
       <link href="/2023-12-17-3/"/>
       <url>/2023-12-17-3/</url>
@@ -510,19 +485,33 @@
     </entry>
     
     
-  
-  
-    
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>第二篇文章</title>
+      <link href="/2023-12-17-2/"/>
+      <url>/2023-12-17-2/</url>
       
-        <content type="html"><![CDATA[<!-- GitCalendar容器 --><div id="gitZone"></div>]]></content>
+        <content type="html"><![CDATA[<h2 id="这是我的第二篇文章"><a href="#这是我的第二篇文章" class="headerlink" title="这是我的第二篇文章"></a>这是我的第二篇文章</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> C </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 标签2 </tag>
+            
+        </tags>
       
     </entry>
     
+    
+  
+  
     
     
     <entry>
@@ -537,22 +526,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/cursor.js"/>
-      <url>/js/cursor.js</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='1.0' fill='rgb(0, 0, 255)'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/light.js"/>
-      <url>/js/light.js</url>
-      
-        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {                    }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {                    }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
+        <content type="html"><![CDATA[<!-- GitCalendar容器 --><div id="gitZone"></div>]]></content>
       
     </entry>
     
@@ -571,17 +549,6 @@
     
     <entry>
       <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
-      
-        <content type="html"><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/js/runtime.js"/>
       <url>/js/runtime.js</url>
       
@@ -592,22 +559,33 @@
     
     
     <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title></title>
+      <link href="/js/light.js"/>
+      <url>/js/light.js</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {                    }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {                    }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>添加我的QQ</title>
-      <link href="/qq/index.html"/>
-      <url>/qq/index.html</url>
+      <title></title>
+      <link href="/js/cursor.js"/>
+      <url>/js/cursor.js</url>
       
-        <content type="html"><![CDATA[<p><img src="../img/QQ.jpg" alt="我的QQ二维码"></p>]]></content>
+        <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='1.0' fill='rgb(0, 0, 255)'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
+      
+        <content type="html"><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
       
     </entry>
     
@@ -617,6 +595,28 @@
       <title>电影</title>
       <link href="/movies/index.html"/>
       <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -636,11 +636,11 @@
     
     
     <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>添加我的QQ</title>
+      <link href="/qq/index.html"/>
+      <url>/qq/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><img src="../img/QQ.jpg" alt="我的QQ二维码"></p>]]></content>
       
     </entry>
     
