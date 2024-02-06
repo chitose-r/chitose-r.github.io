@@ -4,6 +4,51 @@
   
     
     <entry>
+      <title>Inceptionv3-paper</title>
+      <link href="/Inceptionv3-paper/"/>
+      <url>/Inceptionv3-paper/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Inceptionv2-paper</title>
+      <link href="/Inceptionv2-paper/"/>
+      <url>/Inceptionv2-paper/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>NiN-Paper</title>
+      <link href="/NiN-Paper/"/>
+      <url>/NiN-Paper/</url>
+      
+        <content type="html"><![CDATA[<h1 id="《Going-deeper-with-convolutions》"><a href="#《Going-deeper-with-convolutions》" class="headerlink" title="《Going deeper with convolutions》"></a>《Going deeper with convolutions》</h1><blockquote><h1 id="深入卷积-2014-09"><a href="#深入卷积-2014-09" class="headerlink" title="深入卷积 2014.09"></a>深入卷积 2014.09</h1></blockquote><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>我们提出了一种新式深度网络结构称之为NIN，增强模型对感受野内局部块的辨别力。 传统的卷积层使用线性过滤器后跟非线性激活函数来扫描输入。 与之相反的是我们构建更加复杂结构的微神经网络来使得感受野内的数据抽象化。 我们使用多层感知器来实例化微神经网络，这是一种强大的函数逼近器。 特征图是通过以与 CNN 类似的方式在输入上滑动微网络获得的，然后将特征图送入下一层。 深度 NIN 可以通过堆叠多个上述结构来实现。 通过微网络增强的局部建模，我们能够在分类层的特征图上利用全局平均池化，这比传统的全连接层更容易解释并且更不容易过拟合。同时我们展示了 NIN 在 CIFAR-10 和 CIFAR-100 上的最新分类性能，以及在 SVHN 和 MNIST 数据集上的合理性能。</p><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1 介绍"></a>1 介绍</h2><p>卷积神经网络(CNNs)[1]由交替的卷积层和汇聚层组成。卷积层在输入的每个局部部分取线性滤波器和底层接收场的内积，然后是一个非线性激活函数。结果输出称为特征映射。</p><p>CNN的卷积滤波器是底层数据块的广义线性模型（generalized linear model ）（GLM），而且我们认为它的抽象程度较低。抽象是指特征对同一概念的变体是不变的[2]。用更强（有效）的非线性函数逼近器代替GLM，可以提高局部模型的抽象能力。当样本的隐含概念（latent concept）是线性可分时，GLM可以达到很好的抽象程度，例如：这些概念的变体都在GLM分割平面的同一边。因此，传统的CNN隐含地假设潜在的概念是线性可分的。然而，同一概念的数据通常是非线性流形的（nonlinear manifold），捕捉这些概念的表达通常都是输入的高维非线性函数。在NIN中，用一种一般非线性函数逼近器的“微网络结构”代替了GLM。在本文中，我们选择多层感知器[3]作为微网络的实例化，它是一种通用函数逼近器，是一个可通过反向传播进行训练的神经网络。</p><p>我们称之为mlpconv层的结果结构在图1中与CNN进行了比较。线性卷积层和mlpconv层都将局部接收场映射到输出特征向量。 mlpconv 层将局部块（ input local patch）的输入通过一个由<a href="https://so.csdn.net/so/search?q=全连接层&amp;spm=1001.2101.3001.7020">全连接层</a>和非线性激活函数组成的多层感知器（MLP）映射到了输出的特征向量。 MLP在所有局部感受野中共享。特征图通过用像CNN一样的方式在输入上滑动MLP得到，NIN的总体结构是一系列mplconv层的堆叠。 它被称为“网络中的网络”(NIN)，因为我们有微型网络(MLP)，它在mlpconv层中构成整个深层网络的组成部分。</p><p>我们不采用在CNN中传统的完全连通层进行分类，而是通过全局平均池层（global average pooling layer）直接输出最后一个mlpconv层的特征映射的空间平均值作为类别的可信度，然后将得到的向量输入到Softmax层。 在传统的CNN中，很难解释如何将来自分类层（objective cost layer）的分类信息传递回前一个卷积层，因为全连接层像一个黑盒一样。相反，全局平均池更有意义和可解释，因为它强制特征映射和类别之间的对应，这是通过使用微型网络进行更强的局部建模而实现的。此外，完全连接层容易过度拟合，严重依赖于Dropout正则化[4][5]，而全局平均池本身就是一个结构正则化，这在本质上防止了对整体结构的过度拟合。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Figure1.png" alt=""></p><blockquote><p>图1:线性卷积层与mlpconv层的对比。线性卷积层包含一个线性滤波器，而mlpconv层包含一个微网络(本文选择多层感知器)。两层都将局部接受野映射到潜在概念的置信度值。</p></blockquote><h2 id="2-卷积神经网络"><a href="#2-卷积神经网络" class="headerlink" title="2 卷积神经网络"></a>2 卷积神经网络</h2><p>经典卷积神经元网络[1]由交替叠加的卷积层和空间汇聚层组成。卷积层通过线性卷积滤波器和非线性激活函数(整流器（rectifier）、Sigmoid、tanh等)生成特征映射。以线性整流器为例，可以按以下方式计算特征图：</p><p>这里的((i, j))是特征图像素的索引，xij代表以位置((i, j))为中心的输入块，(k)用来索引特征图的颜色通道。</p><p>当隐性概念（ the latent concepts ）的实例是线性可分的时，这种线性卷积就足以进行抽象。然而，实现良好抽象的表示通常是输入数据的高度非线性函数。 在传统的CNN中，这可以通过利用一套完整的滤波器来弥补，覆盖所有隐含概念的变化。也就是说，可以学习独立的线性滤波器来检测同一概念的不同变化。然而，对单个概念有太多的过滤器会给下一层带来额外的负担，（因为）下一层需要考虑上一层的所有变化组合[7]。在CNN中， 来自更高层的滤波器会映射到原始输入的更大区域。它通过结合下面层中的较低级别概念来生成更高级别的概念。因此，我们认为，在将每个本地块（local patch）合并为更高级别的概念之前，对每个本地快进行更好的抽象是有益的。 </p><p>在最近的Maxout网络[8]中，特征映射的数目通过仿射特征映射上的最大池来减少(仿射特征映射是线性卷积不应用激活函数的直接结果)。线性函数的极大化使分段线性逼近器( piecewise linear approximator)能够逼近任意凸函数。与进行线性分离的传统卷积层相比，最大输出网络更强大，因为它能够分离凸集中的概念。 这种改进使maxout网络在几个基准数据集上有最好的表现。</p><p>但是，Maxout网络强制要求潜在概念的实例存在于输入空间中的凸集中，这并不一定成立。当隐性概念的分布更加复杂时，需要使用更一般的函数逼近器。我们试图通过引入一种新颖的“Network In Network”结构来实现这一目标，即在每个卷积层中引入一个微网络来计算局部块的更抽象的特征。</p><p>在以前的一些工作中，已经提出了在输入端滑动一个微网络。例如，结构化多层感知器(SMLP)[9]在输入图像的不同块上应用共享多层感知器；在另一项工作中，基于神经网络的滤波器被训练用于人脸检测[10]。然而，它们都是针对特定的问题而设计的，而且都只包含一层滑动网络结构。NIN是从更一般的角度提出的，将微网络集成到CNN结构中，对各个层次的特征进行更好的抽象。</p><h2 id="3-网络中的网络"><a href="#3-网络中的网络" class="headerlink" title="3 网络中的网络"></a>3 网络中的网络</h2><p> 我们首先强调了我们提出的“网络中的网络”结构的关键组成部分：MLP卷积层和全局平均池层分别在3.1节和3.2节中。然后我们在3.3节中详细描述整个NiN。</p><h3 id="3-1-MLP卷积层"><a href="#3-1-MLP卷积层" class="headerlink" title="3.1 MLP卷积层"></a>3.1 MLP卷积层</h3><p>由于没有关于潜在概念分布的先验信息，使用通用函数逼近器来提取局部块的特征是可取的，因为它能够逼近潜在概念的更抽象的表示。径向基网络和多层感知器是两种著名的通用函数逼近器。我们在这项工作中选择多层感知器有两个原因。首先，多层感知器与采用反向传播训练的卷积神经网络的结构兼容；第二，多层感知器本身可以是一个深层次的模型，这与特征重用的精神是一致的[2]。在本文中，这种新型的层称为mlpconv，其中MLP取代GLM，在输入上进行转换。图1说明了线性卷积层和mlpconv层之间的区别。由mlpconv层执行的计算如下：</p><script type="math/tex; mode=display">f_{i,j,k} = \max(w_k^T x_{i,j}, 0).</script><p>这里n是多层感知器中的层数。在多层感知器中，采用整流线性单元作为激活函数。</p><p>从跨信道(跨特征图—cross feature map)池的角度看，方程2等价于正规卷积层上的级联跨信道参数池( cascaded cross channel parametric pooling)。每个池层对输入特征映射执行加权线性重组，然后通过整流线性单元。跨通道池功能映射在下一层中一次又一次地跨通道池。这种级联的跨信道参数池结构允许复杂且可学习的交叉信道信息交互。</p><p>跨信道参数池层也等价于具有1x1卷积核的卷积层。这一解释使得理解nin的结构更为直观。</p><p><strong>与maxout层的比较</strong>：maxout网络中的maxout层跨多个仿射特征映射执行max池化[8]。最大层的特征图计算如下：</p><script type="math/tex; mode=display">f_{i,j,k_1}^1 = \max(w_{k_1}^1 T x_{i,j} + b_{k_1}, 0).</script><script type="math/tex; mode=display">\vdots</script><script type="math/tex; mode=display">f_{i,j,k_n}^n = \max(w_{k_n}^n T f_{i,j}^{n-1} + b_{k_n}, 0).</script><p>线性函数上的极大值形成一个分段线性函数，它能够建模任何凸函数。对于凸函数，函数值低于特定阈值的样本构成凸集。因此，通过逼近局部块的凸函数，maxout对样本位于凸集(即L2球、凸锥)的概念具有形成分离超平面的能力。mlpconv层与maxout层的不同之处在于，凸函数逼近器被一个通用函数逼近器所代替，它在建模各种隐性概念分布方面具有更强的能力。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Figure2.png" alt=""></p><blockquote><p>图2：网络中网络的总体结构。在本文中，NINS包括三个mlpconv层和一个全局平均池层的叠加。</p></blockquote><h3 id="3-2-全球平均池化"><a href="#3-2-全球平均池化" class="headerlink" title="3.2 全球平均池化"></a>3.2 全球平均池化</h3><p>传统的卷积神经网络在网络的底层进行卷积。在分类方面，将上一卷积层的特征映射矢量化，并将其输入到完全连通的层中，然后是Softmax Logistic回归层[4][8][11]。该结构将卷积结构与传统的神经网络分类器连接起来。它将卷积层作为特征提取器，并对生成的特征进行传统的分类。</p><p>然而，全连通层容易过度拟合，从而阻碍了整个网络的泛化能力。Dropout是由Hinton等人提出的[5]。它作为一个正则化，在训练期间随机地将半个完全连接的层的激活设置为零。它提高了泛化能力，在很大程度上防止了过度拟合[4]。</p><p>在本文中，我们提出了另一种策略，称为全局平均池，以取代CNN中传统的全连通层。其思想是为最后一个mlpconv层中的分类任务的每个对应类别生成一个特征映射。我们没有在特征映射的顶部添加完全连通的层，而是取每个特征映射的平均值，并将得到的向量直接输入到Softmax层。全局平均池取代完全连通层上的一个优点是，通过增强特征映射和类别之间的对应关系，它更适合于卷积结构。因此，特征映射可以很容易地解释为类别信任映射。另一个优点是在全局平均池中没有优化参数，从而避免了这一层的过度拟合。此外，全局平均池综合了空间信息，从而对输入的空间平移具有更强的鲁棒性。</p><p>我们可以看到全局平均池是一个结构正则化器，它显式地将特征映射强制为概念(类别)的信任映射。这是由mlpconv层实现的，因为它们比GLMS更接近置信度图。</p><h3 id="3-3-网络中的网络结构"><a href="#3-3-网络中的网络结构" class="headerlink" title="3.3 网络中的网络结构"></a>3.3 网络中的网络结构</h3><p>NIN的总体结构是一个由mlpconv层组成的堆栈，上面是全局平均池和目标成本层。在mlpconv 层之间可以添加下采样层，如cnn和maxout网络中的那样。图2显示了一个包含三个mlpconv层的nin。在每个mlpconv层中，有一个三层感知器。NIN和微网络中的层数都是灵活的，可以根据特定的任务进行调整。</p><h2 id="4-实验"><a href="#4-实验" class="headerlink" title="4 实验"></a>4 实验</h2><h3 id="4-1-概观"><a href="#4-1-概观" class="headerlink" title="4.1 概观"></a>4.1 概观</h3><p>我们对四个基准数据集进行了评估：CIFAR-10[12]、CIFAR-100[12]、Svhn[13]和Mnist[1]。用于数据集的网络都由三个层叠的mlpconv层组成，所有实验中的mlpconv层随后都是一个空间最大池层，它对输入图像进行二倍的向下采样。作为正则化器，除最后一个mlpconv层外，所有输出都应用了Dropout。除非具体说明，实验部分中使用的所有网络都使用全局平均池，而不是网络顶部完全连接的层。另一个应用的正则化方法是Krizhevsky等人使用的权重衰减[4]。图2说明了本节中使用的nin网络的总体结构。补充材料中提供了详细的参数设置。我们在AlexKrizhevsky[4]开发的超快Cuda-ConvNet代码上实现我们的网络。据集的预处理、训练和验证集的分割都遵循GoodFelt等人的观点[8]。</p><p>我们采用Krizhevsky等人使用的训练过程[4]。也就是说，我们手动设置适当的初始化权值和学习率。该网络是使用规模为128的小型批次进行训练的。训练过程从初始权重和学习率开始，一直持续到训练集的准确性停止提高，然后学习率降低10。这个过程被重复一次，（因此）最终的学习率是初始值的百分之一。</p><h3 id="4-2-Cifar-10"><a href="#4-2-Cifar-10" class="headerlink" title="4.2 Cifar-10"></a>4.2 Cifar-10</h3><p>CIFAR-10数据集[12]由10类自然图像组成，总共有50000幅培训图像和10000幅测试图像。每个图像都是大小为32x32的RGB图像。对于这个数据集，我们应用了古德费罗等人使用的相同的全局对比规范化和ZCA白化（global contrast normalization and ZCA whitening）。我们使用最后10000张培训集的图像作为验证数据。</p><p>本实验中每个mlpconv层的特征映射数被设置为与相应的maxout网络中相同的数目。使用验证集对两个超参数进行了调整，即局部接收场大小和权重衰减（the local receptive field size and the weight decay）。在此之后，超参数是固定的，我们用训练集和验证集从零开始对网络进行重新训练。结果模型用于测试。在此数据集上，我们获得了10.41%的测试误差，与最新的数据集相比，测试误差提高了1%以上。与以往方法的比较见表1。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Table1.png" alt=""></p><p>实验结果表明，通过提高模型的泛化能力，NIN中的MLpconv层之间使用Dropout可以提高网络的性能。如图3所示，在mlpconv层间引用dropout层错误率减少了20%多。这一结果与Goodfellow等人的一致，所以本文的所有模型mlpconv层间都加了dropout。没有dropout的模型在CIFAR-10数据集上错误率是14.5%，已经超过之前最好的使用正则化的模型（除了maxout）。由于没有dropout的maxout网络不可靠，所以本文只与有dropout正则器的版本比较。</p><p>为了与以前的工作相一致，我们还对CIFAR-10数据集的平移和水平翻转增强的方法进行了评估。我们可以达到8.81%的测试误差，这就达到了新的最先进的性能。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Figure3.png" alt=""></p><blockquote><p>图3：在mlpconv层之间Dropout的正则化效果。给出了前200次训练中有无辍学的nin的训练和测试误差。</p></blockquote><h3 id="4-3-Cifar-100"><a href="#4-3-Cifar-100" class="headerlink" title="4.3 Cifar-100"></a>4.3 Cifar-100</h3><p>CIFAR-100数据集[12]的大小和格式与CIFAR-10数据集相同，但它包含100个类。因此，每个类中的图像数量仅为CIFAR-10数据集的十分之一。对于CIFAR-100，我们不调优超参数，而是使用与CIFAR-10数据集相同的设置。唯一的区别是最后一个mlpconv层输出100个功能映射。CIFAR-100的测试误差为35.68%，在不增加数据的情况下，其性能优于目前的最佳性能。CIFAR-100的测试误差为35.68%，在不增加数据的情况下，其性能优于目前的最佳性能。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Table2.png" alt=""></p><h3 id="4-4-街景房号-SVHM"><a href="#4-4-街景房号-SVHM" class="headerlink" title="4.4 街景房号(SVHM)"></a>4.4 街景房号(SVHM)</h3><p>SVHN数据集[13]由630420张32x32彩色图像组成，分为训练集、测试集和额外集。该数据集的任务是对位于每幅图像中心的数字进行分类。训练和测试程序遵循古德费罗等人的要求[8]。也就是说，从训练集中选择的每类400个样本和从额外集合中选出的每类200个样本用于验证。训练集的其余部分和额外集用于培训。验证集仅用作超参数选择的指导，而从未用于模型的训练。</p><p>数据集的预处理也同Goodfellow[8]，即使用局部对比度归一化（local contrast normalization）。Svhn中使用的结构和参数类似于CIFAR-10的结构和参数，也是由三个mlpconv层和之后的全局平均池组成。 我们在这个数据集上得到2.35%的错误率。我们将结果与其他没有做数据增强的方法结果进行比较，如表3所示。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Table3.png" alt=""></p><h3 id="4-5-Minst"><a href="#4-5-Minst" class="headerlink" title="4.5 Minst"></a>4.5 Minst</h3><p>MNIST[1]数据集由大小为28x28的手写数字0-9组成。共有6万张培训图像和1万张测试图像。对于这个数据集，采用了与CIFAR-10相同的网络结构.但是，从每个mlpconv层生成的特征映射的数量减少了。因为mnist是一个比CIFAR-10更简单的数据集，所以需要更少的参数。我们在这个数据集上测试我们的方法而不增加数据。计算结果与以往采用卷积结构的工作结果进行了比较，如表4所示。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Table4.png" alt=""></p><p>我们得到了0.47%的表现，但是没有当前最好的0.45%好，因为MNIST的错误率已经非常低了。</p><h3 id="4-6-作为正则化者的全局平均池"><a href="#4-6-作为正则化者的全局平均池" class="headerlink" title="4.6 作为正则化者的全局平均池"></a>4.6 作为正则化者的全局平均池</h3><p>全局平均池层与完全连接层相似，因为它们都执行矢量化特征映射的线性转换。差别在于变换矩阵。对于全局平均池，变换矩阵是前缀的（ prefixed）， 并且仅在共享相同值的块对角线元素上是非零的。完全连通的层可以有密集的变换矩阵，并且这些值要经过反向传播优化。为了研究全局平均池的正则化效应，我们将全局平均池层替换为完全连通层，而模型的其他部分保持不变。为了研究全局平均池的正则化效应，我们将全局平均池层替换为完全连通层，而模型的其他部分保持不变。这两种模型都在CIFAR-10数据集上进行了测试，性能比较见表5。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Table5.png" alt=""></p><p>如表5所示，全连接层没有dropout的表现最差，11.59%，与预期一样，全连接层没有正则化器会过拟合。在完全连接层之前增加dropout，降低了测试误差(10.88%)。全局平均池的测试误差最低(10.41%)。</p><p>接着，我们探讨全局平均池是否对常规CNN具有相同的正则化效果。我们实例化了传统的CNN，如Hinton等人所描述的[5]，由三个卷积层和一个局部连接层组成。局部连接层（local connection layer）生成16个特征映射，这些特征映射被馈送给一个完全连接的具有dropout的层。为了使比较公平，我们将本地连接层的特征映射从16减少到10，因为在全局平均池方案中，每个类别只允许一个特征映射。然后，通过用全局平均池替换掉完全连接的层，创建具有全局平均池的等效网络。在CIFAR-10数据集上进行了性能测试。</p><p>这种全连通层CNN模型的误码率仅为17.56%。当加入Dropout时，我们实现了类似的性能(15.99%)，正如Hinton等人所报告的[5]。在该模型中，用全局平均池代替完全连通层，我们得到了16.46%的误差率，与无Dropout的CNN相比，误差提高了1%。再次验证了全局平均池层作为正则化层的有效性。虽然它略差于退出正则化结果，但我们认为对于线性卷积层来说，全局平均池可能要求过高，因为它需要经过修正激活的线性滤波器来建模类别的置信图。</p><h3 id="4-7-NiN可视化"><a href="#4-7-NiN可视化" class="headerlink" title="4.7 NiN可视化"></a>4.7 NiN可视化</h3><p>我们在nin的最后一个mlpconv层显式地执行特征映射，通过全局平均池将其作为类别的置信度映射，这只有通过更强的局部接受域建模(如nin中的mlpconv)才能实现。为了了解这一目的实现程度，我们从CIFAR-10训练模型的最后一个mlpconv层中提取并直接可视化了特征映射。</p><p>图4显示了从CIFAR-10测试集中选择的10个类别中的每个类别的一些示例图像及其相应的特征图。预期最大的激活（activations ）是在对应于输入图像的地面真相类别（ the ground truth category）的特征图中观察到的，这是通过全局平均池显式执行的。在地面真实类别的特征图中，可以观察到最强烈的激活出现在原始图像中物体的同一区域。对于结构化对象尤其如此，例如图4第二行中的CAR。请注意，类别的特征映射仅使用类别信息进行训练。如果使用对象的包围框作为细粒度标签，则期望得到更好的结果。</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/NiN-Figure4.png" alt=""></p><blockquote><p>图4：最后一个mlpconv层的特征映射的可视化。只有前10%的激活功能地图显示。特征映射对应的分类如下：1.飞机，2.汽车，3.小鸟，4.猫，5.鹿，6.狗，7.青蛙，8.马，9.飞船，10.卡车。特征映射对应于输入图像的地面真相被突出显示。左面板和右面板只是不同的例子。</p></blockquote><h2 id="5-结论"><a href="#5-结论" class="headerlink" title="5 结论"></a>5 结论</h2><p>我们提出了一种新的用于分类任务的深度网络-“网络中的网络”(NetworkinNetwork，NIN)。这种新结构由多层感知器来转换输入的mlpconv层和一个全局平均池层组成，作为传统CNN中完全连接层的替代。mlpconv层更好地模型化了局部块，全局平均池充当了防止全局过度拟合的结构正则化器。使用这两个NIN组件，我们在CIFAR-10、CIFAR-100和Svhn数据集上演示了最新的性能。通过特征映射的可视化，证明了NIN最后一个mlpconv层的特征映射是类别的置信度映射，这就激发了通过nin进行目标检测的可能性。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Paper </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Inceptionv1-paper</title>
       <link href="/Inceptionv1-paper/"/>
       <url>/Inceptionv1-paper/</url>
@@ -652,31 +697,6 @@
     
     
     <entry>
-      <title>第二篇文章</title>
-      <link href="/2023-12-17-2/"/>
-      <url>/2023-12-17-2/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是我的第二篇文章"><a href="#这是我的第二篇文章" class="headerlink" title="这是我的第二篇文章"></a>这是我的第二篇文章</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> C </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 标签2 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>第三篇文章</title>
       <link href="/2023-12-17-3/"/>
       <url>/2023-12-17-3/</url>
@@ -700,6 +720,31 @@
     </entry>
     
     
+    
+    <entry>
+      <title>第二篇文章</title>
+      <link href="/2023-12-17-2/"/>
+      <url>/2023-12-17-2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="这是我的第二篇文章"><a href="#这是我的第二篇文章" class="headerlink" title="这是我的第二篇文章"></a>这是我的第二篇文章</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> C </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 标签2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
     
@@ -710,6 +755,17 @@
       <url>/about/index.html</url>
       
         <content type="html"><![CDATA[<!-- GitCalendar容器 --><div id="gitZone"></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -728,10 +784,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/cursor.js"/>
-      <url>/js/cursor.js</url>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='1.0' fill='rgb(0, 0, 255)'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
+        <content type="html"><![CDATA[:root {  --trans-light: rgba(255, 255, 255, 0.88);  --trans-dark: rgba(25, 25, 25, 0.88);  --border-style: 1px solid rgb(169, 169, 169);  --backdrop-filter: blur(5px) saturate(150%);}/* 页脚与头图透明 */#footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }/* 小冰分类分类磁铁黑夜模式适配 *//* 一般状态 */[data-theme="dark"] .magnet_link_context {  background: #1e1e1e;  color: antiquewhite;}/* 鼠标悬浮状态 */[data-theme="dark"] .magnet_link_context:hover {  background: #3ecdf1;  color: #f2f2f2;}@font-face {  /* 为载入的字体取名字(随意) */  font-family: 'YSHST';  /* 字体文件地址(相对或者绝对路径都可以) */  src: url(/font/poppins-black-webfont.woff2);  /* 定义加粗样式(加粗多少) */  font-weight: normal;  /* 定义字体样式(斜体/非斜体) */  font-style: normal;  /* 定义显示样式 */  font-display: block;}/* 翻页按钮居中 */#pagination {  width: 100%;  margin: auto;}/* 一级菜单居中 */#nav .menus_items {  position: absolute !important;  width: fit-content !important;  left: 50% !important;  transform: translateX(-50%) !important;}/* 子菜单横向展示 */#nav .menus_items .menus_item:hover .menus_item_child {  display: flex !important;}/* 这里的2是代表导航栏的第2个元素，即有子菜单的元素，可以按自己需求修改 */.menus_items .menus_item:nth-child(5) .menus_item_child {  left: -38px;}/* 夜间模式菜单栏发光字 */[data-theme="dark"] #nav .site-page,[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {  text-shadow: 0 0 2px var(--theme-color) !important;}/* 手机端适配 */[data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {  text-shadow: 0 0 2px var(--theme-color) !important;}/* 闪烁变动颜色连续渐变 *//* 日间模式不生效 */[data-theme="light"] #site-name,[data-theme="light"] #site-title,[data-theme="light"] #site-subtitle,[data-theme="light"] #post-info {  animation: none;}/* 夜间模式生效 */[data-theme="dark"] #site-name,[data-theme="dark"] #site-title {  animation: light_15px 10s linear infinite;}[data-theme="dark"] #site-subtitle {  animation: light_10px 10s linear infinite;}[data-theme="dark"] #post-info {  animation: light_5px 10s linear infinite;}/* 关键帧描述 */@keyframes light_15px {  0% {    text-shadow: #5636ed 0 0 15px;  }  12.5% {    text-shadow: #11ee5e 0 0 15px;  }  25% {    text-shadow: #f14747 0 0 15px;  }  37.5% {    text-shadow: #f1a247 0 0 15px;  }  50% {    text-shadow: #f1ee47 0 0 15px;  }  50% {    text-shadow: #b347f1 0 0 15px;  }  62.5% {    text-shadow: #002afa 0 0 15px;  }  75% {    text-shadow: #ed709b 0 0 15px;  }  87.5% {    text-shadow: #39c5bb 0 0 15px;  }  100% {    text-shadow: #5636ed 0 0 15px;  }}@keyframes light_10px {  0% {    text-shadow: #5636ed 0 0 10px;  }  12.5% {    text-shadow: #11ee5e 0 0 10px;  }  25% {    text-shadow: #f14747 0 0 10px;  }  37.5% {    text-shadow: #f1a247 0 0 10px;  }  50% {    text-shadow: #f1ee47 0 0 10px;  }  50% {    text-shadow: #b347f1 0 0 10px;  }  62.5% {    text-shadow: #002afa 0 0 10px;  }  75% {    text-shadow: #ed709b 0 0 10px;  }  87.5% {    text-shadow: #39c5bb 0 0 10px;  }  100% {    text-shadow: #5636ed 0 0 10px;  }}@keyframes light_5px {  0% {    text-shadow: #5636ed 0 0 5px;  }  12.5% {    text-shadow: #11ee5e 0 0 5px;  }  25% {    text-shadow: #f14747 0 0 5px;  }  37.5% {    text-shadow: #f1a247 0 0 15px;  }  50% {    text-shadow: #f1ee47 0 0 5px;  }  50% {    text-shadow: #b347f1 0 0 5px;  }  62.5% {    text-shadow: #002afa 0 0 5px;  }  75% {    text-shadow: #ed709b 0 0 5px;  }  87.5% {    text-shadow: #39c5bb 0 0 5px;  }  100% {    text-shadow: #5636ed 0 0 5px;  }}/* 背景宇宙星光  */#universe{  display: block;  position: fixed;  margin: 0;  padding: 0;  border: 0;  outline: 0;  left: 0;  top: 0;  width: 100%;  height: 100%;  pointer-events: none;  /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */  z-index: -1;}/* 侧边栏个人信息卡片动态渐变色 */#aside-content > .card-widget.card-info {  background: linear-gradient(    -45deg,    #e8d8b9,    #eccec5,    #a3e9eb,      #bdbdf0,    #eec1ea  );  box-shadow: 0 0 5px rgb(66, 68, 68);  position: relative;  background-size: 400% 400%;  -webkit-animation: Gradient 10s ease infinite;  -moz-animation: Gradient 10s ease infinite;  animation: Gradient 10s ease infinite !important;}@-webkit-keyframes Gradient {  0% {    background-position: 0% 50%;  }  50% {    background-position: 100% 50%;  }  100% {    background-position: 0% 50%;  }}@-moz-keyframes Gradient {  0% {    background-position: 0% 50%;  }  50% {    background-position: 100% 50%;  }  100% {    background-position: 0% 50%;  }}@keyframes Gradient {  0% {    background-position: 0% 50%;  }  50% {    background-position: 100% 50%;  }  100% {    background-position: 0% 50%;  }}/* 黑夜模式适配 */[data-theme="dark"] #aside-content > .card-widget.card-info {  background: #191919ee;}/* 个人信息Follow me按钮 */#aside-content > .card-widget.card-info > #card-info-btn {  background-color: #3eb8be;  border-radius: 8px;}/* 鼠标样式 */#cursor {  position: fixed;  width: 16px;  height: 16px;  /* 这里改变跟随的底色 */  background: rgb(101, 153, 245);  border-radius: 8px;  opacity: 0.25;  z-index: 10086;  pointer-events: none;  transition: 0.2s ease-in-out;  transition-property: background, opacity, transform;}#cursor.hidden {  opacity: 0;}#cursor.hover {  opacity: 0.1;  transform: scale(2.5);  -webkit-transform: scale(2.5);  -moz-transform: scale(2.5);  -ms-transform: scale(2.5);  -o-transform: scale(2.5);}#cursor.active {  opacity: 0.5;  transform: scale(0.5);  -webkit-transform: scale(0.5);  -moz-transform: scale(0.5);  -ms-transform: scale(0.5);  -o-transform: scale(0.5);}/* 首页文章卡片 */#recent-posts > .recent-post-item {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 25px;  border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 18px;  border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border: var(--border-style);  border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {  background: rgba(255, 255, 255, 0.75);  backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {  background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts > .recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {  background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {  background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {  background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}[data-theme="dark"] .read-mode div#post {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}/* 文章页H1-H6图标样式效果 *//* 控制风车转动速度 4s那里可以自己调节快慢 */h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {  -webkit-animation: ccc 4s linear infinite;  animation: ccc 4s linear infinite;}/* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */@-webkit-keyframes ccc {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  to {    -webkit-transform: rotate(-1turn);    transform: rotate(-1turn);  }}@keyframes ccc {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  to {    -webkit-transform: rotate(-1turn);    transform: rotate(-1turn);  }}/* 设置风车颜色 */#content-inner.layout h1::before {  color: #ef50a8;  margin-left: -1.55rem;  font-size: 1.3rem;  margin-top: -0.23rem;}#content-inner.layout h2::before {  color: #fb7061;  margin-left: -1.35rem;  font-size: 1.1rem;  margin-top: -0.12rem;}#content-inner.layout h3::before {  color: #ffbf00;  margin-left: -1.22rem;  font-size: 0.95rem;  margin-top: -0.09rem;}#content-inner.layout h4::before {  color: #a9e000;  margin-left: -1.05rem;  font-size: 0.8rem;  margin-top: -0.09rem;}#content-inner.layout h5::before {  color: #57c850;  margin-left: -0.9rem;  font-size: 0.7rem;  margin-top: 0rem;}#content-inner.layout h6::before {  color: #5ec1e0;  margin-left: -0.9rem;  font-size: 0.66rem;  margin-top: 0rem;}/* s设置风车hover动效 6s那里可以自己调节快慢*/#content-inner.layout h1:hover,#content-inner.layout h2:hover,#content-inner.layout h3:hover,#content-inner.layout h4:hover,#content-inner.layout h5:hover,#content-inner.layout h6:hover {  color: var(--theme-color);}#content-inner.layout h1:hover::before,#content-inner.layout h2:hover::before,#content-inner.layout h3:hover::before,#content-inner.layout h4:hover::before,#content-inner.layout h5:hover::before,#content-inner.layout h6:hover::before {  color: var(--theme-color);  -webkit-animation: ccc 6s linear infinite;  animation: ccc 6s linear infinite;}]]></content>
       
     </entry>
     
@@ -739,10 +795,21 @@
     
     <entry>
       <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
       
-        <content type="html"><![CDATA[:root {  --trans-light: rgba(255, 255, 255, 0.88);  --trans-dark: rgba(25, 25, 25, 0.88);  --border-style: 1px solid rgb(169, 169, 169);  --backdrop-filter: blur(5px) saturate(150%);}/* 页脚与头图透明 */#footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }/* 小冰分类分类磁铁黑夜模式适配 *//* 一般状态 */[data-theme="dark"] .magnet_link_context {  background: #1e1e1e;  color: antiquewhite;}/* 鼠标悬浮状态 */[data-theme="dark"] .magnet_link_context:hover {  background: #3ecdf1;  color: #f2f2f2;}@font-face {  /* 为载入的字体取名字(随意) */  font-family: 'YSHST';  /* 字体文件地址(相对或者绝对路径都可以) */  src: url(/font/poppins-black-webfont.woff2);  /* 定义加粗样式(加粗多少) */  font-weight: normal;  /* 定义字体样式(斜体/非斜体) */  font-style: normal;  /* 定义显示样式 */  font-display: block;}/* 翻页按钮居中 */#pagination {  width: 100%;  margin: auto;}/* 一级菜单居中 */#nav .menus_items {  position: absolute !important;  width: fit-content !important;  left: 50% !important;  transform: translateX(-50%) !important;}/* 子菜单横向展示 */#nav .menus_items .menus_item:hover .menus_item_child {  display: flex !important;}/* 这里的2是代表导航栏的第2个元素，即有子菜单的元素，可以按自己需求修改 */.menus_items .menus_item:nth-child(5) .menus_item_child {  left: -38px;}/* 夜间模式菜单栏发光字 */[data-theme="dark"] #nav .site-page,[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {  text-shadow: 0 0 2px var(--theme-color) !important;}/* 手机端适配 */[data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {  text-shadow: 0 0 2px var(--theme-color) !important;}/* 闪烁变动颜色连续渐变 *//* 日间模式不生效 */[data-theme="light"] #site-name,[data-theme="light"] #site-title,[data-theme="light"] #site-subtitle,[data-theme="light"] #post-info {  animation: none;}/* 夜间模式生效 */[data-theme="dark"] #site-name,[data-theme="dark"] #site-title {  animation: light_15px 10s linear infinite;}[data-theme="dark"] #site-subtitle {  animation: light_10px 10s linear infinite;}[data-theme="dark"] #post-info {  animation: light_5px 10s linear infinite;}/* 关键帧描述 */@keyframes light_15px {  0% {    text-shadow: #5636ed 0 0 15px;  }  12.5% {    text-shadow: #11ee5e 0 0 15px;  }  25% {    text-shadow: #f14747 0 0 15px;  }  37.5% {    text-shadow: #f1a247 0 0 15px;  }  50% {    text-shadow: #f1ee47 0 0 15px;  }  50% {    text-shadow: #b347f1 0 0 15px;  }  62.5% {    text-shadow: #002afa 0 0 15px;  }  75% {    text-shadow: #ed709b 0 0 15px;  }  87.5% {    text-shadow: #39c5bb 0 0 15px;  }  100% {    text-shadow: #5636ed 0 0 15px;  }}@keyframes light_10px {  0% {    text-shadow: #5636ed 0 0 10px;  }  12.5% {    text-shadow: #11ee5e 0 0 10px;  }  25% {    text-shadow: #f14747 0 0 10px;  }  37.5% {    text-shadow: #f1a247 0 0 10px;  }  50% {    text-shadow: #f1ee47 0 0 10px;  }  50% {    text-shadow: #b347f1 0 0 10px;  }  62.5% {    text-shadow: #002afa 0 0 10px;  }  75% {    text-shadow: #ed709b 0 0 10px;  }  87.5% {    text-shadow: #39c5bb 0 0 10px;  }  100% {    text-shadow: #5636ed 0 0 10px;  }}@keyframes light_5px {  0% {    text-shadow: #5636ed 0 0 5px;  }  12.5% {    text-shadow: #11ee5e 0 0 5px;  }  25% {    text-shadow: #f14747 0 0 5px;  }  37.5% {    text-shadow: #f1a247 0 0 15px;  }  50% {    text-shadow: #f1ee47 0 0 5px;  }  50% {    text-shadow: #b347f1 0 0 5px;  }  62.5% {    text-shadow: #002afa 0 0 5px;  }  75% {    text-shadow: #ed709b 0 0 5px;  }  87.5% {    text-shadow: #39c5bb 0 0 5px;  }  100% {    text-shadow: #5636ed 0 0 5px;  }}/* 背景宇宙星光  */#universe{  display: block;  position: fixed;  margin: 0;  padding: 0;  border: 0;  outline: 0;  left: 0;  top: 0;  width: 100%;  height: 100%;  pointer-events: none;  /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */  z-index: -1;}/* 侧边栏个人信息卡片动态渐变色 */#aside-content > .card-widget.card-info {  background: linear-gradient(    -45deg,    #e8d8b9,    #eccec5,    #a3e9eb,      #bdbdf0,    #eec1ea  );  box-shadow: 0 0 5px rgb(66, 68, 68);  position: relative;  background-size: 400% 400%;  -webkit-animation: Gradient 10s ease infinite;  -moz-animation: Gradient 10s ease infinite;  animation: Gradient 10s ease infinite !important;}@-webkit-keyframes Gradient {  0% {    background-position: 0% 50%;  }  50% {    background-position: 100% 50%;  }  100% {    background-position: 0% 50%;  }}@-moz-keyframes Gradient {  0% {    background-position: 0% 50%;  }  50% {    background-position: 100% 50%;  }  100% {    background-position: 0% 50%;  }}@keyframes Gradient {  0% {    background-position: 0% 50%;  }  50% {    background-position: 100% 50%;  }  100% {    background-position: 0% 50%;  }}/* 黑夜模式适配 */[data-theme="dark"] #aside-content > .card-widget.card-info {  background: #191919ee;}/* 个人信息Follow me按钮 */#aside-content > .card-widget.card-info > #card-info-btn {  background-color: #3eb8be;  border-radius: 8px;}/* 鼠标样式 */#cursor {  position: fixed;  width: 16px;  height: 16px;  /* 这里改变跟随的底色 */  background: rgb(101, 153, 245);  border-radius: 8px;  opacity: 0.25;  z-index: 10086;  pointer-events: none;  transition: 0.2s ease-in-out;  transition-property: background, opacity, transform;}#cursor.hidden {  opacity: 0;}#cursor.hover {  opacity: 0.1;  transform: scale(2.5);  -webkit-transform: scale(2.5);  -moz-transform: scale(2.5);  -ms-transform: scale(2.5);  -o-transform: scale(2.5);}#cursor.active {  opacity: 0.5;  transform: scale(0.5);  -webkit-transform: scale(0.5);  -moz-transform: scale(0.5);  -ms-transform: scale(0.5);  -o-transform: scale(0.5);}/* 首页文章卡片 */#recent-posts > .recent-post-item {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 25px;  border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 18px;  border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border: var(--border-style);  border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {  background: rgba(255, 255, 255, 0.75);  backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {  background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts > .recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {  background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {  background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {  background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}[data-theme="dark"] .read-mode div#post {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}/* 文章页H1-H6图标样式效果 *//* 控制风车转动速度 4s那里可以自己调节快慢 */h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {  -webkit-animation: ccc 4s linear infinite;  animation: ccc 4s linear infinite;}/* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */@-webkit-keyframes ccc {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  to {    -webkit-transform: rotate(-1turn);    transform: rotate(-1turn);  }}@keyframes ccc {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  to {    -webkit-transform: rotate(-1turn);    transform: rotate(-1turn);  }}/* 设置风车颜色 */#content-inner.layout h1::before {  color: #ef50a8;  margin-left: -1.55rem;  font-size: 1.3rem;  margin-top: -0.23rem;}#content-inner.layout h2::before {  color: #fb7061;  margin-left: -1.35rem;  font-size: 1.1rem;  margin-top: -0.12rem;}#content-inner.layout h3::before {  color: #ffbf00;  margin-left: -1.22rem;  font-size: 0.95rem;  margin-top: -0.09rem;}#content-inner.layout h4::before {  color: #a9e000;  margin-left: -1.05rem;  font-size: 0.8rem;  margin-top: -0.09rem;}#content-inner.layout h5::before {  color: #57c850;  margin-left: -0.9rem;  font-size: 0.7rem;  margin-top: 0rem;}#content-inner.layout h6::before {  color: #5ec1e0;  margin-left: -0.9rem;  font-size: 0.66rem;  margin-top: 0rem;}/* s设置风车hover动效 6s那里可以自己调节快慢*/#content-inner.layout h1:hover,#content-inner.layout h2:hover,#content-inner.layout h3:hover,#content-inner.layout h4:hover,#content-inner.layout h5:hover,#content-inner.layout h6:hover {  color: var(--theme-color);}#content-inner.layout h1:hover::before,#content-inner.layout h2:hover::before,#content-inner.layout h3:hover::before,#content-inner.layout h4:hover::before,#content-inner.layout h5:hover::before,#content-inner.layout h6:hover::before {  color: var(--theme-color);  -webkit-animation: ccc 6s linear infinite;  animation: ccc 6s linear infinite;}]]></content>
+        <content type="html"><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/cursor.js"/>
+      <url>/js/cursor.js</url>
+      
+        <content type="html"><![CDATA[var CURSOR;Math.lerp = (a, b, n) => (1 - n) * a + n * b;const getStyle = (el, attr) => {    try {        return window.getComputedStyle            ? window.getComputedStyle(el)[attr]            : el.currentStyle[attr];    } catch (e) {}    return "";};class Cursor {    constructor() {        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    move(left, top) {        this.cursor.style["left"] = `${left}px`;        this.cursor.style["top"] = `${top}px`;    }    create() {        if (!this.cursor) {            this.cursor = document.createElement("div");            this.cursor.id = "cursor";            this.cursor.classList.add("hidden");            document.body.append(this.cursor);        }        var el = document.getElementsByTagName('*');        for (let i = 0; i < el.length; i++)            if (getStyle(el[i], "cursor") == "pointer")                this.pt.push(el[i].outerHTML);        document.body.appendChild((this.scr = document.createElement("style")));        // 这里改变鼠标指针的颜色 由svg生成        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='1.0' fill='rgb(0, 0, 255)'/></svg>") 4 4, auto}`;    }    refresh() {        this.scr.remove();        this.cursor.classList.remove("hover");        this.cursor.classList.remove("active");        this.pos = {curr: null, prev: null};        this.pt = [];        this.create();        this.init();        this.render();    }    init() {        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};        document.onmouseenter = e => this.cursor.classList.remove("hidden");        document.onmouseleave = e => this.cursor.classList.add("hidden");        document.onmousedown  = e => this.cursor.classList.add("active");        document.onmouseup    = e => this.cursor.classList.remove("active");    }    render() {        if (this.pos.prev) {            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);            this.move(this.pos.prev.x, this.pos.prev.y);        } else {            this.pos.prev = this.pos.curr;        }        requestAnimationFrame(() => this.render());    }}(() => {    CURSOR = new Cursor();    // 需要重新获取列表时，使用 CURSOR.refresh()})();]]></content>
       
     </entry>
     
@@ -771,33 +838,11 @@
     
     
     <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>添加我的QQ</title>
+      <link href="/qq/index.html"/>
+      <url>/qq/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
-      
-        <content type="html"><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><img src="../img/QQ.jpg" alt="我的QQ二维码"></p>]]></content>
       
     </entry>
     
@@ -815,11 +860,11 @@
     
     
     <entry>
-      <title>添加我的QQ</title>
-      <link href="/qq/index.html"/>
-      <url>/qq/index.html</url>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
       
-        <content type="html"><![CDATA[<p><img src="../img/QQ.jpg" alt="我的QQ二维码"></p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
