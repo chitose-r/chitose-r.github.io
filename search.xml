@@ -60,8 +60,14 @@
       <link href="/Inceptionv2-paper/"/>
       <url>/Inceptionv2-paper/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="Batch-Normalization-Accelerating-Deep-Network-Trainingby-Reducing-Internal-Covariate-Shift"><a href="#Batch-Normalization-Accelerating-Deep-Network-Trainingby-Reducing-Internal-Covariate-Shift" class="headerlink" title="Batch Normalization: Accelerating Deep Network Trainingby Reducing Internal Covariate Shift"></a>Batch Normalization: Accelerating Deep Network Trainingby Reducing Internal Covariate Shift</h1><blockquote><h1 id="批归一化-通过减少内部协变量移位加速深度网络训练"><a href="#批归一化-通过减少内部协变量移位加速深度网络训练" class="headerlink" title="批归一化:通过减少内部协变量移位加速深度网络训练"></a>批归一化:通过减少内部协变量移位加速深度网络训练</h1></blockquote><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>由于每层输入的分布在训练过程中随着前一层的参数发生变化而发生变化，因此训练深度神经网络很复杂。由于需要较低的学习率和仔细的参数初始化，这会减慢训练速度，并且使得训练具有饱和非线性的模型变得非常困难。我们将这种现象称为内部协变量偏移，并通过归一化层输入来解决该问题。我们的方法的优势在于将标准化作为模型架构的一部分，并为每个训练小批量执行标准化。Batch <a href="https://so.csdn.net/so/search?q=Normalization&amp;spm=1001.2101.3001.7020">Normalization</a>允许我们使用更高的学习率，并且在初始化时不那么小心。它还充当正则化器，在某些情况下消除了Dropout的需要。应用于最先进的图像分类模型，批量归一化在训练步骤减少14倍的情况下实现了相同的精度，并以显着的优势击败了原始模型。使用一组批量归一化网络，我们改进了ImageNet分类的最佳发布结果：达到4.9%的top-5验证错误（和4.8%的测试错误），超过了人工评估员的准确性。</p><blockquote><p><strong>主要描述了批量归一化（Batch Normalization，简称BN）技术在深度学习中的作用和好处。</strong></p><ul><li><strong>加速训练</strong>：通过减少内部协变量偏移，BN层帮助网络更快地收敛。</li><li><strong>提高泛化能力</strong>：BN层还能充当一种正则化的角色，有助于提高模型的泛化能力。</li></ul><h3 id="内部协变量偏移："><a href="#内部协变量偏移：" class="headerlink" title="内部协变量偏移："></a>内部协变量偏移：</h3><p>网络的每一层都需要不断适应前一层输出分布的变化，这使得训练变得复杂并减慢了学习速度。</p><h3 id="批量归一化的提出："><a href="#批量归一化的提出：" class="headerlink" title="批量归一化的提出："></a><strong>批量归一化的提出：</strong></h3><p>通过在模型中加入特定的归一化层<strong>来解决内部协变量偏移</strong>问题。这种归一化层对每个训练小批量（batch）的数据进行标准化处理，即调整数据使其均值为0，方差为1，以稳定每一层的输入分布。</p><h3 id="批量归一化的优势："><a href="#批量归一化的优势：" class="headerlink" title="批量归一化的优势："></a><strong>批量归一化的优势</strong>：</h3><ul><li><strong>允许使用更高的学习率</strong>：由于每层输入的分布更加稳定，因此可以使用更高的学习率而不会导致训练不稳定。</li><li><strong>初始化不那么敏感</strong>：归一化减少了模型对参数初始化的依赖。</li><li><strong>充当正则化器</strong>：批量归一化还具有正则化的效果，有时可以替代Dropout等正则化技术。</li></ul><h3 id="实际应用中的效果："><a href="#实际应用中的效果：" class="headerlink" title="实际应用中的效果："></a><strong>实际应用中的效果</strong>：</h3><p>训练步骤减少14倍的情况下实现了相同的精度，并以显着的优势击败了原始模型。</p><h3 id="在ImageNet分类上的成果："><a href="#在ImageNet分类上的成果：" class="headerlink" title="在ImageNet分类上的成果："></a><strong>在ImageNet分类上的成果</strong>：</h3><p>在ImageNet分类任务上取得了4.9%的top-5验证错误率，这个结果甚至超过了人类评审员的准确性，显示了批量归一化技术的强大能力。</p></blockquote><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1 介绍"></a>1 介绍</h2><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-1.png" alt=""></p><blockquote><h3 id="随机梯度下降（SGD）："><a href="#随机梯度下降（SGD）：" class="headerlink" title="随机梯度下降（SGD）："></a><strong>随机梯度下降（SGD）</strong>：</h3><p>SGD是一种流行的优化算法，用于训练深度网络，以最小化损失函数，这通常表示为预测错误的度量。</p><h3 id="小批量处理："><a href="#小批量处理：" class="headerlink" title="小批量处理："></a><strong>小批量处理</strong>：</h3><p>在实际应用中，SGD通常不会使用全部训练数据来计算梯度，而是使用一个小批量（<code>m</code> 个样本）来近似梯度。这样做可以提高计算效率(并行)。</p><h3 id="训练中的挑战："><a href="#训练中的挑战：" class="headerlink" title="训练中的挑战："></a><strong>训练中的挑战</strong>：</h3><p>尽管SGD是一个有效的方法，但它对模型的<strong>超参数（如学习率）</strong>和<strong>初始参数值</strong>的选择非常敏感。</p><h3 id="网络深度和训练复杂性："><a href="#网络深度和训练复杂性：" class="headerlink" title="网络深度和训练复杂性："></a><strong>网络深度和训练复杂性</strong>：</h3><p>受到内部协变量偏移的影响。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-2.png" alt=""></p><blockquote><h3 id="协变量偏移："><a href="#协变量偏移：" class="headerlink" title="协变量偏移："></a>协变量偏移：</h3><p>当学习系统的输入分布发生变化时，系统需要适应这些变化。</p><h3 id="输入分布的稳定性："><a href="#输入分布的稳定性：" class="headerlink" title="输入分布的稳定性："></a>输入分布的稳定性：</h3><p>如果子网络的输入分布稳定，则学习过程会更有效，因为参数不需要频繁调整来适应输入分布的变化。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-3.png" alt=""></p><blockquote><h3 id="批归一化（Batch-Normalization）："><a href="#批归一化（Batch-Normalization）：" class="headerlink" title="批归一化（Batch Normalization）："></a><strong>批归一化（Batch Normalization）</strong>：</h3><p>批归一化是一种减少内部协变量偏移的技术，通过规范化（归一化）每一层输入的均值和方差来实现。这有助于保持每层输入分布的稳定，从而加速训练过程、模型泛化。</p><h3 id="非线性激活函数和饱和问题："><a href="#非线性激活函数和饱和问题：" class="headerlink" title="非线性激活函数和饱和问题："></a><strong>非线性激活函数和饱和问题</strong>：</h3><p>一些激活函数（如sigmoid）在其输入非常高或非常低时会饱和，导致梯度消失，进而减慢训练。批归一化通过保持输入分布的稳定性，可以减轻饱和问题。</p><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>将批归一化应用到ImageNet分类网络时，他们发现可以在使用更少训练步骤的情况下达到与原始模型相同的性能。</p></blockquote><h2 id="2-减少内部协变量偏移"><a href="#2-减少内部协变量偏移" class="headerlink" title="2 减少内部协变量偏移"></a>2 减少内部协变量偏移</h2><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-4.png" alt=""></p><blockquote><h3 id="归一化激活值-白化-："><a href="#归一化激活值-白化-：" class="headerlink" title="归一化激活值(白化)："></a><strong>归一化激活值(白化)</strong>：</h3><p>历史上，人们已经发现如果输入数据被“白化”（每个特征都减去其均值并除以其标准差，使得特征分布具有零均值和单位方差），神经网络会更快地收敛。这种技术也可以应用到每一层的输入上，使每一层都得到白化的输入，从而提高训练速度。</p><h3 id="批归一化的原理："><a href="#批归一化的原理：" class="headerlink" title="批归一化的原理："></a><strong>批归一化的原理</strong>：</h3><p>批归一化就是在每一层对激活值进行归一化处理，以确保它们的分布保持稳定。具体来说，就是对每一批数据的激活值减去它们的均值并除以它们的标准差。这可以减少内部协变量偏移，使网络的每一层不必不断调整自己来适应前一层的输出分布变化。</p><h3 id="梯度下降与归一化的冲突："><a href="#梯度下降与归一化的冲突：" class="headerlink" title="梯度下降与归一化的冲突："></a><strong>梯度下降与归一化的冲突</strong>：</h3><p>在实际实验中，如果归一化步骤和梯度下降步骤没有正确地结合，模型可能会出现问题，例如参数爆炸。这表明，在实施批归一化时，需要谨慎计算归一化参数，确保它们与梯度下降步骤协同工作。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-5.png" alt=""></p><blockquote><p>为了<strong>确保深度学习模型中的激活值分布稳定</strong>，并避免训练过程中的问题，批归一化被提出作为一种有效的归一化技术。</p></blockquote><h2 id="3-通过小批量统计进行归一化"><a href="#3-通过小批量统计进行归一化" class="headerlink" title="3 通过小批量统计进行归一化"></a>3 通过小批量统计进行归一化</h2><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-6.png" alt=""></p><blockquote><p>批归一化通过<strong>对每个特征独立归一化</strong>，并通过<strong>引入可学习的缩放和平移参数</strong>，解决了<strong>传统激活值规范化方法可能带来的限制</strong>。这使得深度网络在保持快速收敛的同时，也保留了表征能力。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-7.png" alt=""></p><blockquote><p>BN算法</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-8.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-9.png" alt=""></p><blockquote><p>BN算法</p></blockquote><h3 id="3-1-批归一化网络的训练与推理"><a href="#3-1-批归一化网络的训练与推理" class="headerlink" title="3.1 批归一化网络的训练与推理"></a>3.1 批归一化网络的训练与推理</h3><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/InV2-10.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-11.png" alt=""></p><h3 id="3-2-批归一化卷积网络"><a href="#3-2-批归一化卷积网络" class="headerlink" title="3.2 批归一化卷积网络"></a>3.2 批归一化卷积网络</h3><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-12.png" alt=""></p><h3 id="3-3-批归一化允许更高的学习率"><a href="#3-3-批归一化允许更高的学习率" class="headerlink" title="3.3 批归一化允许更高的学习率"></a>3.3 批归一化允许更高的学习率</h3><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-13.png" alt=""></p><h3 id="3-4-批归一化使模型正则化"><a href="#3-4-批归一化使模型正则化" class="headerlink" title="3.4 批归一化使模型正则化"></a>3.4 批归一化使模型正则化</h3><p>​    当使用批归一化进行训练时，可以看到一个训练样本与小批量中的其他样本结合使用，训练网络不再为给定的训练样本生成确定值。在我们的实验中，我们发现这种效应有利于网络的泛化。虽然Dropout通常被用来减少过度拟合，在批归一化网络中，我们发现它可以被删除或大量减少。</p><h2 id="4-实验"><a href="#4-实验" class="headerlink" title="4. 实验"></a>4. 实验</h2><h3 id="4-1-Activations-over-time"><a href="#4-1-Activations-over-time" class="headerlink" title="4.1 Activations over time"></a>4.1 Activations over time</h3><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-14.png" alt=""></p><h3 id="4-2-ImageNet分类"><a href="#4-2-ImageNet分类" class="headerlink" title="4.2 ImageNet分类"></a>4.2 ImageNet分类</h3><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-15.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-16.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-17.png" alt=""></p><h2 id="5-结论"><a href="#5-结论" class="headerlink" title="5. 结论"></a>5. 结论</h2><p>我们提出了一种新的机制，可以显著加快深度网络的训练。基于众所周知的Covariate Shift使机器学习系统的训练复杂化的前提，Covariate Shift也适用于子网和层，从网络的内部激活中将其删除可能有助于训练。我们提出的方法从归一化激活以及将归一化合并到网络体系结构本身中汲取了力量。这可以确保任何用于训练网络的优化方法都能恰当地处理归一化。为了实现深度网络训练中常用的随机优化方法，我们对每个小批量进行归一化，并通过归一化参数对梯度进行反向传播。批归一化对每个激活只添加两个额外的参数，这样做保留了网络的表征能力。提出了一种利用批归一化网络构造、训练和执行推理的算法。得到的网络可以用饱和非线性进行训练，对增加的训练率更有容忍度，而且通常不需要dropout用于正则化。</p><p>仅仅在最先进的图像分类模型中添加批归一化，就可以大大加快训练速度。通过进一步提高学习率、去除Dropout和应用批归一化所提供的其他修改，我们只需一小部分训练步骤就达到了先前的SOTA，然后在单网络图像分类中击败了SOTA。此外，通过结合使用批归一化训练的多个模型，我们在ImageNet上的表现要比ImageNet上最知名的系统要好。</p><p>有趣的是，我们的方法与[Knowledge matters: Importance of prior information for optimization]的标准化层有相似之处，尽管这两种方法的目标非常不同，执行的任务也不同。批归一化的目标是在整个训练过程中实现激活值的稳定分布，在我们的实验中，我们将其应用于非线性之前，因为在非线性之前，匹配一阶和二阶矩更有可能得到稳定的分布。相反，另一个方法将标准化层应用于非线性的输出，导致更稀疏的激活。在我们的大规模图像分类实验中，无论有没有批归一化，我们都没有观察到非线性输入是稀疏的。批归一化的另一个显著区别特征包括学习尺度和平移，从而允许BN变换来表示恒等变换（标准化层不需要这个，因为它后面跟着的是学习的线性变换，从概念上讲，它吸收了必要的尺度和平移），卷积层的处理，不依赖于小批量的确定性推理和在网络中批归一化每个卷积层。</p><p>在这项工作中，我们还没有探索批归一化可能实现的所有可能性。我们未来的工作包括将我们的方法应用于递归神经网络，其中Internal Covariate Shift和梯度消失或爆炸可能特别严重，这将使我们能够更彻底地检验归一化改善梯度传播的假设（第3.3节）。我们计划研究批归一化是否可以帮助领域适应，从传统意义上说，即网络执行的归一化是否可以使其更轻松地推广到新的数据分布，也许只需对总体均值和方差重新计算即可（算法2）。最后,我们相信的进一步理论分析算法将允许更多的改进和应用。</p><blockquote><h3 id="总结几个点"><a href="#总结几个点" class="headerlink" title="总结几个点:"></a>总结几个点:</h3><ul><li>可以放大学习率。</li><li>免去使用dropout。</li><li>大幅降低L2，且提高精准度。</li><li>加速lr衰减。</li><li>不必用LRN。</li><li>更彻底的shuffling，相当于正则,提高精准度。</li></ul></blockquote><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>显著的架构变化包括:</p><p><img src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Inv2-18.png" alt=""></p><blockquote><p>这篇文章提出了BN也就是批归一化操作，基本上在现在的CNN中是一个必备操作了。然后对Inception所作的一些修改中，比较有启示作用的还是用了两个3 × 3卷积代替了原本的5 × 5 卷积。</p></blockquote>]]></content>
       
+      
+      <categories>
+          
+          <category> Paper </category>
+          
+      </categories>
       
       
     </entry>
@@ -800,28 +806,6 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/custom.css"/>
       <url>/css/custom.css</url>
@@ -844,22 +828,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[function createtime() {    var now = new Date(); // 获取当前时间    var startDate = new Date("12/17/2023 21:00:00"); // 网站开始运行的日期，按需更改    var elapsed = now - startDate; // 计算流逝的时间    var seconds = Math.floor(elapsed / 1000);    var minutes = Math.floor(seconds / 60);    var hours = Math.floor(minutes / 60);    var days = Math.floor(hours / 24);    seconds %= 60; // 剩余秒数    minutes %= 60; // 剩余分钟数    hours %= 24; // 剩余小时数    // 确保时间是两位数字格式    var secondsStr = seconds < 10 ? "0" + seconds : seconds;    var minutesStr = minutes < 10 ? "0" + minutes : minutes;    var hoursStr = hours < 10 ? "0" + hours : hours;    // 更新网站内容    var c = `<div style="font-size:13px;font-weight:bold">本站居然运行了 ${days} 天 ${hoursStr} 小时 ${minutesStr} 分 ${secondsStr} 秒</div>`;    document.getElementById("workboard").innerHTML = c;}setInterval(createtime, 1000); // 每秒更新一次]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[function createtime() {    var now = new Date(); // 获取当前时间    var startDate = new Date("12/17/2023 21:00:00"); // 网站开始运行的日期，按需更改    var elapsed = now - startDate; // 计算流逝的时间    var seconds = Math.floor(elapsed / 1000);    var minutes = Math.floor(seconds / 60);    var hours = Math.floor(minutes / 60);    var days = Math.floor(hours / 24);    seconds %= 60; // 剩余秒数    minutes %= 60; // 剩余分钟数    hours %= 24; // 剩余小时数    // 确保时间是两位数字格式    var secondsStr = seconds < 10 ? "0" + seconds : seconds;    var minutesStr = minutes < 10 ? "0" + minutes : minutes;    var hoursStr = hours < 10 ? "0" + hours : hours;    // 更新网站内容    var c = `<div style="font-size:13px;font-weight:bold">本站居然运行了 ${days} 天 ${hoursStr} 小时 ${minutesStr} 分 ${secondsStr} 秒</div>`;    document.getElementById("workboard").innerHTML = c;}setInterval(createtime, 1000); // 每秒更新一次]]></content>
       
     </entry>
     
@@ -877,22 +861,33 @@
     
     
     <entry>
-      <title>添加我的QQ</title>
-      <link href="/qq/index.html"/>
-      <url>/qq/index.html</url>
+      <title></title>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
       
-        <content type="html"><![CDATA[<p><img src="../img/QQ.jpg" alt="我的QQ二维码"></p>]]></content>
+        <content type="html"><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
-        <content type="html"><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -910,9 +905,20 @@
     
     
     <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>添加我的QQ</title>
+      <link href="/qq/index.html"/>
+      <url>/qq/index.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="../img/QQ.jpg" alt="我的QQ二维码"></p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
