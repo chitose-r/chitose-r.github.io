@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>sever</title>
+      <link href="/sever/"/>
+      <url>/sever/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-选择镜像">1 选择镜像</h3><h4 id="1-1-基础镜像">1.1 基础镜像</h4><ul><li>选择需求镜像即可，环境即为base</li></ul><h4 id="1-2-拷贝镜像">1.2 拷贝镜像</h4><ul><li>在miniconda/conda3中选择python和cuda版本作为初始base</li></ul><h4 id="1-3-镜像操作大全">1.3 镜像操作大全</h4><ul><li>待解决</li></ul><h3 id="2-数据传输">2 数据传输</h3><h4 id="2-0-不占用系统盘">2.0 不占用系统盘</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/root/autodl-tmp</span><br><span class="line">/root/autodl-nas</span><br><span class="line">/root/autodl-pub</span><br><span class="line">/root/autodl-fs</span><br></pre></td></tr></table></figure><h4 id="2-1-百度网盘法">2.1 百度网盘法</h4><p>首先将工程在本地环境进行压缩，等待压缩完成后上传到百度网盘上。</p><blockquote><p>这里发现不用压缩文件也可，直接在文件夹右键，点击上传百度网盘。</p><p>导入速度为：3~4M</p></blockquote><ul><li><strong>该方法需要注册企业认证，暂不考虑</strong></li></ul><h4 id="2-2-mobaxterm-XShell上传">2.2 mobaxterm/XShell上传</h4><p>通过拖放操作，轻松上传本地文件到服务器的下载目录。</p><ul><li>目前选择此方法</li></ul><h4 id="2-3-WinSCP上传">2.3 WinSCP上传</h4><p>同理，待测试</p><h4 id="2-5-xftp上传">2.5 xftp上传</h4><p>待测试</p><h3 id="3-训练">3 训练</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> others </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SENet-paper</title>
       <link href="/SENet-paper/"/>
       <url>/SENet-paper/</url>
@@ -66,7 +85,7 @@
       <link href="/Todo/"/>
       <url>/Todo/</url>
       
-        <content type="html"><![CDATA[<h2 id="论文篇">论文篇</h2><h3 id="图像分类论文">图像分类论文</h3><ul><li>[x] LeNet</li><li>[x] NiN</li><li>[x] AlexNet</li><li>[x] Vgg</li><li>[x] AlexNet</li><li>[x] ResNet</li><li>[ ] DenseNet</li><li>[ ] ResNeXt</li><li>[ ] SENet</li><li>[x] Inception-v1</li><li>[x] Inception-v2</li><li>[x] Inception-v3</li><li>[ ] Inception-v4</li><li>[ ] Inception-v5</li><li></li></ul><h3 id="目标检测论文">目标检测论文</h3><ul><li>[ ] SPP</li><li>[ ] RCNN</li><li>[ ] Fast RCNN</li><li>[ ] Faster RCNN</li><li>[ ] Mask RCNN</li><li>[ ] Yolov1</li><li>[ ] Yolov2</li><li>[ ] Yolov3</li><li>[ ] Yolov4</li><li>[ ] Yolov6</li><li>[ ] Yolov7</li><li>[ ] MobileNet-v1</li><li>[ ] MobileNet-v2</li><li>[ ] MobileNet-v3</li><li>[ ] ShuffleNet-v1</li><li>[ ] ShuffleNet-v2</li><li>[ ] EfficientNet-v1</li><li>[ ] EfficientNet-v2</li><li>[ ] EfficientDet(EfficientNet+BiFPN)</li></ul><h3 id="语义分割篇">语义分割篇</h3><ul><li>[ ] DeepLabV1</li><li>[ ] DeepLabV2</li><li>[ ] DeepLabV3</li><li>[ ] UNet</li><li>[ ] U2Net</li><li>[ ] LR-ASPP</li></ul><h3 id="点云论文">点云论文</h3><ul><li>[ ] PointNet</li><li>[ ] PointNet++</li><li>[ ] PointNetMAE</li><li>[ ] PointMLP</li><li>[ ] Pointhyper</li><li>[ ] DGCNN</li></ul><h3 id="事件相机论文">事件相机论文</h3><ul><li>[ ] EVSegNet</li><li>[ ] DVS-OUTLAB</li><li>[ ] Evaluation of Deep Learning based 3D-Point-Cloud</li><li>[ ] Semantic Segmentation on NVS</li></ul><h3 id="数据集">数据集</h3><ul><li>[ ] AAA</li></ul><h3 id="Openmmlab">Openmmlab</h3><ul><li>[ ] mmsegmentation</li><li>[ ] mmdeploy</li><li>[ ] mmdetection</li><li>[ ] mmclassfication</li><li>[ ] mmocr</li><li>[ ] mmaction</li></ul><h3 id="方向项目">方向项目</h3><ul><li>[ ] 红外目标检测</li><li>[ ] 衍射神经网络</li><li>[ ] 风格迁移网络</li><li>[ ] 知识蒸馏</li><li>[ ] 模型部署</li><li>[ ] 监督</li><li>[ ] pangolin视觉组任务</li><li>[ ] scuhotpot视觉组任务</li><li>[ ] overleaf</li><li>[ ] tf学习</li><li>[ ] zotero</li><li>[ ] videoQA/point分割/连续学习</li><li>[ ] Lim3d/Lasermix/CPCM/Gapro</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="论文篇">论文篇</h2><h3 id="图像分类论文">图像分类论文</h3><ul><li>[x] LeNet</li><li>[x] NiN</li><li>[x] AlexNet</li><li>[x] Vgg</li><li>[x] AlexNet</li><li>[x] ResNet</li><li>[ ] DenseNet</li><li>[ ] ResNeXt</li><li>[ ] SENet</li><li>[x] Inception-v1</li><li>[x] Inception-v2</li><li>[x] Inception-v3</li><li>[ ] Inception-v4</li><li>[ ] Inception-v5</li><li></li></ul><h3 id="目标检测论文">目标检测论文</h3><ul><li>[ ] SPP</li><li>[ ] RCNN</li><li>[ ] Fast RCNN</li><li>[ ] Faster RCNN</li><li>[ ] Mask RCNN</li><li>[ ] Yolov1</li><li>[ ] Yolov2</li><li>[ ] Yolov3</li><li>[ ] Yolov4</li><li>[ ] Yolov6</li><li>[ ] Yolov7</li><li>[ ] MobileNet-v1</li><li>[ ] MobileNet-v2</li><li>[ ] MobileNet-v3</li><li>[ ] ShuffleNet-v1</li><li>[ ] ShuffleNet-v2</li><li>[ ] EfficientNet-v1</li><li>[ ] EfficientNet-v2</li><li>[ ] EfficientDet(EfficientNet+BiFPN)</li></ul><h3 id="语义分割篇">语义分割篇</h3><ul><li>[ ] DeepLabV1</li><li>[ ] DeepLabV2</li><li>[ ] DeepLabV3</li><li>[ ] UNet</li><li>[ ] U2Net</li><li>[ ] LR-ASPP</li></ul><h3 id="点云论文">点云论文</h3><ul><li>[ ] PointNet</li><li>[ ] PointNet++</li><li>[ ] PointNetMAE</li><li>[ ] PointMLP</li><li>[ ] Pointhyper</li><li>[ ] DGCNN</li></ul><h3 id="事件相机论文">事件相机论文</h3><ul><li>[ ] EVSegNet</li><li>[ ] DVS-OUTLAB</li><li>[ ] Evaluation of Deep Learning based 3D-Point-Cloud</li><li>[ ] Semantic Segmentation on NVS</li></ul><h3 id="数据集">数据集</h3><ul><li>[ ] AAA</li></ul><h3 id="Openmmlab">Openmmlab</h3><ul><li>[ ] mmsegmentation</li><li>[ ] mmdeploy</li><li>[ ] mmdetection</li><li>[ ] mmclassfication</li><li>[ ] mmocr</li><li>[ ] mmaction</li></ul><h3 id="方向项目">方向项目</h3><ul><li>[ ] 红外目标检测</li><li>[ ] 衍射神经网络</li><li>[ ] 风格迁移网络</li><li>[ ] 知识蒸馏</li><li>[ ] 模型部署</li><li>[ ] 监督</li><li>[ ] pangolin视觉组任务</li><li>[ ] scuhotpot视觉组任务</li><li>[ ] overleaf</li><li>[ ] tf学习</li><li>[ ] zotero</li><li>[ ] videoQA/point分割/连续学习</li><li>[ ] Lim3d/Lasermix/CPCM/Gapro</li><li>[ ] matploit</li><li>[ ] pandas</li><li>[ ] objct</li></ul>]]></content>
       
       
       <categories>
@@ -837,31 +856,6 @@
     
     
     <entry>
-      <title>第二篇文章</title>
-      <link href="/2023-12-17-2/"/>
-      <url>/2023-12-17-2/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是我的第二篇文章">这是我的第二篇文章</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> C </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 标签2 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>第三篇文章</title>
       <link href="/2023-12-17-3/"/>
       <url>/2023-12-17-3/</url>
@@ -879,6 +873,31 @@
         <tags>
             
             <tag> 标签3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第二篇文章</title>
+      <link href="/2023-12-17-2/"/>
+      <url>/2023-12-17-2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="这是我的第二篇文章">这是我的第二篇文章</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> C </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 标签2 </tag>
             
         </tags>
       
@@ -912,20 +931,20 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/light.js"/>
-      <url>/js/light.js</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {                    }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {                    }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -945,9 +964,31 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/light.js"/>
+      <url>/js/light.js</url>
+      
+        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {                    }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {                    }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -967,17 +1008,6 @@
     
     
     <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>添加我的QQ</title>
       <link href="/qq/index.html"/>
       <url>/qq/index.html</url>
@@ -989,20 +1019,9 @@
     
     
     <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
