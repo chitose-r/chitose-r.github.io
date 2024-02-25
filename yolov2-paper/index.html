@@ -1,17 +1,17 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>yolov2-paper | Chitose-Blog</title><meta name="author" content="Chitose"><meta name="copyright" content="Chitose"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="YOLO9000: Better, Faster, Stronger Abstract—摘要 我们介绍了YOLO9000，一个最先进的实时目标检测系统，可以检测超过9000个目标类别。首先，我们提出了对YOLO检测方法的各种改进，这些改进既是新的，也是来自先前的工作。改进后的模型YOLOv2在标准检测任务上是最先进的，如PASCAL VOC和COCO。使用一种新的、多尺度的训练方法，同一个">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>yolov2-paper | Chitose-Blog</title><meta name="author" content="Chitose"><meta name="copyright" content="Chitose"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="YOLO9000: Better, Faster, Stronger Abstract—摘要 我们介绍了YOLO9000，一个最先进的实时目标检测系统，可以检测超过9000个目标类别。首先，我们提出了对YOLO检测方法的各种改进，这些改进既是新的，也是来自先前的工作。改进后的模型YOLOv2在标准检测任务上是最先进的，如PASCAL VOC和COCO。使用一种新的、多尺度的训练方法，同一个YOLO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yolov2-paper">
 <meta property="og:url" content="https://www.chitose.cn/yolov2-paper/index.html">
 <meta property="og:site_name" content="Chitose-Blog">
-<meta property="og:description" content="YOLO9000: Better, Faster, Stronger Abstract—摘要 我们介绍了YOLO9000，一个最先进的实时目标检测系统，可以检测超过9000个目标类别。首先，我们提出了对YOLO检测方法的各种改进，这些改进既是新的，也是来自先前的工作。改进后的模型YOLOv2在标准检测任务上是最先进的，如PASCAL VOC和COCO。使用一种新的、多尺度的训练方法，同一个">
+<meta property="og:description" content="YOLO9000: Better, Faster, Stronger Abstract—摘要 我们介绍了YOLO9000，一个最先进的实时目标检测系统，可以检测超过9000个目标类别。首先，我们提出了对YOLO检测方法的各种改进，这些改进既是新的，也是来自先前的工作。改进后的模型YOLOv2在标准检测任务上是最先进的，如PASCAL VOC和COCO。使用一种新的、多尺度的训练方法，同一个YOLO">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png">
 <meta property="article:published_time" content="2024-01-06T11:37:05.000Z">
 <meta property="article:modified_time" content="2024-01-10T07:24:20.000Z">
 <meta property="article:author" content="Chitose">
 <meta property="article:tag" content="演示">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_5.png"><link rel="shortcut icon" href="https://www.fomal.cc/favicon.ico"><link rel="canonical" href="https://www.chitose.cn/yolov2-paper/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png"><link rel="shortcut icon" href="https://www.fomal.cc/favicon.ico"><link rel="canonical" href="https://www.chitose.cn/yolov2-paper/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
@@ -160,37 +160,30 @@
     })(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
 <style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
   white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
-<link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://www.fomal.cc/static/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Face.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-link"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_5.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Chitose-Blog"><span class="site-name">Chitose-Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-link"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">yolov2-paper</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-06T11:37:05.000Z" title="发表于 2024-01-06 19:37:05">2024-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-10T07:24:20.000Z" title="更新于 2024-01-10 15:24:20">2024-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Paper/">Paper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">13.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>42分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="yolov2-paper"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="yolo9000-better-faster-stronger">YOLO9000: Better, Faster,
-Stronger</h1>
-<h2 id="abstract摘要">Abstract—摘要</h2>
-<p>我们介绍了YOLO9000，一个最先进的实时目标检测系统，可以检测超过9000个目标类别。首先，我们提出了对YOLO检测方法的各种改进，这些改进既是新的，也是来自先前的工作。改进后的模型YOLOv2在标准检测任务上是最先进的，如PASCAL
-VOC和COCO。使用一种新的、多尺度的训练方法，同一个YOLOv2模型可以在不同的规模下运行，在速度和准确性之间提供了一个简单的权衡。在67FPS时，YOLOv2在VOC
-2007上得到76.8mAP。在40 FPS时，YOLOv2得到78.6
-mAP，超过了最先进的方法，如带有ResNet和SSD的Faster
-R-CNN，同时运行速度仍然很高。最后，我们提出了一种联合训练目标检测和分类的方法。使用这种方法，我们在COCO检测数据集和ImageNet分类数据集上同时训练YOLO9000。我们的联合训练使YOLO9000能够预测没有标记检测数据的目标类别的检测情况。我们在ImageNet检测任务上验证了我们的方法。尽管只有200个类中的44个有检测数据，YOLO9000在ImageNet检测验证集上得到了19.7的mAP。在COCO上没有的的156个类中，YOLO9000得到了16.0
-mAP。但YOLO能检测的不仅仅是200个类；它能预测9000多个不同目标类别的检测。而且它仍然是实时运行的。
-&gt;#### YOLOv1的不足 &gt; &gt;1）定位不准确 &gt; &gt;2）和基于region
-proposal的方法相比召回率较低。 &gt; &gt;#### 本文的改进 &gt; &gt;-
-<strong>YOLO9000：</strong> 先进，实时的目标检测方法，可检测9000多类物体
-&gt;- <strong>多尺度训练方法（ multi-scale training）：</strong>
-相同的YOLOv2模型可以在不同的大小下运行，在速度和精度之间提供了一个简单的折中
-&gt;- <strong>mAP表现更好：</strong> 67FPS，在VOC 2007上76.8 mAP，在40
-FPS，78.6mAP；而且速度更快。 &gt;-
-<strong>提出了一种联合训练目标检测和分类的方法：</strong>
-使用该方法在COCO目标检测数据集和Imagenet图像分类数据集上，训练出了YOLO9000
-&gt;- <strong>可以检测出更多的类别：</strong>
-即使这些类别没有在目标检测的数据集中出现</p>
-<h2 id="一-introduction引言"><strong>一、
-Introduction—引言</strong></h2>
+<link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://www.fomal.cc/static/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Face.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-link"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Chitose-Blog"><span class="site-name">Chitose-Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-link"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">yolov2-paper</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-06T11:37:05.000Z" title="发表于 2024-01-06 19:37:05">2024-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-10T07:24:20.000Z" title="更新于 2024-01-10 15:24:20">2024-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Paper/">Paper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">13.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>41分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="yolov2-paper"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>YOLO9000: Better, Faster, Stronger</h1>
+<h2 id="Abstract—摘要">Abstract—摘要</h2>
+<p>我们介绍了YOLO9000，一个最先进的实时目标检测系统，可以检测超过9000个目标类别。首先，我们提出了对YOLO检测方法的各种改进，这些改进既是新的，也是来自先前的工作。改进后的模型YOLOv2在标准检测任务上是最先进的，如PASCAL VOC和COCO。使用一种新的、多尺度的训练方法，同一个YOLOv2模型可以在不同的规模下运行，在速度和准确性之间提供了一个简单的权衡。在67FPS时，YOLOv2在VOC 2007上得到76.8mAP。在40 FPS时，YOLOv2得到78.6 mAP，超过了最先进的方法，如带有ResNet和SSD的Faster R-CNN，同时运行速度仍然很高。最后，我们提出了一种联合训练目标检测和分类的方法。使用这种方法，我们在COCO检测数据集和ImageNet分类数据集上同时训练YOLO9000。我们的联合训练使YOLO9000能够预测没有标记检测数据的目标类别的检测情况。我们在ImageNet检测任务上验证了我们的方法。尽管只有200个类中的44个有检测数据，YOLO9000在ImageNet检测验证集上得到了19.7的mAP。在COCO上没有的的156个类中，YOLO9000得到了16.0 mAP。但YOLO能检测的不仅仅是200个类；它能预测9000多个不同目标类别的检测。而且它仍然是实时运行的。</p>
+<blockquote>
+<h4 id="YOLOv1的不足">YOLOv1的不足</h4>
+<p>1）定位不准确</p>
+<p>2）和基于region proposal的方法相比召回率较低。</p>
+<h4 id="本文的改进">本文的改进</h4>
+<ul>
+<li><strong>YOLO9000：</strong> 先进，实时的目标检测方法，可检测9000多类物体</li>
+<li><strong>多尺度训练方法（ multi-scale training）：</strong> 相同的YOLOv2模型可以在不同的大小下运行，在速度和精度之间提供了一个简单的折中</li>
+<li><strong>mAP表现更好：</strong> 67FPS，在VOC 2007上76.8 mAP，在40 FPS，78.6mAP；而且速度更快。</li>
+<li><strong>提出了一种联合训练目标检测和分类的方法：</strong> 使用该方法在COCO目标检测数据集和Imagenet图像分类数据集上，训练出了YOLO9000</li>
+<li><strong>可以检测出更多的类别：</strong> 即使这些类别没有在目标检测的数据集中出现</li>
+</ul>
+</blockquote>
+<h2 id="一、-Introduction—引言"><strong>一、 Introduction—引言</strong></h2>
 <p>通用的目标检测应该是快速、准确的，并且能够识别各种各样的目标。自从引入神经网络以来，检测框架已经变得越来越快和准确。然而，大多数检测方法仍然被限制在一小部分目标上。</p>
-<p>与分类和标记等其他任务的数据集相比，当前的目标检测数据集是有限的。最常见的检测数据集包含几千到几十万张图像，有几十到几百个标签[3]
-[10] [2]。分类数据集有数以百万计的图像，有数万或数十万个类别[20]
-[2]。</p>
+<p>与分类和标记等其他任务的数据集相比，当前的目标检测数据集是有限的。最常见的检测数据集包含几千到几十万张图像，有几十到几百个标签[3] [10] [2]。分类数据集有数以百万计的图像，有数万或数十万个类别[20] [2]。</p>
 <p>我们希望检测能够达到目标分类的水平。然而，为检测而给图像贴标签比为分类或标记贴标签要昂贵得多（标签通常是给用户免费提供的）。因此，我们不太可能在不久的将来看到与分类数据集相同规模的检测数据集。</p>
 <p>我们提出了一种新的方法来利用我们已经拥有的大量分类数据，并利用它来扩大当前检测系统的范围。我们的方法使用目标分类的分层观点，使我们能够将不同的数据集结合在一起。</p>
 <p>我们还提出了一种联合训练算法，使我们能够在检测和分类数据上训练目标检测器。我们的方法利用标记的检测图像来学习精确定位目标，同时使用分类图像来增加其词汇量和鲁棒性。</p>
 <p>使用这种方法，我们训练了YOLO9000，一个实时的目标检测器，可以检测超过9000个不同的物体类别。首先，我们在基础YOLO检测系统的基础上进行改进，以产生YOLOv2，一个最先进的实时检测器。然后，我们使用我们的数据集组合方法和联合训练算法，在ImageNet的9000多个类别以及COCO的检测数据上训练一个模型。</p>
-<p>我们所有的代码和预训练的模型都可以在线获得：http://pjreddie.com/yolo9000/。</p>
+<p>我们所有的代码和预训练的模型都可以在线获得：<a target="_blank" rel="noopener" href="http://pjreddie.com/yolo9000/%E3%80%82">http://pjreddie.com/yolo9000/。</a></p>
 <blockquote>
 <h4 id="目标检测现状的不足">目标检测现状的不足</h4>
 <ul>
@@ -199,403 +192,328 @@ Introduction—引言</strong></h2>
 </ul>
 <h4 id="本文工作">本文工作</h4>
 <ul>
-<li>1）<strong>使用联合数据集：</strong>
-利用已有的分类数据集，来拓展目标检测的范围。利用对象分类的分层视图，使得可以将不同数据集组合到一起</li>
-<li>2）<strong>提出联合训练算法：</strong>
-可以在检测数据集和分类数据集上训练目标分类器，用标记的目标检测数据集优化定位精度，利用分类图像来增加其词汇量鲁棒性</li>
-<li>3）<strong>改进YOLOv1提出YOLOv2：</strong>
-一种最先进的实时检测器</li>
-<li>4）<strong>提出YOLO9000：</strong>
-先将YOLO优化成YOLOv2，再用联合方法训练出YOLO9000</li>
+<li>1）<strong>使用联合数据集：</strong> 利用已有的分类数据集，来拓展目标检测的范围。利用对象分类的分层视图，使得可以将不同数据集组合到一起</li>
+<li>2）<strong>提出联合训练算法：</strong> 可以在检测数据集和分类数据集上训练目标分类器，用标记的目标检测数据集优化定位精度，利用分类图像来增加其词汇量鲁棒性</li>
+<li>3）<strong>改进YOLOv1提出YOLOv2：</strong> 一种最先进的实时检测器</li>
+<li>4）<strong>提出YOLO9000：</strong> 先将YOLO优化成YOLOv2，再用联合方法训练出YOLO9000</li>
 </ul>
 </blockquote>
-<h2 id="二-better更好"><strong>二、 Better—更好</strong></h2>
-<h3 id="batch-normalization批量归一化">2.1 Batch
-Normalization—批量归一化</h3>
-<p>相比于最先进的检测系统，YOLO存在着各种缺陷。与<a
-target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Faster&amp;spm=1001.2101.3001.7020">Faster</a>
-R-CNN相比，对YOLO的错误分析表明，YOLO出现了大量的定位错误。此外，与基于区域建议的方法相比，YOLO的召回率相对较低。因此，我们主要关注的是在保持分类精度的同时，提高召回率和定位准确度。</p>
-<p>计算机视觉通常趋向于更大、更深的网络[6] [18]
-[17]。更好的性能往往取决于训练更大的网络或将多个模型集合在一起。然而，在YOLOv2中，我们希望有一个更准确的检测器，但仍然是快速的。我们没有扩大我们的网络，而是简化了网络，然后让表征更容易学习。我们将过去工作中的各种想法与我们自己的新概念结合起来，以提高YOLO的性能。在表2中可以看到结果的总结。</p>
-<p><strong>批量归一化</strong>
-批量归一化导致收敛性的显著改善，同时消除了对其他形式的规范化的需求[7]。通过在YOLO的所有卷积层上添加批量归一化，我们在mAP上得到了超过2%的改善。批量规范化也有助于规范化模型。有了批归一化，我们可以在不过拟合的情况下去除模型中的dropout。</p>
+<h2 id="二、-Better—更好"><strong>二、 Better—更好</strong></h2>
+<h3 id="2-1-Batch-Normalization—批量归一化">2.1 Batch Normalization—批量归一化</h3>
+<p>相比于最先进的检测系统，YOLO存在着各种缺陷。与<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Faster&amp;spm=1001.2101.3001.7020">Faster</a> R-CNN相比，对YOLO的错误分析表明，YOLO出现了大量的定位错误。此外，与基于区域建议的方法相比，YOLO的召回率相对较低。因此，我们主要关注的是在保持分类精度的同时，提高召回率和定位准确度。</p>
+<p>计算机视觉通常趋向于更大、更深的网络[6] [18] [17]。更好的性能往往取决于训练更大的网络或将多个模型集合在一起。然而，在YOLOv2中，我们希望有一个更准确的检测器，但仍然是快速的。我们没有扩大我们的网络，而是简化了网络，然后让表征更容易学习。我们将过去工作中的各种想法与我们自己的新概念结合起来，以提高YOLO的性能。在表2中可以看到结果的总结。</p>
+<p><strong>批量归一化</strong> 批量归一化导致收敛性的显著改善，同时消除了对其他形式的规范化的需求[7]。通过在YOLO的所有卷积层上添加批量归一化，我们在mAP上得到了超过2%的改善。批量规范化也有助于规范化模型。有了批归一化，我们可以在不过拟合的情况下去除模型中的dropout。</p>
 <blockquote>
 <h4 id="目的">目的</h4>
-<p>CNN在训练过程中网络每层输入的分布一直在改变,
-会使训练过程难度加大，对网络的每一层的输入(每个卷积层后)都做了归一化，<strong>这样网络就不需要每层都去学数据的分布，收敛会更快</strong>。</p>
+<p>CNN在训练过程中网络每层输入的分布一直在改变, 会使训练过程难度加大，对网络的每一层的输入(每个卷积层后)都做了归一化，<strong>这样网络就不需要每层都去学数据的分布，收敛会更快</strong>。</p>
 <h4 id="方法">方法</h4>
-<p>在YOLO模型的所有卷积层上添加<strong>Batch
-Normalization</strong>。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/BatchNormalization.png" /></p>
+<p>在YOLO模型的所有卷积层上添加<strong>Batch Normalization</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/BatchNormalization.png" alt=""></p>
 <h4 id="效果">效果</h4>
-<p>mAP获得了2%的提升。Batch Normalization
-也有助于规范化模型，可以在舍弃dropout优化后依然不会过拟合。</p>
+<p>mAP获得了2%的提升。Batch Normalization 也有助于规范化模型，可以在舍弃dropout优化后依然不会过拟合。</p>
 </blockquote>
-<h3 id="high-resolution-classifier高分辨率分类器">2.2 High Resolution
-Classifier—高分辨率分类器</h3>
+<h3 id="2-2-High-Resolution-Classifier—高分辨率分类器">2.2 High Resolution Classifier—高分辨率分类器</h3>
 <p>高分辨率分类器所有最先进的检测方法都使用在ImageNet上预训练的分类器[16]。从AlexNet开始，大多数分类器在小于256×256的输入图像上运行[8]。最初的YOLO在224×224的情况下训练分类器网络，并将分辨率提高到448以进行检测训练。这意味着网络在切换到检测学习时还必须调整到新的输入分辨率。</p>
 <p>对于YOLOv2，我们首先在ImageNet上以448×448的完整分辨率对分类网络进行微调，并进行10个epoch。这让网络有时间调整其滤波器，以便在更高的分辨率输入下更好地工作。然后，我们再对检测网络的结果微调。这个高分辨率的分类网络使我们的mAP增加了近4%。</p>
 <blockquote>
 <h4 id="分类器介绍">分类器介绍</h4>
 <p>检测方法都使用在ImageNet上预先训练的分类器作为预训练模型。从AlexNet开始，大多数分类器的输入都小于256×256。</p>
 <h4 id="v1中的使用">v1中的使用</h4>
-<p>v1中预训练使用的是分类数据集，大小是224×224
-，然后迁移学习，微调时使用YOLO模型做目标检测的时候才将输入变成448 ×
-448。这样改变尺寸，网络就要多重新学习一部分，会带来性能损失。</p>
+<p>v1中预训练使用的是分类数据集，大小是224×224 ，然后迁移学习，微调时使用YOLO模型做目标检测的时候才将输入变成448 × 448。这样改变尺寸，网络就要多重新学习一部分，会带来性能损失。</p>
 <h4 id="v2中的改进">v2中的改进</h4>
-<p>v2直接在预训练中输入的就是<strong>448×448</strong>的尺寸，微调的时候也是<strong>448
-× 448</strong>。</p>
-<h4 id="效果-1">效果</h4>
+<p>v2直接在预训练中输入的就是<strong>448×448</strong>的尺寸，微调的时候也是<strong>448 × 448</strong>。</p>
+<h4 id="效果-2">效果</h4>
 <p>使mAP增加了近4%</p>
 </blockquote>
-<h3 id="convolutional-with-anchor-boxes带有anchor-boxes的卷积">2.3
-Convolutional With Anchor Boxes—带有Anchor Boxes的卷积</h3>
-<p><strong>带有锚框的卷积</strong>
-YOLO直接使用卷积特征提取器顶部的全连接层来预测边界框的坐标。Faster
-R-CNN不直接预测坐标，而是使用手工挑选的先验因素来预测边界框[15]。Faster
-R-CNN中的区域生成网络（RPN）只使用卷积层来预测锚框的偏移量和置信度。由于预测层是卷积，RPN预测了特征图中每个位置的偏移量。预测偏移量而不是坐标可以简化问题，使网络更容易学习。</p>
+<h3 id="2-3-Convolutional-With-Anchor-Boxes—带有Anchor-Boxes的卷积">2.3 Convolutional With Anchor Boxes—带有Anchor Boxes的卷积</h3>
+<p><strong>带有锚框的卷积</strong> YOLO直接使用卷积特征提取器顶部的全连接层来预测边界框的坐标。Faster R-CNN不直接预测坐标，而是使用手工挑选的先验因素来预测边界框[15]。Faster R-CNN中的区域生成网络（RPN）只使用卷积层来预测锚框的偏移量和置信度。由于预测层是卷积，RPN预测了特征图中每个位置的偏移量。预测偏移量而不是坐标可以简化问题，使网络更容易学习。</p>
 <p>我们从YOLO中移除全连接层，并使用锚框来预测边界框。首先，我们消除了一个池化层，使网络卷积层的输出具有更高的分辨率。我们还缩小了网络，使其在分辨率为416×416的输入图像上运行，而不是448×448。我们这样做是因为我们希望在我们的特征图中有奇数个位置，以便只有一个中心单元。目标，尤其是大型目标，往往会占据图像的中心位置，所以在中心位置有一个单一的位置来预测这些目标是很好的，而不是在中心附近的四个位置。YOLO的卷积层对图像进行了32倍的降样，所以通过使用416的输入图像，我们得到了一个13×13的输出特征图。</p>
 <p>引入锚框后，我们将类别预测机制与空间位置分开处理，单独预测每个锚框的类和目标。和原来的YOLO一样，目标预测仍然预测先验框和真实框的IOU，而类别预测则预测在有目标存在下，该类别的条件概率。</p>
-<p>使用锚框，我们得到的准确率会有小幅下降。YOLO每张图片只预测了98个框，但使用锚框后，我们的模型预测了超过一千个框。在没有锚框的情况下，我们的中间模型mAP为69.5，召回率为81%。有了锚框，我们的模型mAP为69.2，召回率为88%。即使mAP下降了，平均召回率的增加意味着我们的模型有更大的改进空间。
-&gt;#### 什么是Anchor？ &gt; &gt;<strong>定义：</strong>
-Anchor（先验框）
-就是一组预设的边框，在训练时，以真实的边框位置相对于预设边框的偏移来构建训练样本。
-这就相当于，预设边框先大致在可能的位置“框”出来目标，然后再在这些预设边框的基础上进行调整。<strong>简言之就是在图像上预设好的不同大小，不同长宽比的参照框。</strong>
-&gt; &gt;<strong>Anchor Box：</strong>一个Anchor
-Box可以由边框的纵横比和边框的面积（尺度)来定义，相当于一系列预设边框的生成规则，根据Anchor
-Box，可以在图像的任意位置，生成一系列的边框。由于Anchor Box
-通常是以CNN提取到的Feature Map 的点为中心位置，生成边框，所以一个Anchor
-Box不需要指定中心位置。 &gt; &gt;#### <strong>Anchor Box的构成</strong>
-&gt; &gt;- 使用CNN提取的Feature Map的点，来定位目标的位置。 &gt;-
-使用Anchor Box的Scale来表示目标的大小。 &gt;- 使用Anchor Box的Aspect
-Ratio来表示目标的形状。 &gt; &gt;#### 之前研究 &gt;
-&gt;<strong>YOLOv1:</strong>
-使用全连接层来直接预测边界框（x,y,w,h,c）其中边界框的坐标是相对于cell的，宽与高是相对于整张图片。由于各个图片中存在不同尺度和长宽比的物体，YOLOv1在训练过程中学习适应不同物体的形状是比较困难的，这也导致YOLOv1在精确定位方面表现较差。
-&gt; &gt;<strong>Faster R-CNN：</strong>
-不是直接预测目标边界框，而是使用手工挑选的先验Anchor
-Boxes。利用RPN预测的边界框是相对于Anchor
-Boxes的坐标和高宽的偏移offset。RPN在特征图的每个位置预测Anchor
-Box偏移量而不是坐标，简化了问题，使网络更容易学习。 &gt;
-&gt;<strong>YOLOv2的改进</strong>
-&gt;（1）删掉全连接层和最后一个pooling层，使得最后的卷积层可以有更高分辨率的特征
-&gt; &gt;（2）缩小网络操作的输入图像为416×416
-&gt;&gt;<strong>Q：为什么是416×416，而不是448×448？</strong> &gt;&gt;
-&gt;&gt;YOLOv2模型下采样的总步长为32,对于416×416大小的图片，最终得到的特征图大小为13×13（416/32=13），特征图中有奇数个位置，所以只有一个中心单元格。物体往往占据图像的中心，所以最好在中心有一个单独的位置来预测这些物体，而不是在附近的四个位置。
-&gt;&gt; &gt;&gt;<img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E5%A5%87%E5%81%B6%E6%95%B0.png" />
-&gt; &gt;（3）使用Anchor Boxes &gt; &gt;#### 效果 &gt;
-&gt;使用Anchor，模型的mAP值从69.5降到了69.2，下降了一丢丢，而召回率却从81%提高到了88%。
-&gt; &gt;&gt; Q：精度（precision）和召回率（recall）： &gt;&gt; &gt;&gt;
-<strong>precision：</strong> 预测框中包含目标的比例。 &gt;&gt; &gt;&gt;
-<strong>recall：</strong> 真正目标被检测出来的比例。 &gt;&gt; &gt;&gt;
-简言之，recall表示得找全，precision表示得找准。<br />
-&gt; &gt;#### v2和v1对比 &gt; &gt;| | <strong>YOLOv1</strong> |
-<strong>YOLOv2</strong> | &gt;| ------------ |
------------------------------------------------------------- |
------------------------------------------------------------- | &gt;|
-<strong>初始设置</strong> | 初始生成两个boxes，加大了学习复杂度。 |
-Anchor初始是固定的，但在训练过程中会进行微调。使用Anchor
-boxes之后，每个位置的各个Anchor box都单独预测一组分类概率值。 | &gt;|
-<strong>输出公式</strong> | (框数 * 信息数)+分类数 | 框数
-*(信息数+分类数) | &gt;| <strong>公式含义</strong> |
-在YOLOv1中，类别概率是由grid
-cell来预测的，每个cell都预测2个boxes，每个boxes包含5个值，每个grid cell
-携带的是30个信息。但是每个cell只预测一组分类概率值，供2个boxes共享。 |
-在YOLOv2中，类别概率是属于box的，每个box对应一个类别概率，而不是由cell决定，因此这边每个box对应25个预测值。每个grid
-cell携带的是 25 × 5 =125个信息，25是
-xywh+置信度+分类数，5就是5个Anchor。 | &gt;| <strong>输出框</strong> | 7
-× 7 × 2 = 98个框 | 13 × 13 × 5 = 845个框 | &gt;| <strong>输出值</strong>
-| 7 ×7 × 30 | 13 × 13 × 5 × 25 | &gt; &gt;<img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov1vsv2.png" /></p>
-<h3 id="dimension-clusters维度聚类k-means聚类确定anchor初始值">2.4
-Dimension Clusters—维度聚类（K-means聚类确定Anchor初始值）</h3>
-<p><strong>维度集群</strong>
-在与YOLO一起使用锚框时，我们遇到了两个问题。第一个问题是，框的尺寸是手工挑选的。网络可以学习适当地调整框，但是如果我们为网络挑选更好的先验锚框来开始，我们可以使网络更容易学习预测好的检测结果。</p>
-<p>我们在训练集的边界框上运行k-means聚类，以自动找到好的先验参数，而不是手工选择先验参数。如果我们使用标准的k-means和欧氏距离，大的框比小的框产生更多的误差。然而，我们真正想要的是能获得好的IOU分数的先验锚框，这与框的大小无关。因此，对于距离度量，我们使用：d(
-box , centroid )=1−IOU( box , centroid )。</p>
-<p>我们对不同的k值运行k-means，并绘制出最接近中心点的平均IOU，见图2。我们选择k
-=
-5作为模型复杂性和高召回率之间的良好权衡。聚类中心点与手工挑选的锚框有明显不同。短而宽的框较少，高而薄的框较多。</p>
-<p>我们在表1中比较了我们的聚类策略和手工挑选的锚框的平均IOU与最接近的先验。在只有5个先验的情况下，中心点的表现与9个锚框相似，平均IOU分别为61.0，60.9。如果我们使用9个中心点，我们会看到一个高得多的平均IOU。这表明，使用k-means来生成我们的边界框，使模型开始有一个更好的表示，并使任务更容易学习。
-&gt;#### 使用Anchor的问题一 &gt; &gt;Anchor
-Boxes的尺寸是手工指定了长宽比和尺寸，相当于一个超参数，这违背了YOLO对于目标检测模型的初衷，<strong>因为如果指定了Anchor的大小就没办法适应各种各样的物体了</strong>。
-&gt; &gt;#### 解决方法 &gt;
-&gt;在训练集的边界框上运行K-means聚类训练bounding
-boxes，可以自动找到更好的boxes宽高维度。由上面分析已知，设置先验Anchor
-Boxes的主要目的是为了使得预测框与真值的IOU更好，所以聚类分析时选用box与聚类中心box之间的IOU值作为距离指标
-&gt; &gt;&gt;K-means算法步骤： &gt;&gt;
-&gt;&gt;1.选择初始化的K个样本作为初始聚类中心 &gt;&gt;
-&gt;&gt;2.针对数据集中每个样本，计算它到K个聚类中心的距离，并将其分到距离最小的聚类中心所对应的类中
-&gt;&gt; &gt;&gt;3.针对每个类别，重新计算它的聚类中心 &gt;&gt;
-&gt;&gt;4.重复上面的步骤2、3，直到达到某个终止条件（迭代次数、最小误差变化）
-&gt; &gt;<strong>公式：</strong> d(box, centroid) = 1 − IOU(box,
-centroid) （box:其他框， centroid：聚类中心框） &gt;
-&gt;如下图，选取不同的k值（聚类的个数）运行K-means算法，并画出平均IOU和K值的曲线图。当k
-=
-5时，可以很好的权衡模型复杂性和高召回率。与手工挑选的相比，K-means算法挑选的检测框形状多为瘦高型。
-&gt; &gt;<img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/K-means.png" />
-&gt; &gt;&gt;<strong>Q：为什么不尽量选择大的k值？</strong> &gt;&gt;
-&gt;&gt;因为K越大就生成越多的Anchor，越多的框自然准确率就能上去了，但同时也成倍的增加了模型的复杂度。R-CNN就是因为提取2K个候选框拉跨的。</p>
-<h3 id="direct-location-prediction直接的位置预测">2.5 Direct location
-prediction—直接的位置预测</h3>
-<p><strong>直接的位置预测</strong>。
-当YOLO使用锚框时，我们遇到了第二个问题：模型的不稳定性，特别是在早期迭代中。大部分的不稳定性来自于对框的（x，y）位置的预测。在区域生成网络中，网络预测值tx和ty，（x，y）中心坐标的计算方法是：
-<span class="math display">\[
-x = (t_x \ast w_a) - x_a\\
-y = (t_y \ast h_a) - y_a
-\]</span>
+<p>使用锚框，我们得到的准确率会有小幅下降。YOLO每张图片只预测了98个框，但使用锚框后，我们的模型预测了超过一千个框。在没有锚框的情况下，我们的中间模型mAP为69.5，召回率为81%。有了锚框，我们的模型mAP为69.2，召回率为88%。即使mAP下降了，平均召回率的增加意味着我们的模型有更大的改进空间。</p>
+<blockquote>
+<h4 id="什么是Anchor？">什么是Anchor？</h4>
+<p><strong>定义：</strong> Anchor（先验框） 就是一组预设的边框，在训练时，以真实的边框位置相对于预设边框的偏移来构建训练样本。 这就相当于，预设边框先大致在可能的位置“框”出来目标，然后再在这些预设边框的基础上进行调整。<strong>简言之就是在图像上预设好的不同大小，不同长宽比的参照框。</strong></p>
+<p>**Anchor Box：**一个Anchor Box可以由边框的纵横比和边框的面积（尺度)来定义，相当于一系列预设边框的生成规则，根据Anchor Box，可以在图像的任意位置，生成一系列的边框。由于Anchor Box 通常是以CNN提取到的Feature Map 的点为中心位置，生成边框，所以一个Anchor Box不需要指定中心位置。</p>
+<h4 id="Anchor-Box的构成"><strong>Anchor Box的构成</strong></h4>
+<ul>
+<li>使用CNN提取的Feature Map的点，来定位目标的位置。</li>
+<li>使用Anchor Box的Scale来表示目标的大小。</li>
+<li>使用Anchor Box的Aspect Ratio来表示目标的形状。</li>
+</ul>
+<h4 id="之前研究">之前研究</h4>
+<p><strong>YOLOv1:</strong> 使用全连接层来直接预测边界框（x,y,w,h,c）其中边界框的坐标是相对于cell的，宽与高是相对于整张图片。由于各个图片中存在不同尺度和长宽比的物体，YOLOv1在训练过程中学习适应不同物体的形状是比较困难的，这也导致YOLOv1在精确定位方面表现较差。</p>
+<p><strong>Faster R-CNN：</strong> 不是直接预测目标边界框，而是使用手工挑选的先验Anchor Boxes。利用RPN预测的边界框是相对于Anchor Boxes的坐标和高宽的偏移offset。RPN在特征图的每个位置预测Anchor Box偏移量而不是坐标，简化了问题，使网络更容易学习。</p>
+<p><strong>YOLOv2的改进</strong><br>
+（1）删掉全连接层和最后一个pooling层，使得最后的卷积层可以有更高分辨率的特征</p>
+<p>（2）缩小网络操作的输入图像为416×416</p>
+<blockquote>
+<p><strong>Q：为什么是416×416，而不是448×448？</strong></p>
+<p>YOLOv2模型下采样的总步长为32,对于416×416大小的图片，最终得到的特征图大小为13×13（416/32=13），特征图中有奇数个位置，所以只有一个中心单元格。物体往往占据图像的中心，所以最好在中心有一个单独的位置来预测这些物体，而不是在附近的四个位置。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E5%A5%87%E5%81%B6%E6%95%B0.png" alt=""></p>
+</blockquote>
+<p>（3）使用Anchor Boxes</p>
+<h4 id="效果-3">效果</h4>
+<p>使用Anchor，模型的mAP值从69.5降到了69.2，下降了一丢丢，而召回率却从81%提高到了88%。</p>
+<blockquote>
+<p>Q：精度（precision）和召回率（recall）：</p>
+<p><strong>precision：</strong> 预测框中包含目标的比例。</p>
+<p><strong>recall：</strong> 真正目标被检测出来的比例。</p>
+<p>简言之，recall表示得找全，precision表示得找准。\</p>
+</blockquote>
+<h4 id="v2和v1对比">v2和v1对比</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>YOLOv1</strong></th>
+<th><strong>YOLOv2</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>初始设置</strong></td>
+<td>初始生成两个boxes，加大了学习复杂度。</td>
+<td>Anchor初始是固定的，但在训练过程中会进行微调。使用Anchor boxes之后，每个位置的各个Anchor box都单独预测一组分类概率值。</td>
+</tr>
+<tr>
+<td><strong>输出公式</strong></td>
+<td>(框数 * 信息数)+分类数</td>
+<td>框数 *(信息数+分类数)</td>
+</tr>
+<tr>
+<td><strong>公式含义</strong></td>
+<td>在YOLOv1中，类别概率是由grid cell来预测的，每个cell都预测2个boxes，每个boxes包含5个值，每个grid cell 携带的是30个信息。但是每个cell只预测一组分类概率值，供2个boxes共享。</td>
+<td>在YOLOv2中，类别概率是属于box的，每个box对应一个类别概率，而不是由cell决定，因此这边每个box对应25个预测值。每个grid cell携带的是 25 × 5 =125个信息，25是 xywh+置信度+分类数，5就是5个Anchor。</td>
+</tr>
+<tr>
+<td><strong>输出框</strong></td>
+<td>7 × 7 × 2 = 98个框</td>
+<td>13 × 13 × 5 = 845个框</td>
+</tr>
+<tr>
+<td><strong>输出值</strong></td>
+<td>7 ×7 × 30</td>
+<td>13 × 13 × 5 × 25</td>
+</tr>
+</tbody>
+</table>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov1vsv2.png" alt=""></p>
+</blockquote>
+<h3 id="2-4-Dimension-Clusters—维度聚类（K-means聚类确定Anchor初始值）">2.4 Dimension Clusters—维度聚类（K-means聚类确定Anchor初始值）</h3>
+<p><strong>维度集群</strong> 在与YOLO一起使用锚框时，我们遇到了两个问题。第一个问题是，框的尺寸是手工挑选的。网络可以学习适当地调整框，但是如果我们为网络挑选更好的先验锚框来开始，我们可以使网络更容易学习预测好的检测结果。</p>
+<p>我们在训练集的边界框上运行k-means聚类，以自动找到好的先验参数，而不是手工选择先验参数。如果我们使用标准的k-means和欧氏距离，大的框比小的框产生更多的误差。然而，我们真正想要的是能获得好的IOU分数的先验锚框，这与框的大小无关。因此，对于距离度量，我们使用：d( box , centroid )=1−IOU( box , centroid )。</p>
+<p>我们对不同的k值运行k-means，并绘制出最接近中心点的平均IOU，见图2。我们选择k = 5作为模型复杂性和高召回率之间的良好权衡。聚类中心点与手工挑选的锚框有明显不同。短而宽的框较少，高而薄的框较多。</p>
+<p>我们在表1中比较了我们的聚类策略和手工挑选的锚框的平均IOU与最接近的先验。在只有5个先验的情况下，中心点的表现与9个锚框相似，平均IOU分别为61.0，60.9。如果我们使用9个中心点，我们会看到一个高得多的平均IOU。这表明，使用k-means来生成我们的边界框，使模型开始有一个更好的表示，并使任务更容易学习。</p>
+<blockquote>
+<h4 id="使用Anchor的问题一">使用Anchor的问题一</h4>
+<p>Anchor Boxes的尺寸是手工指定了长宽比和尺寸，相当于一个超参数，这违背了YOLO对于目标检测模型的初衷，<strong>因为如果指定了Anchor的大小就没办法适应各种各样的物体了</strong>。</p>
+<h4 id="解决方法">解决方法</h4>
+<p>在训练集的边界框上运行K-means聚类训练bounding boxes，可以自动找到更好的boxes宽高维度。由上面分析已知，设置先验Anchor Boxes的主要目的是为了使得预测框与真值的IOU更好，所以聚类分析时选用box与聚类中心box之间的IOU值作为距离指标</p>
+<blockquote>
+<p>K-means算法步骤：</p>
+<p>1.选择初始化的K个样本作为初始聚类中心</p>
+<p>2.针对数据集中每个样本，计算它到K个聚类中心的距离，并将其分到距离最小的聚类中心所对应的类中</p>
+<p>3.针对每个类别，重新计算它的聚类中心</p>
+<p>4.重复上面的步骤2、3，直到达到某个终止条件（迭代次数、最小误差变化）</p>
+</blockquote>
+<p><strong>公式：</strong> d(box, centroid) = 1 − IOU(box, centroid) （box:其他框， centroid：聚类中心框）</p>
+<p>如下图，选取不同的k值（聚类的个数）运行K-means算法，并画出平均IOU和K值的曲线图。当k = 5时，可以很好的权衡模型复杂性和高召回率。与手工挑选的相比，K-means算法挑选的检测框形状多为瘦高型。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/K-means.png" alt=""></p>
+<blockquote>
+<p><strong>Q：为什么不尽量选择大的k值？</strong></p>
+<p>因为K越大就生成越多的Anchor，越多的框自然准确率就能上去了，但同时也成倍的增加了模型的复杂度。R-CNN就是因为提取2K个候选框拉跨的。</p>
+</blockquote>
+</blockquote>
+<h3 id="2-5-Direct-location-prediction—直接的位置预测">2.5 Direct location prediction—直接的位置预测</h3>
+<p><strong>直接的位置预测</strong>。 当YOLO使用锚框时，我们遇到了第二个问题：模型的不稳定性，特别是在早期迭代中。大部分的不稳定性来自于对框的（x，y）位置的预测。在区域生成网络中，网络预测值tx和ty，（x，y）中心坐标的计算方法是：<br>
+$$<br>
+x = (t_x \ast w_a) - x_a\<br>
+y = (t_y \ast h_a) - y_a<br>
+$$<br>
 例如，tx=1的预测会将框向右移动，移动的宽度为锚框的宽度，tx=-1的预测会将框向左移动相同的长度。</p>
 <p>这个公式是不受限制的，所以任何锚框都可以在图像中的任何一点结束，而不管这个框是在哪个位置预测的。在随机初始化的情况下，模型需要很长时间才能稳定地预测出合理的偏移量。</p>
 <p>我们不预测偏移量，而是遵循YOLO的方法，预测相对于网格单元位置的坐标。这使得真实值的界限在0到1之间。我们使用逻辑激活来约束网络的预测，使其落在0~1这个范围内。</p>
-<p>网络在输出特征图中的每个单元预测了5个边界框。该网络为每个边界框预测了5个坐标，即tx、ty、tw、th和to。如果单元格与图像左上角的偏移量为（cx，cy），且先验框的宽度和高度为pw，ph，则预测值对应于：
+<p>网络在输出特征图中的每个单元预测了5个边界框。该网络为每个边界框预测了5个坐标，即tx、ty、tw、th和to。如果单元格与图像左上角的偏移量为（cx，cy），且先验框的宽度和高度为pw，ph，则预测值对应于：<br>
 由于我们限制了位置预测，参数化更容易学习，使网络更稳定。使用维度聚类以及直接预测边界框中心位置，比起使用锚框的版本，YOLO提高了近5%。</p>
 <blockquote>
-<h4 id="使用anchor的问题二">使用Anchor的问题二</h4>
-<p>模型不稳定，特别是在早期迭代期间。大多数不稳定性来自于对边框(x,
-y)位置的预测。</p>
-<h4 id="rpn网络的位置预测">RPN网络的位置预测</h4>
-<p><strong>方法：</strong> 预测相对于Anchor
-Box的坐标的偏移，和相对于Anchor Box高宽的偏移。</p>
-<p><strong>计算公式：</strong> 预测框中心坐标=
-输出的偏移量×Anchor宽高+Anchor中心坐标</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-rpn.png" /></p>
-<p><strong>不足：</strong>
-这个公式是不受约束的，因此任何锚框可以出现在图像中的任何位置。在随机初始化的情况下，模型需要很长时间才能稳定到预测合理的偏移量。</p>
-<h4 id="yolov2的改进"><strong>YOLOv2的改进</strong></h4>
-<p><strong>方法：</strong>
-<strong>预测边界框中心点相对于对应cell左上角位置的相对偏移值。</strong>将网格归一化为1×1，坐标控制在每个网格内，同时配合sigmod函数将预测值转换到0~1之间的办法，做到每一个Anchor只负责检测周围正负一个单位以内的目标box。</p>
-<p><strong>计算公式：</strong>
-一个网格相对于图片左上角的偏移量是cx，cy。先验框的宽度和高度分别是pw和ph，则预测的边界框相对于特征图的中心坐标(bx，by)和宽高bw、bh</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-impro.png" /></p>
-<h4 id="效果-2">效果</h4>
+<h4 id="使用Anchor的问题二">使用Anchor的问题二</h4>
+<p>模型不稳定，特别是在早期迭代期间。大多数不稳定性来自于对边框(x, y)位置的预测。</p>
+<h4 id="RPN网络的位置预测">RPN网络的位置预测</h4>
+<p><strong>方法：</strong> 预测相对于Anchor Box的坐标的偏移，和相对于Anchor Box高宽的偏移。</p>
+<p><strong>计算公式：</strong> 预测框中心坐标= 输出的偏移量×Anchor宽高+Anchor中心坐标</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-rpn.png" alt=""></p>
+<p><strong>不足：</strong> 这个公式是不受约束的，因此任何锚框可以出现在图像中的任何位置。在随机初始化的情况下，模型需要很长时间才能稳定到预测合理的偏移量。</p>
+<h4 id="YOLOv2的改进"><strong>YOLOv2的改进</strong></h4>
+<p><strong>方法：</strong> **预测边界框中心点相对于对应cell左上角位置的相对偏移值。**将网格归一化为1×1，坐标控制在每个网格内，同时配合sigmod函数将预测值转换到0~1之间的办法，做到每一个Anchor只负责检测周围正负一个单位以内的目标box。</p>
+<p><strong>计算公式：</strong> 一个网格相对于图片左上角的偏移量是cx，cy。先验框的宽度和高度分别是pw和ph，则预测的边界框相对于特征图的中心坐标(bx，by)和宽高bw、bh</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-impro.png" alt=""></p>
+<h4 id="效果-4">效果</h4>
 <p>使模型更容易稳定训练，mAP值提升了约5%。</p>
 </blockquote>
-<h3 id="fine-grained-features细粒度的特征">2.6 Fine-Grained
-Features—细粒度的特征</h3>
-<p>细粒度的特征这个修改后的YOLO在13×13的特征图上预测探测结果。虽然这对大型物体来说是足够的，但它可能会受益于更细粒度的特征来定位较小的物体。Faster
-R-CNN和SSD都在网络中的各种特征图上运行他们的网络，以获得多个分辨率。我们采取了一种不同的方法，只需要增加一个直通层，从早期的层中提取26×26分辨率的特征。</p>
+<h3 id="2-6-Fine-Grained-Features—细粒度的特征">2.6 Fine-Grained Features—细粒度的特征</h3>
+<p>细粒度的特征这个修改后的YOLO在13×13的特征图上预测探测结果。虽然这对大型物体来说是足够的，但它可能会受益于更细粒度的特征来定位较小的物体。Faster R-CNN和SSD都在网络中的各种特征图上运行他们的网络，以获得多个分辨率。我们采取了一种不同的方法，只需要增加一个直通层，从早期的层中提取26×26分辨率的特征。</p>
 <p>直通层通过将相邻的特征堆叠到不同的通道而不是空间位置上，将高分辨率的特征与低分辨率的特征串联起来，类似于ResNet中的恒等映射。这种细粒度的特征。这就把26×26×512的特征图变成了13×13×2048的特征图，它可以与原始特征连接起来。我们的检测器在这个扩展的特征图之上运行，这样它就可以访问细粒度的特征。这使性能有了1%的适度提高。</p>
 <blockquote>
-<h4 id="为什么使用细粒特征">为什么使用细粒特征？</h4>
-<p>这个修改后的YOLO在13 ×
-13特征图上进行检测。虽然这对于大型对象来说已经足够了，但是对于较小的对象来说，更细粒度的特性可能会使得检测效果更好。</p>
+<h4 id="为什么使用细粒特征？">为什么使用细粒特征？</h4>
+<p>这个修改后的YOLO在13 × 13特征图上进行检测。虽然这对于大型对象来说已经足够了，但是对于较小的对象来说，更细粒度的特性可能会使得检测效果更好。</p>
 <h4 id="使用细粒度特征">使用细粒度特征</h4>
-<p><strong>Faster R-CNN和SSD：</strong>
-使用了多尺度的特征图来分别检测不同大小的物体，前面更精细的特征图可以用来预测小物体。</p>
-<p><strong>YOLOv2：</strong> 不同的方法，为网络简单地添加一个直通层（
-passthrough layer），获取前层26×26分辨率特征。</p>
-<h4 id="直通层-passthrough-layer">直通层（ passthrough layer）</h4>
+<p><strong>Faster R-CNN和SSD：</strong> 使用了多尺度的特征图来分别检测不同大小的物体，前面更精细的特征图可以用来预测小物体。</p>
+<p><strong>YOLOv2：</strong> 不同的方法，为网络简单地添加一个直通层（ passthrough layer），获取前层26×26分辨率特征。</p>
+<h4 id="直通层（-passthrough-layer）">直通层（ passthrough layer）</h4>
 <ul>
 <li>将相邻的特征叠加到不同的通道来，将高分辨率的特征与低分辨率的特征连接起来</li>
 <li>将前层26×26×512的特征图转换为13×13×2048的特征图，并与原最后层特征图进行拼接。</li>
 </ul>
-<p><strong>具体计算过程：</strong> YOLO
-v2提取Darknet-19最后一个maxpooling层的输入，得到26×26×512的特征图。经过1×1×64的卷积以降低特征图的维度，得到26×26×64的特征图，然后经过pass
-through层的处理变成13x13x256的特征图（抽取原特征图每个2x2的局部区域组成新的channel，即原特征图大小降低4倍，channel增加4倍），再与13×13×1024大小的特征图连接，变成13×13×1280的特征图，最后在这些特征图上做预测。
+<p><strong>具体计算过程：</strong> YOLO v2提取Darknet-19最后一个maxpooling层的输入，得到26×26×512的特征图。经过1×1×64的卷积以降低特征图的维度，得到26×26×64的特征图，然后经过pass through层的处理变成13x13x256的特征图（抽取原特征图每个2x2的局部区域组成新的channel，即原特征图大小降低4倍，channel增加4倍），再与13×13×1024大小的特征图连接，变成13×13×1280的特征图，最后在这些特征图上做预测。<br>
 <strong>具体操作：</strong></p>
-<figure>
-<img
-src="C:/Users/17145/AppData/Roaming/Typora/typora-user-images/image-20240202225417118.png"
-alt="image-20240202225417118" />
-<figcaption aria-hidden="true">image-20240202225417118</figcaption>
-</figure>
-<p>一个feature
-map，也就是在最后的池化之前，分成两路：一路是做拆分，分成四块，四块拼成一个长条，另一个是做正常的池化卷积操作，最后两个长条叠加输出。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="C:/Users/17145/AppData/Roaming/Typora/typora-user-images/image-20240202225417118.png" alt="image-20240202225417118"></p>
+<p>一个feature map，也就是在最后的池化之前，分成两路：一路是做拆分，分成四块，四块拼成一个长条，另一个是做正常的池化卷积操作，最后两个长条叠加输出。</p>
 <blockquote>
 <p><strong>Q：如何拆分成四块的？</strong></p>
 <p>并不是简单的“两刀切4块”，而是在每个2×2的小区域上都选择左上角块，具体看下图。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E6%8B%86%E5%88%86%E5%9B%9B%E4%B8%AA%E5%9D%97.png" /></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E6%8B%86%E5%88%86%E5%9B%9B%E4%B8%AA%E5%9D%97.png" alt=""></p>
 </blockquote>
-<p><strong>注意：</strong>
-这里的叠加不是ResNet里的add，而是拼接，是DenseNet里的concat。</p>
-<h4 id="效果-3">效果</h4>
+<p><strong>注意：</strong> 这里的叠加不是ResNet里的add，而是拼接，是DenseNet里的concat。</p>
+<h4 id="效果-5">效果</h4>
 <p>提升了1%的mAP</p>
 </blockquote>
-<h3 id="multi-scale-training多尺度的训练">2.7 Multi-Scale
-Training—多尺度的训练</h3>
+<h3 id="2-7-Multi-Scale-Training—多尺度的训练">2.7 Multi-Scale Training—多尺度的训练</h3>
 <p><strong>多尺度的训练</strong>原始的YOLO使用448×448的输入分辨率。通过添加锚框，我们将分辨率改为416×416。然而，由于我们的模型只使用卷积层和池化层，因此可以实时调整大小。我们希望YOLOv2能够鲁棒地运行在不同尺寸的图像上，所以我们将多尺度训练应用到模型中。</p>
-<p>我们不需要修改输入图像的大小，而是每隔几个迭代就改变网络。每10个批次，我们的网络就会随机选择一个新的图像尺寸。由于我们的模型缩减了32倍，我们从以下32的倍数中抽取：{320,
-352, …, 608}。因此，最小的选项是320 × 320，最大的是608 ×
-608。我们将调整网络的尺寸，然后继续训练。</p>
+<p>我们不需要修改输入图像的大小，而是每隔几个迭代就改变网络。每10个批次，我们的网络就会随机选择一个新的图像尺寸。由于我们的模型缩减了32倍，我们从以下32的倍数中抽取：{320, 352, …, 608}。因此，最小的选项是320 × 320，最大的是608 × 608。我们将调整网络的尺寸，然后继续训练。</p>
 <p>这种制度迫使网络学会在各种输入维度上进行良好的预测。这意味着同一个网络可以预测不同分辨率下的检测结果。网络在较小的尺寸下运行得更快，因此YOLOv2在速度和准确性之间提供了一个简单的权衡。</p>
-<p>在低分辨率下，YOLOv2作为一个廉价、相当准确的检测器运行。在288×288时，它以超过90
-FPS的速度运行，其mAP几乎与Faster
-R-CNN一样好。这使它成为较小的GPU、高帧率视频或多个视频流的理想选择。</p>
-<p>在高分辨率下，YOLOv2是一个最先进的检测器，在VOC
-2007上的mAP为78.6，而运行速度仍高于实时速度。 &gt;#### YOLOv1 &gt;
-&gt;<strong>方法：</strong> 使用448×448的固定分辨率输入。 &gt; &gt;####
-YOLOv2的改进 &gt; &gt;<strong>原理：</strong>
-YOLOv2模型只使用了卷积和池化层，所以可以动态调整输入大小。每隔几次迭代就改变网络，而不是固定输入图像的大小。
-&gt; &gt;<strong>做法：</strong>
-网络每10批训练后随机选择一个新的图像尺寸大小。由于模型下采样了32倍，从以下32的倍数{320,352，…，608}作为图像维度的选择。将网络输入调整到那个维度，并继续训练。
-&gt; &gt;<strong>作用：</strong>
-这种机制使得网络可以更好地预测不同尺寸的图片，意味着同一个网络可以进行不同分辨率的检测任务，在输入size较大时，训练速度较慢，在输入size较小时，训练速度较快，而multi-scale
-training又可以提高准确率，因此算是准确率和速度都取得一个不错的平衡。
-&gt; &gt;<strong>YOLOv2和其他网络成绩对比：</strong>
-&gt;在小尺寸图片检测中，YOLOv2成绩很好，输入为228 ×
-228的时候，帧率达到90FPS，mAP几乎和Faster
-R-CNN的水准相同。使得其在低性能GPU、高帧率视频、多路视频场景中更加适用。在大尺寸图片检测中，YOLOv2达到了先进水平，VOC2007
-上mAP为78.6%，仍然高于平均水准。 &gt;<img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E5%A4%9A%E5%B0%BA%E5%BA%A6%E8%AE%AD%E7%BB%83.png" /></p>
-<h3 id="further-experiments进一步的实验">2.8 Further
-Experiments—进一步的实验</h3>
-<p><strong>进一步的实验</strong>我们训练YOLOv2对VOC
-2012进行检测。表4显示了YOLOv2与其他最先进的检测系统的性能比较。YOLOv2实现了73.4
-mAP，同时运行速度远远超过比较的方法。我们还对COCO进行了训练，并在表5中与其他方法进行了比较。在VOC指标（IOU
-= 0.5）上，YOLOv2得到44.0 mAP，与SSD和Faster R-CNN相当。</p>
+<p>在低分辨率下，YOLOv2作为一个廉价、相当准确的检测器运行。在288×288时，它以超过90 FPS的速度运行，其mAP几乎与Faster R-CNN一样好。这使它成为较小的GPU、高帧率视频或多个视频流的理想选择。</p>
+<p>在高分辨率下，YOLOv2是一个最先进的检测器，在VOC 2007上的mAP为78.6，而运行速度仍高于实时速度。</p>
+<blockquote>
+<h4 id="YOLOv1">YOLOv1</h4>
+<p><strong>方法：</strong> 使用448×448的固定分辨率输入。</p>
+<h4 id="YOLOv2的改进-2">YOLOv2的改进</h4>
+<p><strong>原理：</strong> YOLOv2模型只使用了卷积和池化层，所以可以动态调整输入大小。每隔几次迭代就改变网络，而不是固定输入图像的大小。</p>
+<p><strong>做法：</strong> 网络每10批训练后随机选择一个新的图像尺寸大小。由于模型下采样了32倍，从以下32的倍数{320,352，…，608}作为图像维度的选择。将网络输入调整到那个维度，并继续训练。</p>
+<p><strong>作用：</strong> 这种机制使得网络可以更好地预测不同尺寸的图片，意味着同一个网络可以进行不同分辨率的检测任务，在输入size较大时，训练速度较慢，在输入size较小时，训练速度较快，而multi-scale training又可以提高准确率，因此算是准确率和速度都取得一个不错的平衡。</p>
+<p><strong>YOLOv2和其他网络成绩对比：</strong><br>
+在小尺寸图片检测中，YOLOv2成绩很好，输入为228 × 228的时候，帧率达到90FPS，mAP几乎和Faster R-CNN的水准相同。使得其在低性能GPU、高帧率视频、多路视频场景中更加适用。在大尺寸图片检测中，YOLOv2达到了先进水平，VOC2007 上mAP为78.6%，仍然高于平均水准。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E5%A4%9A%E5%B0%BA%E5%BA%A6%E8%AE%AD%E7%BB%83.png" alt=""></p>
+</blockquote>
+<h3 id="2-8-Further-Experiments—进一步的实验">2.8 Further Experiments—进一步的实验</h3>
+<p><strong>进一步的实验</strong>我们训练YOLOv2对VOC 2012进行检测。表4显示了YOLOv2与其他最先进的检测系统的性能比较。YOLOv2实现了73.4 mAP，同时运行速度远远超过比较的方法。我们还对COCO进行了训练，并在表5中与其他方法进行了比较。在VOC指标（IOU = 0.5）上，YOLOv2得到44.0 mAP，与SSD和Faster R-CNN相当。</p>
 <blockquote>
 <p>作者在VOC2012上对YOLOv2进行训练，下图是和其他方法的对比。YOLOv2精度达到了73.4%，并且速度更快。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%AE%AD%E7%BB%83.png" /></p>
-<p>同时YOLOV2也在COCO上做了测试（IOU=0.5），也和Faster
-R-CNN、SSD作了成绩对比。总的来说，比上不足，比下有余。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-coco.png" /></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%AE%AD%E7%BB%83.png" alt=""></p>
+<p>同时YOLOV2也在COCO上做了测试（IOU=0.5），也和Faster R-CNN、SSD作了成绩对比。总的来说，比上不足，比下有余。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-coco.png" alt=""></p>
 </blockquote>
-<h2 id="三faster更快">三、Faster—更快</h2>
+<h2 id="三、Faster—更快">三、Faster—更快</h2>
 <p>我们希望检测是准确的，但我们也希望它是快速的。大多数检测的应用，如机器人或自动驾驶汽车，都依赖于低延迟的预测。为了最大限度地提高性能，我们在设计YOLOv2时从头到尾都是快速的。</p>
 <p>大多数检测框架依靠VGG-16作为基础特征提取器[17]。VGG-16是一个强大的、准确的分类网络，但它是不必要的复杂。VGG-16的卷积层需要306.9亿次浮点运算来处理一张224×224分辨率的图像。</p>
-<p>YOLO框架使用一个基于Googlenet架构的定制网络[19]。这个网络比VGG-16更快，一个前向通道只用了85.2亿次运算。然而，它的准确性比VGG16略差。对于224×224的单张图像，前5名的准确率，YOLO在ImageNet上的自定义模型精度为88.0%，而VGG-16为90.0%。
-&gt;这一段开头先批评一波VGG，说VGG慢的不行，所以YOLOv1用的GoogLeNet，也就是Inceptionv1。速度很快，但是对比VGG精度稍微有所下降
-&gt; &gt;通常目标检测框架：
-大多数检测框架依赖于VGG-16作为基本的特征提取器。VGG-16是一个强大、精确的分类网络，但是它计算复杂。
-&gt; &gt;YOLO框架： 使用基于GoogLeNet架构的自定义网络。虽说整体mAP
-表现较VGG-16 差一些，但是却换来更快速、更少的预测运算。 &gt; &gt;YOLOv2
-框架： 使用的是一个全新的架构: Darknet-19 &gt;</p>
-<h3 id="darknet-19">3.1 Darknet-19</h3>
+<p>YOLO框架使用一个基于Googlenet架构的定制网络[19]。这个网络比VGG-16更快，一个前向通道只用了85.2亿次运算。然而，它的准确性比VGG16略差。对于224×224的单张图像，前5名的准确率，YOLO在ImageNet上的自定义模型精度为88.0%，而VGG-16为90.0%。</p>
+<blockquote>
+<p>这一段开头先批评一波VGG，说VGG慢的不行，所以YOLOv1用的GoogLeNet，也就是Inceptionv1。速度很快，但是对比VGG精度稍微有所下降</p>
+<p>通常目标检测框架： 大多数检测框架依赖于VGG-16作为基本的特征提取器。VGG-16是一个强大、精确的分类网络，但是它计算复杂。</p>
+<p>YOLO框架： 使用基于GoogLeNet架构的自定义网络。虽说整体mAP 表现较VGG-16 差一些，但是却换来更快速、更少的预测运算。</p>
+<p>YOLOv2 框架： 使用的是一个全新的架构: Darknet-19</p>
+</blockquote>
+<h3 id="3-1-Darknet-19">3.1 Darknet-19</h3>
 <p><strong>Darknet-19</strong>我们提出一个新的分类模型，作为YOLOv2的基础。我们的模型建立在先前的网络设计工作以及该领域的常识之上。与VGG模型类似，我们主要使用3×3的过滤器，并在每个池化步骤后将通道的数量增加一倍[17]。按照网络中的网络（NIN）的工作，我们使用全局平均池来进行预测，以及使用1×1滤波器来压缩3×3卷积之间的特征表示[9]。我们使用批量归一化来稳定训练，加速收敛，并使模型正规化[7]。</p>
-<p>我们的最终模型，称为Darknet-19，有19个卷积层和5个maxpooling层。完整的描述见表6。Darknet-19只需要55.8亿次操作来处理一幅图像，却在ImageNet上达到了72.9%的最高准确率和91.2%的top-5准确率。
-&gt;#### <strong>Darknet-19介绍</strong> &gt; &gt;
-一个新的分类模型作为YOLOv2的基础框架。与VGG模型类似，主要使用3×3的卷积，并在每个池化步骤后加倍通道数。使用全局平均池进行预测，并使用1×1卷积压缩特征图通道数以降低模型计算量和参数，每个卷积层后使用BN层以加快模型收敛同时防止过拟合。最后用average
-pooling层代替全连接层进行预测。 &gt;
-&gt;<strong>Darknet-19细节：</strong>
-有19个卷积层和5个maxpooling层。（v1的GooLeNet是4个卷积层和2个全连接层）
-&gt;
-&gt;<strong>结构如下：</strong>（这是分类的模型，不是目标检测的模型）
-&gt;<img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-dark19.png" />
-&gt; &gt;采用 YOLOv2，模型的mAP值没有显著提升，但计算量减少了。 &gt;
-&gt;&gt; <strong>Q：为什么去掉全连接层了呢？</strong> &gt;&gt; &gt;&gt;
-因为全连接层容易过拟合，训练慢。（参数太多）如下图，YOLOv1中通过全连接层将7×7×1024的特征图变换为7×7×30的特征图。但是这种变换完全可以通过一个3×3的卷积核做到，从而节省参数。
-&gt;&gt; &gt;&gt; <img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-dark.png" /></p>
-<h3 id="training-for-classification分类的训练">3.2 Training for
-classification—分类的训练</h3>
-<p><strong>分类的训练</strong> 我们使用随机梯度下降法在标准的ImageNet
-1000类分类数据集上训练网络160次，使用Darknet神经网络框架[13]，起始学习率为0.1，多项式速率衰减为4次方，权重衰减为0.0005，动量为0.9。在训练过程中，我们使用标准的数据增强技巧，包括随机作物、旋转、色调、饱和度和曝光度的转变。</p>
+<p>我们的最终模型，称为Darknet-19，有19个卷积层和5个maxpooling层。完整的描述见表6。Darknet-19只需要55.8亿次操作来处理一幅图像，却在ImageNet上达到了72.9%的最高准确率和91.2%的top-5准确率。</p>
+<blockquote>
+<h4 id="Darknet-19介绍"><strong>Darknet-19介绍</strong></h4>
+<p>一个新的分类模型作为YOLOv2的基础框架。与VGG模型类似，主要使用3×3的卷积，并在每个池化步骤后加倍通道数。使用全局平均池进行预测，并使用1×1卷积压缩特征图通道数以降低模型计算量和参数，每个卷积层后使用BN层以加快模型收敛同时防止过拟合。最后用average pooling层代替全连接层进行预测。</p>
+<p><strong>Darknet-19细节：</strong> 有19个卷积层和5个maxpooling层。（v1的GooLeNet是4个卷积层和2个全连接层）</p>
+<p><strong>结构如下：</strong>（这是分类的模型，不是目标检测的模型）<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-dark19.png" alt=""></p>
+<p>采用 YOLOv2，模型的mAP值没有显著提升，但计算量减少了。</p>
+<blockquote>
+<p><strong>Q：为什么去掉全连接层了呢？</strong></p>
+<p>因为全连接层容易过拟合，训练慢。（参数太多）如下图，YOLOv1中通过全连接层将7×7×1024的特征图变换为7×7×30的特征图。但是这种变换完全可以通过一个3×3的卷积核做到，从而节省参数。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-dark.png" alt=""></p>
+</blockquote>
+</blockquote>
+<h3 id="3-2-Training-for-classification—分类的训练">3.2 Training for classification—分类的训练</h3>
+<p><strong>分类的训练</strong> 我们使用随机梯度下降法在标准的ImageNet 1000类分类数据集上训练网络160次，使用Darknet神经网络框架[13]，起始学习率为0.1，多项式速率衰减为4次方，权重衰减为0.0005，动量为0.9。在训练过程中，我们使用标准的数据增强技巧，包括随机作物、旋转、色调、饱和度和曝光度的转变。</p>
 <p>如上所述，在对224×224的图像进行初始训练后，我们在更大的尺寸（448）上对我们的网络进行微调。在这种微调中，我们用上述参数进行训练，但只用了10个epoch，并以10-3的学习率开始。在这个更高的分辨率下，我们的网络达到了76.5%的最高准确率和93.3%的Top-5准确率。</p>
 <blockquote>
-<p><strong>参数设置</strong> <strong>（1）训练数据集：</strong>
-标准ImageNet 1000类分类数据集</p>
-<p><strong>（2）训练参数：</strong>
-对网络进行160个epochs的训练，使用初始学习率为0.1随机梯度下降法、4的多项式率衰减法、0.0005的权值衰减法和0.9的动量衰减法</p>
+<p><strong>参数设置</strong><br>
+<strong>（1）训练数据集：</strong> 标准ImageNet 1000类分类数据集</p>
+<p><strong>（2）训练参数：</strong> 对网络进行160个epochs的训练，使用初始学习率为0.1随机梯度下降法、4的多项式率衰减法、0.0005的权值衰减法和0.9的动量衰减法</p>
 <p><strong>（3）模型：</strong> 使用的是Darknet神经网络框架。</p>
-<p><strong>（4）数据增强：</strong>
-在训练中使用标准的数据增强技巧，包括随机的裁剪、旋转、色相、饱和度和曝光变化。</p>
-<p>如上所述，在最初的224×224图像训练之后，然后放到448 ×
-448上微调，但只训练约10个周期。在这个高分辨率下，网络达到很高精度。微调时，10epoch，初始lr0.001。</p>
-<p><strong>结果：</strong>
-高分辨率下训练的分类网络在top-1准确率76.5%，top-5准确率93.3%。</p>
+<p><strong>（4）数据增强：</strong> 在训练中使用标准的数据增强技巧，包括随机的裁剪、旋转、色相、饱和度和曝光变化。</p>
+<p>如上所述，在最初的224×224图像训练之后，然后放到448 × 448上微调，但只训练约10个周期。在这个高分辨率下，网络达到很高精度。微调时，10epoch，初始lr0.001。</p>
+<p><strong>结果：</strong> 高分辨率下训练的分类网络在top-1准确率76.5%，top-5准确率93.3%。</p>
 </blockquote>
-<h3 id="training-for-detection检测的训练">3.3 Training for
-detection—检测的训练</h3>
-<p><strong>检测的训练</strong>
-我们对这个网络进行了修改，去掉了最后一个卷积层，而是增加了三个3×3的卷积层，每个卷积层有1024个过滤器，然后是最后一个1×1的卷积层，输出的数量是我们检测所需的。对于VOC，我们预测5个框的5个坐标，每个框有20个类别，所以有125个过滤器。我们还从最后的3×3×512层向第二个卷积层添加了一个直通层，以便我们的模型可以使用细粒度的特征。</p>
-<p>我们用10-3的起始学习率训练网络160个epoch，在60和90个epoch时除以10。我们使用0.0005的权重衰减和0.9的动量。我们使用与YOLO和SSD类似的数据增强，包括随机裁剪、颜色转换等。我们在COCO和VOC上使用同样的训练策略。
-&gt;#### <strong>网络微调</strong> &gt; &gt;- 移除最后一个卷积层、global
-avgpooling层和softmax &gt;- 增加3个3x3x1024的卷积层 &gt;-
-增加passthrough层 &gt;-
-增加一个1×1个卷积层作为网络输出层。输出的channel数为num_ anchors×(5+num_
-calsses)（num_anchors在文中为5，num
-_classes=20是类别个数，5是坐标值和置信度） &gt; &gt;#### 细节 &gt;
-&gt;<strong>（1）网络最后一层即1X1卷积层卷积核个数同网络输出维度相同：</strong>
-对于VOC，预测5个边界框，每个边界框有5个坐标，每个边界框有20个类，所以最后一个1×1卷积层有125个卷积核。
-&gt; &gt;<strong>（2）passthrough层：</strong>
-倒数第二个3X3卷积到最后一个3X3卷积层增加passthrough层。模型可以使用细粒度的特征。
-&gt; &gt;<strong>（3）训练参数：</strong>
-10−3的起始学习率对网络进行160个周期的训练，并在60和90个周期时将其除以10。使用重量衰减为0.0005，动量为0.9。
-&gt; &gt;#### YOLOv2的训练 &gt;
-&gt;（1）在ImageNet训练Draknet-19，模型输入为224×224，共160个epochs &gt;
-&gt;（2）将网络的输入调整为448×448,继续在ImageNet数据集上finetune分类模型，训练10
-个epochs。参数除了epoch和learning rate改变外，其他都没变，这里learning
-rate改为0.001。 &gt;
-&gt;（3）修改Darknet-16分类模型为检测模型（看上面的网络微调部分），并在监测数据集上继续finetune模型
-&gt;<img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-train.png" /></p>
-<h2
-id="四stronger更强yolo9000部分">四、Stronger—更强（YOLO9000部分）</h2>
+<h3 id="3-3-Training-for-detection—检测的训练">3.3 Training for detection—检测的训练</h3>
+<p><strong>检测的训练</strong> 我们对这个网络进行了修改，去掉了最后一个卷积层，而是增加了三个3×3的卷积层，每个卷积层有1024个过滤器，然后是最后一个1×1的卷积层，输出的数量是我们检测所需的。对于VOC，我们预测5个框的5个坐标，每个框有20个类别，所以有125个过滤器。我们还从最后的3×3×512层向第二个卷积层添加了一个直通层，以便我们的模型可以使用细粒度的特征。</p>
+<p>我们用10-3的起始学习率训练网络160个epoch，在60和90个epoch时除以10。我们使用0.0005的权重衰减和0.9的动量。我们使用与YOLO和SSD类似的数据增强，包括随机裁剪、颜色转换等。我们在COCO和VOC上使用同样的训练策略。</p>
+<blockquote>
+<h4 id="网络微调"><strong>网络微调</strong></h4>
+<ul>
+<li>移除最后一个卷积层、global avgpooling层和softmax</li>
+<li>增加3个3x3x1024的卷积层</li>
+<li>增加passthrough层</li>
+<li>增加一个1×1个卷积层作为网络输出层。输出的channel数为num_ anchors×(5+num_ calsses)（num_anchors在文中为5，num _classes=20是类别个数，5是坐标值和置信度）</li>
+</ul>
+<h4 id="细节">细节</h4>
+<p><strong>（1）网络最后一层即1X1卷积层卷积核个数同网络输出维度相同：</strong> 对于VOC，预测5个边界框，每个边界框有5个坐标，每个边界框有20个类，所以最后一个1×1卷积层有125个卷积核。</p>
+<p><strong>（2）passthrough层：</strong> 倒数第二个3X3卷积到最后一个3X3卷积层增加passthrough层。模型可以使用细粒度的特征。</p>
+<p><strong>（3）训练参数：</strong> 10−3的起始学习率对网络进行160个周期的训练，并在60和90个周期时将其除以10。使用重量衰减为0.0005，动量为0.9。</p>
+<h4 id="YOLOv2的训练">YOLOv2的训练</h4>
+<p>（1）在ImageNet训练Draknet-19，模型输入为224×224，共160个epochs</p>
+<p>（2）将网络的输入调整为448×448,继续在ImageNet数据集上finetune分类模型，训练10 个epochs。参数除了epoch和learning rate改变外，其他都没变，这里learning rate改为0.001。</p>
+<p>（3）修改Darknet-16分类模型为检测模型（看上面的网络微调部分），并在监测数据集上继续finetune模型<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-train.png" alt=""></p>
+</blockquote>
+<h2 id="四、Stronger—更强（YOLO9000部分）">四、Stronger—更强（YOLO9000部分）</h2>
 <p>我们提出了一种对分类和检测数据进行联合训练的机制。我们的方法使用标记为检测的图像来学习特定的检测信息，如边界框坐标预测和目标类，以及如何对普通目标进行分类。它使用只有类别标签的图像来扩大它可以检测的类别的数量。</p>
 <p>在训练过程中，我们混合了来自检测和分类数据集的图像。当我们的网络看到被标记为检测的图像时，我们可以根据完整的YOLOv2损失函数进行反向传播。当它看到一个分类图像时，我们只从架构的分类特定部分反向传播损失。</p>
-<p>这种方法带来了一些挑战。检测数据集只有常见的物体和一般的标签，如 "狗
-"或
-“船”。分类数据集有更广泛和更深入的标签范围。ImageNet有一百多个狗的品种，包括
-“诺福克梗”、"约克夏梗 "和
-“贝灵顿梗”。如果我们想在这两个数据集上进行训练，我们需要一个连贯的方法来合并这些标签。</p>
-<p>大多数分类方法在所有可能的类别中使用softmax层来计算最终的概率分布。使用softmax时，假定这些类别是相互排斥的。这给合并数据集带来了问题，例如，你不会想用这个模型来合并ImageNet和COCO，因为
-"诺福克梗 "和 "狗 "这两个类别并不相互排斥。</p>
-<p>我们可以使用一个多标签模型来结合数据集，而这个模型并不假定相互排斥。这种方法忽略了我们所知道的关于数据的所有结构，例如，所有的COCO类都是互斥的。
-&gt;### YOLOv2和YOLO9000的关系 &gt;
-&gt;YOLOv2和YOLO9000算法在2017年CVPR上被提出，重点解决YOLOv1召回率和定位精度方面的误差。
-&gt; &gt;<strong>YOLOv2：</strong>
-是在YOLOv1的基础上改进得到，改进之处主要有：Batch Normalization
-(批量归一化)、High Resolution Classfier(高分辨率的分类器)、Convolutional
-With Anchor Boxes (带锚框的卷积)、Dimension Clusters (维度聚类)、Direct
-location prediction (直接位置预测)、Fine-Grained Feature
-(细粒度特性)、Multi-Scale Training
-(多尺度训练)，它的特点是“更好，更快，更强”。 &gt;
-&gt;<strong>YOLO9000：</strong> 的主要检测网络也是YOLO
-v2，同时使用WordTree来混合来自不同的资源的训练数据，并使用联合优化技术同时在ImageNet和COCO数据集上进行训练，目的是利用数量较大的分类数据集来帮助训练检测模型，因此，YOLO9000的网络结构允许实时地检测超过9000种物体分类，进一步缩小了检测数据集与分类数据集之间的大小代沟。
-&gt; &gt;### 方法 &gt; &gt;联合coco目标检测数据集和imagenet分类数据集。
-&gt; &gt;-
-输入的若为目标检测标签的，则在模型中反向传播目标检测的损失函数。 &gt;-
-输入的若为分类标签的，则反向传播分类的损失函数 &gt; &gt;### 问题 &gt;
-&gt;-
-coco的数据集标签分类的比较粗，比如狗，猫，而imagenet分类则比较细化，比如二哈狗，金毛狗。
-&gt;-
-这时候如果用softmax进行最后的分类，则会产生问题，因为softmax输出最大概率的那个分类，各种分类之间彼此互斥，若狗，二哈狗，金毛狗在一起的话就会出问题。
-&gt;- 所以要联合训练，必须让标签有一定程度上的一致性。</p>
-<h3 id="hierarchical-classification分层分类">4.1 Hierarchical
-classification—分层分类</h3>
-<p><strong>分层分类</strong>
-ImageNet的标签是从WordNet中提取的，WordNet是一个语言数据库，用于构造概念和它们之间的关系[12]。在WordNet中，"Norfolk
-terrier "和 "Yorkshire terrier "都是 "terrier "的外来语，而 "terrier "是
-"猎狗 "的一种，是 "狗 "的一种，是 "犬类
-"的一种等等。大多数分类方法都假定标签有一个平面结构，然而对于结合数据集来说，结构正是我们所需要的。</p>
-<p>WordNet的结构是一个有向图，而不是一棵树，因为语言是复杂的。例如，"狗
-"既是 "犬类 "的一种类型，也是 "家畜
-"的一种类型，它们都是WordNet中的主题词。我们没有使用完整的图结构，而是通过从ImageNet中的概念建立一棵分层的树来简化这个问题。</p>
-<p>为了建立这棵树，我们检查了ImageNet中的视觉名词，并查看了它们通过WordNet图到根节点的路径，在这个例子中是
-“物理对象”。许多同义词在图中只有一条路径，因此我们首先将所有这些路径添加到我们的树上。然后，我们反复检查我们剩下的概念，并添加路径，使树的增长尽可能少。因此，如果一个概念有两条通往根的路径，其中一条路径会给我们的树增加三条边，而另一条只增加一条边，我们就选择较短的路径。</p>
+<p>这种方法带来了一些挑战。检测数据集只有常见的物体和一般的标签，如 &quot;狗 &quot;或 “船”。分类数据集有更广泛和更深入的标签范围。ImageNet有一百多个狗的品种，包括 “诺福克梗”、&quot;约克夏梗 &quot;和 “贝灵顿梗”。如果我们想在这两个数据集上进行训练，我们需要一个连贯的方法来合并这些标签。</p>
+<p>大多数分类方法在所有可能的类别中使用softmax层来计算最终的概率分布。使用softmax时，假定这些类别是相互排斥的。这给合并数据集带来了问题，例如，你不会想用这个模型来合并ImageNet和COCO，因为 &quot;诺福克梗 &quot;和 &quot;狗 &quot;这两个类别并不相互排斥。</p>
+<p>我们可以使用一个多标签模型来结合数据集，而这个模型并不假定相互排斥。这种方法忽略了我们所知道的关于数据的所有结构，例如，所有的COCO类都是互斥的。</p>
+<blockquote>
+<h3 id="YOLOv2和YOLO9000的关系">YOLOv2和YOLO9000的关系</h3>
+<p>YOLOv2和YOLO9000算法在2017年CVPR上被提出，重点解决YOLOv1召回率和定位精度方面的误差。</p>
+<p><strong>YOLOv2：</strong> 是在YOLOv1的基础上改进得到，改进之处主要有：Batch Normalization (批量归一化)、High Resolution Classfier(高分辨率的分类器)、Convolutional With Anchor Boxes (带锚框的卷积)、Dimension Clusters (维度聚类)、Direct location prediction (直接位置预测)、Fine-Grained Feature (细粒度特性)、Multi-Scale Training (多尺度训练)，它的特点是“更好，更快，更强”。</p>
+<p><strong>YOLO9000：</strong> 的主要检测网络也是YOLO v2，同时使用WordTree来混合来自不同的资源的训练数据，并使用联合优化技术同时在ImageNet和COCO数据集上进行训练，目的是利用数量较大的分类数据集来帮助训练检测模型，因此，YOLO9000的网络结构允许实时地检测超过9000种物体分类，进一步缩小了检测数据集与分类数据集之间的大小代沟。</p>
+<h3 id="方法-2">方法</h3>
+<p>联合coco目标检测数据集和imagenet分类数据集。</p>
+<ul>
+<li>输入的若为目标检测标签的，则在模型中反向传播目标检测的损失函数。</li>
+<li>输入的若为分类标签的，则反向传播分类的损失函数</li>
+</ul>
+<h3 id="问题">问题</h3>
+<ul>
+<li>coco的数据集标签分类的比较粗，比如狗，猫，而imagenet分类则比较细化，比如二哈狗，金毛狗。</li>
+<li>这时候如果用softmax进行最后的分类，则会产生问题，因为softmax输出最大概率的那个分类，各种分类之间彼此互斥，若狗，二哈狗，金毛狗在一起的话就会出问题。</li>
+<li>所以要联合训练，必须让标签有一定程度上的一致性。</li>
+</ul>
+</blockquote>
+<h3 id="4-1-Hierarchical-classification—分层分类">4.1 Hierarchical classification—分层分类</h3>
+<p><strong>分层分类</strong> ImageNet的标签是从WordNet中提取的，WordNet是一个语言数据库，用于构造概念和它们之间的关系[12]。在WordNet中，&quot;Norfolk terrier &quot;和 &quot;Yorkshire terrier &quot;都是 &quot;terrier &quot;的外来语，而 &quot;terrier &quot;是 &quot;猎狗 &quot;的一种，是 &quot;狗 &quot;的一种，是 &quot;犬类 &quot;的一种等等。大多数分类方法都假定标签有一个平面结构，然而对于结合数据集来说，结构正是我们所需要的。</p>
+<p>WordNet的结构是一个有向图，而不是一棵树，因为语言是复杂的。例如，&quot;狗 &quot;既是 &quot;犬类 &quot;的一种类型，也是 &quot;家畜 &quot;的一种类型，它们都是WordNet中的主题词。我们没有使用完整的图结构，而是通过从ImageNet中的概念建立一棵分层的树来简化这个问题。</p>
+<p>为了建立这棵树，我们检查了ImageNet中的视觉名词，并查看了它们通过WordNet图到根节点的路径，在这个例子中是 “物理对象”。许多同义词在图中只有一条路径，因此我们首先将所有这些路径添加到我们的树上。然后，我们反复检查我们剩下的概念，并添加路径，使树的增长尽可能少。因此，如果一个概念有两条通往根的路径，其中一条路径会给我们的树增加三条边，而另一条只增加一条边，我们就选择较短的路径。</p>
 <p>最后的结果是WordTree，一个视觉概念的分层模型。为了用WordTree进行分类，我们在每个节点上预测条件概率，即在给定的同义词中，每个同义词的概率。如果我们想计算一个特定节点的绝对概率，我们只需沿着树的路径到根节点，然后乘以条件概率。</p>
 <p>为了分类的目的，我们假设该图像包含一个物体。Pr(物理对象) = 1。</p>
-<p>为了验证这种方法，我们在使用1000类ImageNet建立的WordTree上训练Darknet-19模型。为了建立WordTree1k，我们加入了所有的中间节点，将标签空间从1000扩大到1369。在训练过程中，我们在树上传播基础事实标签，这样，如果一张图片被标记为
-“诺福克梗”，它也会被标记为 "狗 "和
-“哺乳动物”，等等。为了计算条件概率，我们的模型预测了一个由1369个值组成的向量，我们计算了所有作为同一概念的假名的系统集的softmax，见图5。
-<img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/%E5%88%86%E5%B1%82%E5%88%86%E7%B1%BB.png" /></p>
-<p>使用与之前相同的训练参数，我们的分层式Darknet-19达到了71.9%的top-1准确率和90.4%的top-5准确率。尽管增加了369个额外的概念，并让我们的网络预测树状结构，但我们的准确率只下降了一点。以这种方式进行分类也有一些好处。在新的或未知的对象类别上，性能会优雅地下降。例如，如果网络看到一张狗的照片，但不确定它是什么类型的狗，它仍然会以高置信度预测
-“狗”，但在假名中分布的置信度会降低。</p>
+<p>为了验证这种方法，我们在使用1000类ImageNet建立的WordTree上训练Darknet-19模型。为了建立WordTree1k，我们加入了所有的中间节点，将标签空间从1000扩大到1369。在训练过程中，我们在树上传播基础事实标签，这样，如果一张图片被标记为 “诺福克梗”，它也会被标记为 &quot;狗 &quot;和 “哺乳动物”，等等。为了计算条件概率，我们的模型预测了一个由1369个值组成的向量，我们计算了所有作为同一概念的假名的系统集的softmax，见图5。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/%E5%88%86%E5%B1%82%E5%88%86%E7%B1%BB.png" alt=""></p>
+<p>使用与之前相同的训练参数，我们的分层式Darknet-19达到了71.9%的top-1准确率和90.4%的top-5准确率。尽管增加了369个额外的概念，并让我们的网络预测树状结构，但我们的准确率只下降了一点。以这种方式进行分类也有一些好处。在新的或未知的对象类别上，性能会优雅地下降。例如，如果网络看到一张狗的照片，但不确定它是什么类型的狗，它仍然会以高置信度预测 “狗”，但在假名中分布的置信度会降低。</p>
 <p>这种表述也适用于检测。现在，我们不是假设每张图片都有一个物体，而是使用YOLOv2的物体性预测器来给我们提供Pr（物理物体）的值。检测器会预测出一个边界框和概率树。我们向下遍历这棵树，在每一个分叉处采取最高的置信度路径，直到我们达到某个阈值，我们就可以预测那个物体类别。</p>
 <blockquote>
 <ul>
-<li><p>ImageNet的标签是从WordNet中提取的，WordNet是一个语言数据库，用于构造概念和它们之间的关系。</p></li>
-<li><p>WordNet的结构是一个有向图，而不是一棵树，因为语言是复杂的。</p></li>
-<li><p>作者们并不采用整个WordNet
-的图结构，而是从中抽取其视觉名词重新制作一个树状结构。</p></li>
-<li><p>在WordTree结构上进行操作，需要预测的是每一个节点相对于父节点的条件概率，要计算某个几点的绝对概率
-或者说联合概率，就直接从他乘到根节点。</p></li>
+<li>
+<p>ImageNet的标签是从WordNet中提取的，WordNet是一个语言数据库，用于构造概念和它们之间的关系。</p>
+</li>
+<li>
+<p>WordNet的结构是一个有向图，而不是一棵树，因为语言是复杂的。</p>
+</li>
+<li>
+<p>作者们并不采用整个WordNet 的图结构，而是从中抽取其视觉名词重新制作一个树状结构。</p>
+</li>
+<li>
+<p>在WordTree结构上进行操作，需要预测的是每一个节点相对于父节点的条件概率，要计算某个几点的绝对概率 或者说联合概率，就直接从他乘到根节点。</p>
+</li>
 </ul>
-<p><img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E6%9C%89%E5%90%91%E5%9B%BE.png" /></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-%E6%9C%89%E5%90%91%E5%9B%BE.png" alt=""></p>
 </blockquote>
-<h3 id="dataset-combination-with-wordtree用wordtree组合数据集">4.2
-Dataset combination with WordTree—用WordTree组合数据集</h3>
-<p><strong>用WordTree组合数据集。</strong>我们可以使用WordTree以合理的方式将多个数据集组合在一起。我们只需将数据集中的类别映射到树上的同位素。图6显示了一个使用WordTree来结合ImageNet和COCO的标签的例子。WordNet是非常多样化的，所以我们可以将这种技术用于大多数数据集。</p>
+<h3 id="4-2-Dataset-combination-with-WordTree—用WordTree组合数据集">4.2 Dataset combination with WordTree—用WordTree组合数据集</h3>
+<p>**用WordTree组合数据集。**我们可以使用WordTree以合理的方式将多个数据集组合在一起。我们只需将数据集中的类别映射到树上的同位素。图6显示了一个使用WordTree来结合ImageNet和COCO的标签的例子。WordNet是非常多样化的，所以我们可以将这种技术用于大多数数据集。</p>
 <blockquote>
 <p>原始正常的数据集中数据结构是WordNet(有向图)。作者改造成了WordTree(树)。</p>
 <p><strong>WordTree的生成方式如下：</strong></p>
@@ -604,66 +522,40 @@ Dataset combination with WordTree—用WordTree组合数据集</h3>
 <li>如果路径只有一条，那么就将该路径直接加入到分层树结构中；</li>
 <li>否则，从剩余的路径中选择一条最短路径，加入到分层树。</li>
 </ul>
-<p><img
-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-wordtree.png" /></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov2-wordtree.png" alt=""></p>
 <p>混合后的数据集形成一个有9418类的WordTree。生成的WordTree模型如下图所示。另外考虑到COCO数据集相对于ImageNet数据集数据量太少了，为了平衡两个数据集，作者进一步对COCO数据集过采样，使COCO数据集与ImageNet数据集的数据量比例接近1：4。</p>
 </blockquote>
-<h3 id="joint-classification-and-detection联合分类和检测">4.3 Joint
-classification and detection—联合分类和检测</h3>
-<p><strong>联合分类和检测</strong>
-现在我们可以使用WordTree结合数据集，我们可以训练分类和检测的联合模型。我们想训练一个极大规模的检测器，所以我们使用COCO检测数据集和ImageNet完整版本中的前9000个类来创建我们的联合数据集。我们还需要评估我们的方法，所以我们加入了ImageNet检测挑战中尚未包括的任何类别。这个数据集的相应WordTree有9418个类。ImageNet是一个更大的数据集，所以我们通过对COCO的过度采样来平衡数据集，使ImageNet只比它大4:1。</p>
-<p>使用这个数据集，我们训练YOLO9000。我们使用基本的YOLOv2架构，但只有3个先验因素，而不是5个，以限制输出大小。当我们的网络看到一个检测图像时，我们像平常一样反向传播损失。对于分类损失，我们只在标签的相应级别或以上反向传播损失。例如，如果标签是
-“狗”，我们不给树上更远的预测分配任何错误，"德国牧羊犬 "与
-“金毛猎犬”，因为我们没有这些信息。</p>
-<p>当它看到一个分类图像时，我们只反向传播分类损失。要做到这一点，我们只需找到预测该类的最高概率的边界框，并计算其预测树上的损失。我们还假设预测框与地面真实标签至少有0.3
-IOU的重叠，我们根据这一假设反向传播对象性损失。</p>
+<h3 id="4-3-Joint-classification-and-detection—联合分类和检测">4.3 Joint classification and detection—联合分类和检测</h3>
+<p><strong>联合分类和检测</strong> 现在我们可以使用WordTree结合数据集，我们可以训练分类和检测的联合模型。我们想训练一个极大规模的检测器，所以我们使用COCO检测数据集和ImageNet完整版本中的前9000个类来创建我们的联合数据集。我们还需要评估我们的方法，所以我们加入了ImageNet检测挑战中尚未包括的任何类别。这个数据集的相应WordTree有9418个类。ImageNet是一个更大的数据集，所以我们通过对COCO的过度采样来平衡数据集，使ImageNet只比它大4:1。</p>
+<p>使用这个数据集，我们训练YOLO9000。我们使用基本的YOLOv2架构，但只有3个先验因素，而不是5个，以限制输出大小。当我们的网络看到一个检测图像时，我们像平常一样反向传播损失。对于分类损失，我们只在标签的相应级别或以上反向传播损失。例如，如果标签是 “狗”，我们不给树上更远的预测分配任何错误，&quot;德国牧羊犬 &quot;与 “金毛猎犬”，因为我们没有这些信息。</p>
+<p>当它看到一个分类图像时，我们只反向传播分类损失。要做到这一点，我们只需找到预测该类的最高概率的边界框，并计算其预测树上的损失。我们还假设预测框与地面真实标签至少有0.3 IOU的重叠，我们根据这一假设反向传播对象性损失。</p>
 <p>通过这种联合训练，YOLO9000学会了使用COCO中的检测数据来寻找图像中的物体，并学会了使用ImageNet中的数据对这些物体进行分类。</p>
 <p>我们在ImageNet检测任务上评估了YOLO9000。ImageNet的检测任务与COCO共享44个对象类别，这意味着YOLO9000只看到了大多数测试图像的分类数据，而不是检测数据。YOLO9000总体上得到了19.7的mAP，在它从未见过任何标记的检测数据的156个不相干的对象类别上得到了16.0的mAP。这个mAP比DPM取得的结果要高，但是YOLO9000是在不同的数据集上训练的，只有部分监督[4]。它还同时检测了9000个其他物体类别，而且都是实时的。</p>
-<p>当我们分析YOLO9000在ImageNet上的表现时，我们看到它能很好地学习新的动物物种，但在学习服装和设备等类别时却很困难。新的动物更容易学习，因为对象性预测可以很好地从COCO中的动物中概括出来。相反，COCO没有任何类型的衣服的边界框标签，只有人的标签，所以YOLO9000在为
-"太阳镜 "或 "游泳裤 "等类别建模时很吃力。 &gt;###
-YOLO9000是怎样进行联合训练的？ &gt; &gt;YOLO9000采用 YOLO
-v2的结构，<strong>Anchorbox由原来的5调整到3</strong>，对每个Anchorbox预测其对应的边界框的位置信息x
-, y , w ,
-h和置信度以及所包含的物体分别属于9418类的概率，所以每个Anchorbox需要预测4+1+9418=9423个值。每个网格需要预测3×9423=28269个值。在训练的过程中，当网络遇到来自检测数据集的图片时，用完整的
-YOLO v2
-loss进行反向传播计算，当网络遇到来自分类数据集的图片时，只用分类部分的loss进行反向传播。
-&gt; &gt;### YOLO 9000是怎么预测的？ &gt;
-&gt;WordTree中每个节点的子节点都属于同一个子类，分层次的对每个子类中的节点进行一次softmax处理，以得到同义词集合中的每个词的下义词的概率。当需要预测属于某个类别的概率时，需要预测该类别节点的条件概率。即在WordTree上找到该类别名词到根节点的路径，计算路径上每个节点的概率之积。<strong>预测时，
-YOLO
-v2得到置信度，同时会给出边界框位置以及一个树状概率图，沿着根节点向下，沿着置信度最高的分支向下，直到达到某个阈值，最后到达的节点类别即为预测物体的类别。</strong></p>
-<h3 id="五conclusion结论"><strong>五、Conclusion—结论</strong></h3>
+<p>当我们分析YOLO9000在ImageNet上的表现时，我们看到它能很好地学习新的动物物种，但在学习服装和设备等类别时却很困难。新的动物更容易学习，因为对象性预测可以很好地从COCO中的动物中概括出来。相反，COCO没有任何类型的衣服的边界框标签，只有人的标签，所以YOLO9000在为 &quot;太阳镜 &quot;或 &quot;游泳裤 &quot;等类别建模时很吃力。</p>
+<blockquote>
+<h3 id="YOLO9000是怎样进行联合训练的？">YOLO9000是怎样进行联合训练的？</h3>
+<p>YOLO9000采用 YOLO v2的结构，<strong>Anchorbox由原来的5调整到3</strong>，对每个Anchorbox预测其对应的边界框的位置信息x , y , w , h和置信度以及所包含的物体分别属于9418类的概率，所以每个Anchorbox需要预测4+1+9418=9423个值。每个网格需要预测3×9423=28269个值。在训练的过程中，当网络遇到来自检测数据集的图片时，用完整的 YOLO v2 loss进行反向传播计算，当网络遇到来自分类数据集的图片时，只用分类部分的loss进行反向传播。</p>
+<h3 id="YOLO-9000是怎么预测的？">YOLO 9000是怎么预测的？</h3>
+<p>WordTree中每个节点的子节点都属于同一个子类，分层次的对每个子类中的节点进行一次softmax处理，以得到同义词集合中的每个词的下义词的概率。当需要预测属于某个类别的概率时，需要预测该类别节点的条件概率。即在WordTree上找到该类别名词到根节点的路径，计算路径上每个节点的概率之积。<strong>预测时， YOLO v2得到置信度，同时会给出边界框位置以及一个树状概率图，沿着根节点向下，沿着置信度最高的分支向下，直到达到某个阈值，最后到达的节点类别即为预测物体的类别。</strong></p>
+</blockquote>
+<h3 id="五、Conclusion—结论"><strong>五、Conclusion—结论</strong></h3>
 <p>我们介绍了YOLOv2和YOLO9000，实时检测系统。YOLOv2是最先进的，在各种检测数据集上比其他检测系统快。此外，它可以在各种图像尺寸下运行，在速度和准确性之间提供平稳的权衡。</p>
 <p>YOLO9000是一个实时框架，通过联合优化检测和分类来检测9000多个物体类别。我们使用WordTree来结合各种来源的数据和我们的联合优化技术，在ImageNet和COCO上同时训练。YOLO9000是朝着缩小检测和分类之间的数据集大小差距迈出的有力一步。</p>
 <p>我们的许多技术可以在目标检测之外进行推广。我们对ImageNet的WordTree表示为图像分类提供了一个更丰富、更详细的输出空间。使用分层分类的数据集组合在分类和分割领域将是有用的。像多尺度训练这样的训练技术可以在各种视觉任务中提供好处。</p>
-<p>对于未来的工作，我们希望将类似的技术用于弱监督的图像分割。我们还计划在训练过程中使用更强大的匹配策略为分类数据分配弱标签来提高我们的检测结果。计算机视觉有着得天独厚的大量标记数据。我们将继续寻找方法，将不同来源和结构的数据结合起来，为视觉世界建立更强大的模型。
-&gt;<strong>YOLOv2</strong>
-是最先进的，在各种检测数据集上比其他检测系统更快。此外，它可以在各种图像大小下运行，以在速度和精度之间提供平滑的折中。
-&gt; &gt;<strong>对比yolov1所作出的改进：</strong> &gt; &gt;-
-加了BN（卷积后，激活函数前）; &gt;-
-加了高分辨率分类器;加了anchor(聚类得到个数,1个gird cell
-生成5个anchor);限制预测框； &gt;-
-加入细粒度特征(类似于concat的残差)加入对尺度训练改进骨干网络(GoogleNet
-变darknet-19)通过WordTree将不同数据集结合联合训练。 &gt;-
-用一种新颖的方法扩充了数据集。 &gt; &gt;<strong>YOLO9000</strong>
-是一个实时框架，通过联合优化检测和分类，可检测9000多个对象类别。我们使用WordTree合并来自不同来源的数据，并使用我们的联合优化技术在ImageNet和CoCo上同时进行训练。
-&gt; &gt;<strong>WordTree</strong>
-的概念可以让分类标注提供更大的运用空间，并且可以利用来进行弱监督学习，也可以利用这样的概念结合各种不同任务的资料集，对于分类有很大的助益。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.chitose.cn">Chitose</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.chitose.cn/yolov2-paper/">https://www.chitose.cn/yolov2-paper/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.chitose.cn" target="_blank">Chitose-Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_5.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/yolov3-paper/" title="yolov3-paper"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_7.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">yolov3-paper</div></div></a></div><div class="next-post pull-right"><a href="/yolov1-paper/" title="yolov1-paper"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_4.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">yolov1-paper</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Face.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chitose</div><div class="author-info__description">Hahaha</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/chitose-r"><i class="fab fa-github"></i><span>🛴/前往小家..</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/chitose-r" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:171450290@qq.com" target="_blank" title="Email"><i class="fa-solid fa-square-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/qq/" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12b7f5;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#yolo9000-better-faster-stronger"><span class="toc-text">YOLO9000: Better, Faster,
-Stronger</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#abstract%E6%91%98%E8%A6%81"><span class="toc-text">Abstract—摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-introduction%E5%BC%95%E8%A8%80"><span class="toc-text">一、
-Introduction—引言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%8E%B0%E7%8A%B6%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="toc-text">目标检测现状的不足</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">本文工作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-better%E6%9B%B4%E5%A5%BD"><span class="toc-text">二、 Better—更好</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#batch-normalization%E6%89%B9%E9%87%8F%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">2.1 Batch
-Normalization—批量归一化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#high-resolution-classifier%E9%AB%98%E5%88%86%E8%BE%A8%E7%8E%87%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-text">2.2 High Resolution
-Classifier—高分辨率分类器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E4%BB%8B%E7%BB%8D"><span class="toc-text">分类器介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v1%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">v1中的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v2%E4%B8%AD%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">v2中的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-1"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#convolutional-with-anchor-boxes%E5%B8%A6%E6%9C%89anchor-boxes%E7%9A%84%E5%8D%B7%E7%A7%AF"><span class="toc-text">2.3
-Convolutional With Anchor Boxes—带有Anchor Boxes的卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dimension-clusters%E7%BB%B4%E5%BA%A6%E8%81%9A%E7%B1%BBk-means%E8%81%9A%E7%B1%BB%E7%A1%AE%E5%AE%9Aanchor%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="toc-text">2.4
-Dimension Clusters—维度聚类（K-means聚类确定Anchor初始值）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#direct-location-prediction%E7%9B%B4%E6%8E%A5%E7%9A%84%E4%BD%8D%E7%BD%AE%E9%A2%84%E6%B5%8B"><span class="toc-text">2.5 Direct location
-prediction—直接的位置预测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8anchor%E7%9A%84%E9%97%AE%E9%A2%98%E4%BA%8C"><span class="toc-text">使用Anchor的问题二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rpn%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BD%8D%E7%BD%AE%E9%A2%84%E6%B5%8B"><span class="toc-text">RPN网络的位置预测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yolov2%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">YOLOv2的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-2"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fine-grained-features%E7%BB%86%E7%B2%92%E5%BA%A6%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-text">2.6 Fine-Grained
-Features—细粒度的特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E7%BB%86%E7%B2%92%E7%89%B9%E5%BE%81"><span class="toc-text">为什么使用细粒特征？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E7%B2%92%E5%BA%A6%E7%89%B9%E5%BE%81"><span class="toc-text">使用细粒度特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E9%80%9A%E5%B1%82-passthrough-layer"><span class="toc-text">直通层（ passthrough layer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-3"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#multi-scale-training%E5%A4%9A%E5%B0%BA%E5%BA%A6%E7%9A%84%E8%AE%AD%E7%BB%83"><span class="toc-text">2.7 Multi-Scale
-Training—多尺度的训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#further-experiments%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E5%AE%9E%E9%AA%8C"><span class="toc-text">2.8 Further
-Experiments—进一步的实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89faster%E6%9B%B4%E5%BF%AB"><span class="toc-text">三、Faster—更快</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#darknet-19"><span class="toc-text">3.1 Darknet-19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#training-for-classification%E5%88%86%E7%B1%BB%E7%9A%84%E8%AE%AD%E7%BB%83"><span class="toc-text">3.2 Training for
-classification—分类的训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#training-for-detection%E6%A3%80%E6%B5%8B%E7%9A%84%E8%AE%AD%E7%BB%83"><span class="toc-text">3.3 Training for
-detection—检测的训练</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9Bstronger%E6%9B%B4%E5%BC%BAyolo9000%E9%83%A8%E5%88%86"><span class="toc-text">四、Stronger—更强（YOLO9000部分）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hierarchical-classification%E5%88%86%E5%B1%82%E5%88%86%E7%B1%BB"><span class="toc-text">4.1 Hierarchical
-classification—分层分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dataset-combination-with-wordtree%E7%94%A8wordtree%E7%BB%84%E5%90%88%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">4.2
-Dataset combination with WordTree—用WordTree组合数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#joint-classification-and-detection%E8%81%94%E5%90%88%E5%88%86%E7%B1%BB%E5%92%8C%E6%A3%80%E6%B5%8B"><span class="toc-text">4.3 Joint
-classification and detection—联合分类和检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94conclusion%E7%BB%93%E8%AE%BA"><span class="toc-text">五、Conclusion—结论</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Chitose</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+<p>对于未来的工作，我们希望将类似的技术用于弱监督的图像分割。我们还计划在训练过程中使用更强大的匹配策略为分类数据分配弱标签来提高我们的检测结果。计算机视觉有着得天独厚的大量标记数据。我们将继续寻找方法，将不同来源和结构的数据结合起来，为视觉世界建立更强大的模型。</p>
+<blockquote>
+<p><strong>YOLOv2</strong> 是最先进的，在各种检测数据集上比其他检测系统更快。此外，它可以在各种图像大小下运行，以在速度和精度之间提供平滑的折中。</p>
+<p><strong>对比yolov1所作出的改进：</strong></p>
+<ul>
+<li>加了BN（卷积后，激活函数前）;</li>
+<li>加了高分辨率分类器;加了anchor(聚类得到个数,1个gird cell 生成5个anchor);限制预测框；</li>
+<li>加入细粒度特征(类似于concat的残差)加入对尺度训练改进骨干网络(GoogleNet 变darknet-19)通过WordTree将不同数据集结合联合训练。</li>
+<li>用一种新颖的方法扩充了数据集。</li>
+</ul>
+<p><strong>YOLO9000</strong> 是一个实时框架，通过联合优化检测和分类，可检测9000多个对象类别。我们使用WordTree合并来自不同来源的数据，并使用我们的联合优化技术在ImageNet和CoCo上同时进行训练。</p>
+<p><strong>WordTree</strong> 的概念可以让分类标注提供更大的运用空间，并且可以利用来进行弱监督学习，也可以利用这样的概念结合各种不同任务的资料集，对于分类有很大的助益。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.chitose.cn">Chitose</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.chitose.cn/yolov2-paper/">https://www.chitose.cn/yolov2-paper/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.chitose.cn" target="_blank">Chitose-Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/yolov3-paper/" title="yolov3-paper"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_5.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">yolov3-paper</div></div></a></div><div class="next-post pull-right"><a href="/yolov1-paper/" title="yolov1-paper"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_9.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">yolov1-paper</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Face.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chitose</div><div class="author-info__description">Hahaha</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/chitose-r"><i class="fab fa-github"></i><span>🛴/前往小家..</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/chitose-r" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:171450290@qq.com" target="_blank" title="Email"><i class="fa-solid fa-square-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/qq/" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12b7f5;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">YOLO9000: Better, Faster, Stronger</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract%E2%80%94%E6%91%98%E8%A6%81"><span class="toc-text">Abstract—摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLOv1%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="toc-text">YOLOv1的不足</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">本文的改进</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81-Introduction%E2%80%94%E5%BC%95%E8%A8%80"><span class="toc-text">一、 Introduction—引言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%8E%B0%E7%8A%B6%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="toc-text">目标检测现状的不足</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">本文工作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81-Better%E2%80%94%E6%9B%B4%E5%A5%BD"><span class="toc-text">二、 Better—更好</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Batch-Normalization%E2%80%94%E6%89%B9%E9%87%8F%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">2.1 Batch Normalization—批量归一化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-High-Resolution-Classifier%E2%80%94%E9%AB%98%E5%88%86%E8%BE%A8%E7%8E%87%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-text">2.2 High Resolution Classifier—高分辨率分类器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E4%BB%8B%E7%BB%8D"><span class="toc-text">分类器介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v1%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">v1中的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v2%E4%B8%AD%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">v2中的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-2"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Convolutional-With-Anchor-Boxes%E2%80%94%E5%B8%A6%E6%9C%89Anchor-Boxes%E7%9A%84%E5%8D%B7%E7%A7%AF"><span class="toc-text">2.3 Convolutional With Anchor Boxes—带有Anchor Boxes的卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFAnchor%EF%BC%9F"><span class="toc-text">什么是Anchor？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Anchor-Box%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-text">Anchor Box的构成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%8B%E5%89%8D%E7%A0%94%E7%A9%B6"><span class="toc-text">之前研究</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-3"><span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v2%E5%92%8Cv1%E5%AF%B9%E6%AF%94"><span class="toc-text">v2和v1对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Dimension-Clusters%E2%80%94%E7%BB%B4%E5%BA%A6%E8%81%9A%E7%B1%BB%EF%BC%88K-means%E8%81%9A%E7%B1%BB%E7%A1%AE%E5%AE%9AAnchor%E5%88%9D%E5%A7%8B%E5%80%BC%EF%BC%89"><span class="toc-text">2.4 Dimension Clusters—维度聚类（K-means聚类确定Anchor初始值）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Anchor%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%80"><span class="toc-text">使用Anchor的问题一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">解决方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Direct-location-prediction%E2%80%94%E7%9B%B4%E6%8E%A5%E7%9A%84%E4%BD%8D%E7%BD%AE%E9%A2%84%E6%B5%8B"><span class="toc-text">2.5 Direct location prediction—直接的位置预测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Anchor%E7%9A%84%E9%97%AE%E9%A2%98%E4%BA%8C"><span class="toc-text">使用Anchor的问题二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RPN%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BD%8D%E7%BD%AE%E9%A2%84%E6%B5%8B"><span class="toc-text">RPN网络的位置预测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLOv2%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">YOLOv2的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-4"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-Fine-Grained-Features%E2%80%94%E7%BB%86%E7%B2%92%E5%BA%A6%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-text">2.6 Fine-Grained Features—细粒度的特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E7%BB%86%E7%B2%92%E7%89%B9%E5%BE%81%EF%BC%9F"><span class="toc-text">为什么使用细粒特征？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E7%B2%92%E5%BA%A6%E7%89%B9%E5%BE%81"><span class="toc-text">使用细粒度特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E9%80%9A%E5%B1%82%EF%BC%88-passthrough-layer%EF%BC%89"><span class="toc-text">直通层（ passthrough layer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-5"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-Multi-Scale-Training%E2%80%94%E5%A4%9A%E5%B0%BA%E5%BA%A6%E7%9A%84%E8%AE%AD%E7%BB%83"><span class="toc-text">2.7 Multi-Scale Training—多尺度的训练</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLOv1"><span class="toc-text">YOLOv1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLOv2%E7%9A%84%E6%94%B9%E8%BF%9B-2"><span class="toc-text">YOLOv2的改进</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-Further-Experiments%E2%80%94%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E5%AE%9E%E9%AA%8C"><span class="toc-text">2.8 Further Experiments—进一步的实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Faster%E2%80%94%E6%9B%B4%E5%BF%AB"><span class="toc-text">三、Faster—更快</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Darknet-19"><span class="toc-text">3.1 Darknet-19</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Darknet-19%E4%BB%8B%E7%BB%8D"><span class="toc-text">Darknet-19介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Training-for-classification%E2%80%94%E5%88%86%E7%B1%BB%E7%9A%84%E8%AE%AD%E7%BB%83"><span class="toc-text">3.2 Training for classification—分类的训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Training-for-detection%E2%80%94%E6%A3%80%E6%B5%8B%E7%9A%84%E8%AE%AD%E7%BB%83"><span class="toc-text">3.3 Training for detection—检测的训练</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BE%AE%E8%B0%83"><span class="toc-text">网络微调</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-text">细节</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLOv2%E7%9A%84%E8%AE%AD%E7%BB%83"><span class="toc-text">YOLOv2的训练</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Stronger%E2%80%94%E6%9B%B4%E5%BC%BA%EF%BC%88YOLO9000%E9%83%A8%E5%88%86%EF%BC%89"><span class="toc-text">四、Stronger—更强（YOLO9000部分）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#YOLOv2%E5%92%8CYOLO9000%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">YOLOv2和YOLO9000的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-2"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Hierarchical-classification%E2%80%94%E5%88%86%E5%B1%82%E5%88%86%E7%B1%BB"><span class="toc-text">4.1 Hierarchical classification—分层分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Dataset-combination-with-WordTree%E2%80%94%E7%94%A8WordTree%E7%BB%84%E5%90%88%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">4.2 Dataset combination with WordTree—用WordTree组合数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Joint-classification-and-detection%E2%80%94%E8%81%94%E5%90%88%E5%88%86%E7%B1%BB%E5%92%8C%E6%A3%80%E6%B5%8B"><span class="toc-text">4.3 Joint classification and detection—联合分类和检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YOLO9000%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9B%E8%A1%8C%E8%81%94%E5%90%88%E8%AE%AD%E7%BB%83%E7%9A%84%EF%BC%9F"><span class="toc-text">YOLO9000是怎样进行联合训练的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YOLO-9000%E6%98%AF%E6%80%8E%E4%B9%88%E9%A2%84%E6%B5%8B%E7%9A%84%EF%BC%9F"><span class="toc-text">YOLO 9000是怎么预测的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81Conclusion%E2%80%94%E7%BB%93%E8%AE%BA"><span class="toc-text">五、Conclusion—结论</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Chitose</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
   if (typeof pangu === 'object') pangu.autoSpacingPage()
   else {
     getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
@@ -683,7 +575,7 @@ function panguInit () {
 
 document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer src="/js/cursor.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     var parent = document.getElementById('recent-posts');
-    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🥩 Python (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/C/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🕶️ C (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Embedded/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💳 Embedded (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Pytorch/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📯 Pytorch (9)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Paper/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📰 Paper (18)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/others/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🤡 others (14)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/segmentation/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔪 segmentation (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://www.chitose.cn/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🥩 Python (11)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/C/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🕶️ C (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Embedded/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💳 Embedded (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Pytorch/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📯 Pytorch (9)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Paper/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📰 Paper (18)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/others/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🤡 others (14)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/segmentation/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔪 segmentation (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://www.chitose.cn/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
     console.log('已挂载magnet')
     parent.insertAdjacentHTML("afterbegin",child)}
      </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(33.333333333333336% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
@@ -742,10 +634,10 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
   else if (epage === cpage){
     butterfly_footer_beautify_injector_config();
   }
-  </script><script async src="/js/runtime.js"></script><script data-pjax>
+  </script><script async src="/js/runtime.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><script data-pjax>
   function butterfly_swiper_injector_config(){
     var parent_div_git = document.getElementById('recent-posts');
-    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023-12-17-2/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_4.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-17</span><a class="blog-slider__title" href="2023-12-17-2/" alt="">第二篇文章</a><div class="blog-slider__text">这是第二篇文章</div><a class="blog-slider__button" href="2023-12-17-2/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="Pytorch-6/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_3.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-19</span><a class="blog-slider__title" href="Pytorch-6/" alt="">Pytorch(6)-张量可微性</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="Pytorch-6/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023-12-17-3/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_10.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-17</span><a class="blog-slider__title" href="2023-12-17-3/" alt="">第三篇文章</a><div class="blog-slider__text">这是第三篇文章</div><a class="blog-slider__button" href="2023-12-17-3/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023-12-17-2/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_2.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-17</span><a class="blog-slider__title" href="2023-12-17-2/" alt="">第二篇文章</a><div class="blog-slider__text">这是第二篇文章</div><a class="blog-slider__button" href="2023-12-17-2/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="Pytorch-6/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_10.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-19</span><a class="blog-slider__title" href="Pytorch-6/" alt="">Pytorch(6)-张量可微性</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="Pytorch-6/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023-12-17-3/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_9.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-17</span><a class="blog-slider__title" href="2023-12-17-3/" alt="">第三篇文章</a><div class="blog-slider__text">这是第三篇文章</div><a class="blog-slider__button" href="2023-12-17-3/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
     console.log('已挂载butterfly_swiper')
     parent_div_git.insertAdjacentHTML("afterbegin",item_html)
     }
@@ -766,4 +658,4 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
   else if (epage === cpage){
     butterfly_swiper_injector_config();
   }
-  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
