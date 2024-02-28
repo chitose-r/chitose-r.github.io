@@ -1,17 +1,17 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>yolov4-paper | Chitose-Blog</title><meta name="author" content="Chitose"><meta name="copyright" content="Chitose"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="《YOLOv4：Optimal Speed and Accuracy of Object Detection》Abstract—摘要大量的特征据说可以提高卷积神经网络(CNN)的精度。需要在大数据集上对这些特征的组合进行实际测试，并对结果进行理论证明。有些特性只适用于某些模型，只适用于某些问题，或仅适用于小规模数据集；而一些特性，如批处理标准化和残差连接，适用于大多数模型、任务和数据集。我们假设这">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>yolov4-paper | Chitose-Blog</title><meta name="author" content="Chitose"><meta name="copyright" content="Chitose"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="《YOLOv4：Optimal Speed and Accuracy of Object Detection》 Abstract—摘要 大量的特征据说可以提高卷积神经网络(CNN)的精度。需要在大数据集上对这些特征的组合进行实际测试，并对结果进行理论证明。有些特性只适用于某些模型，只适用于某些问题，或仅适用于小规模数据集；而一些特性，如批处理标准化和残差连接，适用于大多数模型、任务和数据集。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yolov4-paper">
 <meta property="og:url" content="https://www.chitose.cn/yolov4-paper/index.html">
 <meta property="og:site_name" content="Chitose-Blog">
-<meta property="og:description" content="《YOLOv4：Optimal Speed and Accuracy of Object Detection》Abstract—摘要大量的特征据说可以提高卷积神经网络(CNN)的精度。需要在大数据集上对这些特征的组合进行实际测试，并对结果进行理论证明。有些特性只适用于某些模型，只适用于某些问题，或仅适用于小规模数据集；而一些特性，如批处理标准化和残差连接，适用于大多数模型、任务和数据集。我们假设这">
+<meta property="og:description" content="《YOLOv4：Optimal Speed and Accuracy of Object Detection》 Abstract—摘要 大量的特征据说可以提高卷积神经网络(CNN)的精度。需要在大数据集上对这些特征的组合进行实际测试，并对结果进行理论证明。有些特性只适用于某些模型，只适用于某些问题，或仅适用于小规模数据集；而一些特性，如批处理标准化和残差连接，适用于大多数模型、任务和数据集。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png">
 <meta property="article:published_time" content="2024-02-02T16:14:03.000Z">
 <meta property="article:modified_time" content="2024-02-02T16:14:03.000Z">
 <meta property="article:author" content="Chitose">
 <meta property="article:tag" content="演示">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_7.png"><link rel="shortcut icon" href="https://www.fomal.cc/favicon.ico"><link rel="canonical" href="https://www.chitose.cn/yolov4-paper/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png"><link rel="shortcut icon" href="https://www.fomal.cc/favicon.ico"><link rel="canonical" href="https://www.chitose.cn/yolov4-paper/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
@@ -160,107 +160,211 @@
     })(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
 <style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
   white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
-<link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://www.fomal.cc/static/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Face.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-link"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Chitose-Blog"><span class="site-name">Chitose-Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-link"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">yolov4-paper</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-02T16:14:03.000Z" title="发表于 2024-02-03 00:14:03">2024-02-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-02T16:14:03.000Z" title="更新于 2024-02-03 00:14:03">2024-02-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Paper/">Paper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">10.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>34分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="yolov4-paper"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="《YOLOv4：Optimal-Speed-and-Accuracy-of-Object-Detection》"><a href="#《YOLOv4：Optimal-Speed-and-Accuracy-of-Object-Detection》" class="headerlink" title="《YOLOv4：Optimal Speed and Accuracy of Object Detection》"></a>《YOLOv4：Optimal Speed and Accuracy of Object Detection》</h1><h2 id="Abstract—摘要"><a href="#Abstract—摘要" class="headerlink" title="Abstract—摘要"></a><strong>Abstract—摘要</strong></h2><p>大量的特征据说可以提高卷积神经网络(CNN)的精度。需要在大数据集上对这些特征的组合进行实际测试，并对结果进行理论证明。有些特性只适用于某些模型，只适用于某些问题，或仅适用于小规模数据集；而一些特性，如批处理标准化和残差连接，适用于大多数模型、任务和数据集。我们假设这些普遍特征包括加权残差连接(WRC)、跨阶段部分连接(CSP)、交叉小批归一化(CmBN)、自我对抗训练(SAT)和Mish激活。我们使用新功能：WRC，CSP，CmBN，SAT，Mish激活，Mosaic数据增强、CmBN，DropBlock正则化和CIoU损失，并结合其中一些实现最先进的结果：43.5%AP，(65.7%AP50)的实时速度∼65FPS Tesla V100。源代码是在<a target="_blank" rel="noopener" href="https://github.com/AlexeyAB/darknet.。">https://github.com/AlexeyAB/darknet.。</a> </p>
-<blockquote>
-<h4 id="提高CNN准确性的方法"><a href="#提高CNN准确性的方法" class="headerlink" title="提高CNN准确性的方法"></a><strong>提高CNN准确性的方法</strong></h4><p>（1）<strong>专用特性：</strong> 一些特征只针对某一模型，某一问题，或仅为小规模数据集</p>
-<p>（2）<strong>通用特性：</strong> 一些特性，如批处理规范化和残差连接，则适用于大多数模型、任务和数据集。这些通用特性包括加权剩余连接(WRC)、跨阶段部分连接(CSP)、跨小批标准化(CmBN)、自反训练(SAT)和Mish 激活函数。</p>
-<h4 id="YOLOv4使用的技巧"><a href="#YOLOv4使用的技巧" class="headerlink" title="YOLOv4使用的技巧"></a>YOLOv4使用的技巧</h4><p><strong>使用新特性：</strong>WRC、CSP、CmBN、SAT、Mish 激活函数、Mosaic数据增强、CmBN、DropBlock正则化、CIoU损失，结合这些技巧实现先进的结果。</p>
-<h4 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h4><p>在Tesla V100上，MS COCO数据集以65 FPS的实时速度达到43.5 % AP ( 65.7 % AP50 )。</p>
-</blockquote>
-<h2 id="一、-Introduction—简介"><a href="#一、-Introduction—简介" class="headerlink" title="一、 Introduction—简介"></a><strong>一、 Introduction—简介</strong></h2><p>大多数基于cnn的对象检测器基本上只适用于推荐系统。例如，通过城市摄像机搜索免费停车位是由慢速精确的模型执行的，而汽车碰撞警告与快速不准确的模型有关。为了提高实时目标检测器的精度，不仅可以将它们用于提示生成推荐系统，还可以用于独立的流程管理和减少人工输入。在传统图形处理单元(GPU)上的实时对象检测器操作允许它们以可承受的价格大规模使用。最精确的现代神经网络不能实时运行，需要大量的gpu来进行大的小批量训练。我们通过创建一个在普通的GPU上实时运行的CNN来解决这些问题，而其训练只需要一个普通的GPU。<br>这项工作的主要目标是在生产系统中设计一个目标检测器的快速运行速度，并优化并行计算，而不是低计算体积理论指标(BFLOP)。我们希望所设计的对象能够方便地训练和使用。例如，任何使用普通的GPU进行训练和测试的人都可以实现实时、高质量和令人信服的目标检测结果，如图1所示的YOLOv4结果所示。我们的贡献总结如下：</p>
-<p>1.我们开发了一个高效而强大的目标检测模型。它使每个人都可以使用一个1080 Ti或2080 Ti GPU来训练一个超快和准确的目标探测器。</p>
-<p>2.我们验证了state-of-the-art Bag-of Freebies and Bag-of-Specials对目标检测的影响。</p>
+<link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://www.fomal.cc/static/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Face.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-link"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Chitose-Blog"><span class="site-name">Chitose-Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-link"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">yolov4-paper</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-02T16:14:03.000Z" title="发表于 2024-02-03 00:14:03">2024-02-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-02T16:14:03.000Z" title="更新于 2024-02-03 00:14:03">2024-02-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Paper/">Paper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">10.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>34分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="yolov4-paper"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="yolov4optimal-speed-and-accuracy-of-object-detection">《YOLOv4：Optimal
+Speed and Accuracy of Object Detection》</h1>
+<h2 id="abstract摘要"><strong>Abstract—摘要</strong></h2>
+<p>大量的特征据说可以提高卷积神经网络(CNN)的精度。需要在大数据集上对这些特征的组合进行实际测试，并对结果进行理论证明。有些特性只适用于某些模型，只适用于某些问题，或仅适用于小规模数据集；而一些特性，如批处理标准化和残差连接，适用于大多数模型、任务和数据集。我们假设这些普遍特征包括加权残差连接(WRC)、跨阶段部分连接(CSP)、交叉小批归一化(CmBN)、自我对抗训练(SAT)和Mish激活。我们使用新功能：WRC，CSP，CmBN，SAT，Mish激活，Mosaic数据增强、CmBN，DropBlock正则化和CIoU损失，并结合其中一些实现最先进的结果：43.5%AP，(65.7%AP50)的实时速度∼65FPS
+Tesla V100。源代码是在https://github.com/AlexeyAB/darknet.。 &gt;####
+<strong>提高CNN准确性的方法</strong> &gt;
+&gt;（1）<strong>专用特性：</strong>
+一些特征只针对某一模型，某一问题，或仅为小规模数据集 &gt;
+&gt;（2）<strong>通用特性：</strong>
+一些特性，如批处理规范化和残差连接，则适用于大多数模型、任务和数据集。这些通用特性包括加权剩余连接(WRC)、跨阶段部分连接(CSP)、跨小批标准化(CmBN)、自反训练(SAT)和Mish
+激活函数。 &gt; &gt;#### YOLOv4使用的技巧 &gt;
+&gt;<strong>使用新特性：</strong>WRC、CSP、CmBN、SAT、Mish
+激活函数、Mosaic数据增强、CmBN、DropBlock正则化、CIoU损失，结合这些技巧实现先进的结果。
+&gt; &gt;#### 实现结果 &gt; &gt;在Tesla V100上，MS COCO数据集以65
+FPS的实时速度达到43.5 % AP ( 65.7 % AP50 )。</p>
+<h2 id="一-introduction简介"><strong>一、
+Introduction—简介</strong></h2>
+<p>大多数基于cnn的对象检测器基本上只适用于推荐系统。例如，通过城市摄像机搜索免费停车位是由慢速精确的模型执行的，而汽车碰撞警告与快速不准确的模型有关。为了提高实时目标检测器的精度，不仅可以将它们用于提示生成推荐系统，还可以用于独立的流程管理和减少人工输入。在传统图形处理单元(GPU)上的实时对象检测器操作允许它们以可承受的价格大规模使用。最精确的现代神经网络不能实时运行，需要大量的gpu来进行大的小批量训练。我们通过创建一个在普通的GPU上实时运行的CNN来解决这些问题，而其训练只需要一个普通的GPU。
+这项工作的主要目标是在生产系统中设计一个目标检测器的快速运行速度，并优化并行计算，而不是低计算体积理论指标(BFLOP)。我们希望所设计的对象能够方便地训练和使用。例如，任何使用普通的GPU进行训练和测试的人都可以实现实时、高质量和令人信服的目标检测结果，如图1所示的YOLOv4结果所示。我们的贡献总结如下：</p>
+<p>1.我们开发了一个高效而强大的目标检测模型。它使每个人都可以使用一个1080
+Ti或2080 Ti GPU来训练一个超快和准确的目标探测器。</p>
+<p>2.我们验证了state-of-the-art Bag-of Freebies and
+Bag-of-Specials对目标检测的影响。</p>
 <p>3.我们修改了最先进的方法，使其更有效，更适合于单一的GPU训练，包括CBN[89]，PAN[49]，SAM[85]等。</p>
 <blockquote>
-<h4 id="启发"><a href="#启发" class="headerlink" title="启发"></a>启发</h4><p>（1）<strong>改进性能：</strong> 大多数基于CNN的目标检测器主要只适用于推荐系统，因此需要提高实时目标探测器的准确性。</p>
-<p>（2）<strong>单GPU训练：</strong> 最精确的现代神经网络不能实时运行，需要大量的GPU来进行大规模的小批量训练。我们通过创建一个在常规GPU上实时运行的CNN来解决这些问题，而训练只需要一个常规GPU。</p>
-<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>设计生产系统中目标检测器的快速运行速度，优化并行计算，而不是低计算量理论指标 （BFLOP）。</p>
-<h4 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h4><p>（1）开发了一个高效、强大的目标检测模型。使用单个1080 Ti或2080 Ti GPU就能训练一个超级快速和精确的目标探测器。</p>
-<p>（2）验证了在检测器训练过程中，最先进的Bag-of-Freebies 和Bag-of-Specials对目标检测方法的影响。</p>
+<h4 id="启发">启发</h4>
+<p>（1）<strong>改进性能：</strong>
+大多数基于CNN的目标检测器主要只适用于推荐系统，因此需要提高实时目标探测器的准确性。</p>
+<p>（2）<strong>单GPU训练：</strong>
+最精确的现代神经网络不能实时运行，需要大量的GPU来进行大规模的小批量训练。我们通过创建一个在常规GPU上实时运行的CNN来解决这些问题，而训练只需要一个常规GPU。</p>
+<h4 id="目的">目的</h4>
+<p>设计生产系统中目标检测器的快速运行速度，优化并行计算，而不是低计算量理论指标
+（BFLOP）。</p>
+<h4 id="贡献">贡献</h4>
+<p>（1）开发了一个高效、强大的目标检测模型。使用单个1080 Ti或2080 Ti
+GPU就能训练一个超级快速和精确的目标探测器。</p>
+<p>（2）验证了在检测器训练过程中，最先进的Bag-of-Freebies
+和Bag-of-Specials对目标检测方法的影响。</p>
 <p>（3）修改了最先进的方法，使其更有效，更适合于单GPU训练。</p>
 <blockquote>
 <p><strong>Q： Bag-of-Freebies 和Bag-of-Specials</strong></p>
-<p>Bag-of-Freebies： 指不会显著影响模型测试速度和模型复杂度的技巧，主要就是数据增强操作、标签软化等外在训练方法，即不需要改变网络模型。</p>
-<p>Bag-of-Specials： 是用最新最先进的方法（网络模块）来魔改检测模型。只增加少量推理成本但能显著提高对象检测精度的插件模块和后处理方法，一般来说，这些插件模块都是为了增强模型中的某些属性，如扩大感受野、引入注意力机制或加强特征整合能力等，而后处理是筛选模型预测结果的一种方法。</p>
+<p>Bag-of-Freebies：
+指不会显著影响模型测试速度和模型复杂度的技巧，主要就是数据增强操作、标签软化等外在训练方法，即不需要改变网络模型。</p>
+<p>Bag-of-Specials：
+是用最新最先进的方法（网络模块）来魔改检测模型。只增加少量推理成本但能显著提高对象检测精度的插件模块和后处理方法，一般来说，这些插件模块都是为了增强模型中的某些属性，如扩大感受野、引入注意力机制或加强特征整合能力等，而后处理是筛选模型预测结果的一种方法。</p>
 </blockquote>
 </blockquote>
-<h2 id="二、Related-work—相关工作"><a href="#二、Related-work—相关工作" class="headerlink" title="二、Related work—相关工作"></a><strong>二、Related work—相关工作</strong></h2><h3 id="2-1-Object-detection-models—目标检测模型"><a href="#2-1-Object-detection-models—目标检测模型" class="headerlink" title="2.1 Object detection models—目标检测模型"></a>2.1 Object detection models—目标检测模型</h3><p>现代探测器通常由两部分组成，一个是在ImageNet上预先训练的主干，另一个是用于预测物体的类和边界框的头部。对于那些运行在GPU平台上的检测器，它们的主干可以是VGG[68]、ResNet[26]、ResNeXt[86]或DenseNet[30]。对于那些运行在CPU平台上的检测器，它们的主干可以是SqueezeNet [31]、MobileNet[28,66,27,74]或ShufflfleNet[97,53]。对于头部部分，通常可分为一级目标探测器和两级目标探测器两类。最具代表性的两级目标探测器是R-CNN[19]系列，包括Fast R-CNN[18]、Faster R-CNN[64]、R-FCN[9]和Libra R-CNN[58].也可以使一个两级目标检测器成为一个无锚点的目标检测器，如反应点[87]。对于单级目标探测器，最具代表性的模型是YOLO[61,62,63]、SSD[50]和RetinaNet[45]。近年来，无锚的单级目标探测器已经发展起来。这类检测器有CenterNet [13]、CornerNet [37,38]、FCOS[78]等。近年来开发的目标探测器经常在主干和头部之间插入一些层，这些层通常用于收集不同阶段的特征图。我们可以称之为物体探测器的颈部。通常，颈部由几条自下向上的路径和几条自上向下的路径组成。配备这种机制的网络包括特征金字塔网络(FPN)[44]、路径聚合网络(PAN)[49]、BiFPN[77]和NAS-FPN[17]。</p>
-<p>除了上述模型外，一些研究人员还强调了直接构建一个新的主干(DetNet[43]，DetNAS[7])或一个新的整体模型(SpineNet[12]，HitDetector[20])用于目标检测。 </p>
+<h2 id="二related-work相关工作"><strong>二、Related
+work—相关工作</strong></h2>
+<h3 id="object-detection-models目标检测模型">2.1 Object detection
+models—目标检测模型</h3>
+<p>现代探测器通常由两部分组成，一个是在ImageNet上预先训练的主干，另一个是用于预测物体的类和边界框的头部。对于那些运行在GPU平台上的检测器，它们的主干可以是VGG[68]、ResNet[26]、ResNeXt[86]或DenseNet[30]。对于那些运行在CPU平台上的检测器，它们的主干可以是SqueezeNet
+[31]、MobileNet[28,66,27,74]或ShufflfleNet[97,53]。对于头部部分，通常可分为一级目标探测器和两级目标探测器两类。最具代表性的两级目标探测器是R-CNN[19]系列，包括Fast
+R-CNN[18]、Faster R-CNN[64]、R-FCN[9]和Libra
+R-CNN[58].也可以使一个两级目标检测器成为一个无锚点的目标检测器，如反应点[87]。对于单级目标探测器，最具代表性的模型是YOLO[61,62,63]、SSD[50]和RetinaNet[45]。近年来，无锚的单级目标探测器已经发展起来。这类检测器有CenterNet
+[13]、CornerNet
+[37,38]、FCOS[78]等。近年来开发的目标探测器经常在主干和头部之间插入一些层，这些层通常用于收集不同阶段的特征图。我们可以称之为物体探测器的颈部。通常，颈部由几条自下向上的路径和几条自上向下的路径组成。配备这种机制的网络包括特征金字塔网络(FPN)[44]、路径聚合网络(PAN)[49]、BiFPN[77]和NAS-FPN[17]。</p>
+<p>除了上述模型外，一些研究人员还强调了直接构建一个新的主干(DetNet[43]，DetNAS[7])或一个新的整体模型(SpineNet[12]，HitDetector[20])用于目标检测。</p>
 <p>综上所述，一个普通的物体探测器由以下几个部分组成：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4%E7%89%A9%E4%BD%93%E6%8E%A2%E6%B5%8B%E5%99%A8.png" alt=""></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4%E7%89%A9%E4%BD%93%E6%8E%A2%E6%B5%8B%E5%99%A8.png" /></p>
 <blockquote>
-<h4 id="现代目标检测器组成"><a href="#现代目标检测器组成" class="headerlink" title="现代目标检测器组成"></a>现代目标检测器组成</h4><p><strong>（1）主干backbone：</strong> 在ImageNet上预先训练的网络用来特征提取。</p>
+<h4 id="现代目标检测器组成">现代目标检测器组成</h4>
+<p><strong>（1）主干backbone：</strong>
+在ImageNet上预先训练的网络用来特征提取。</p>
 <ul>
 <li>在<strong>GPU</strong>平台上运行的检测器，主干可以是VGG、ResNet、ResNeXt或DenseNet。</li>
 <li>在<strong>CPU</strong>平台上运行的检测器，主干可以是SqueezeNet、MobileNet或ShuffleNet。</li>
 </ul>
-<p><strong>（2）头部head：</strong> 对图像特征进行预测，生成边界框和并预测类别。通常分为两类即单阶段目标检测器和两阶段目标检测器。</p>
+<p><strong>（2）头部head：</strong>
+对图像特征进行预测，生成边界框和并预测类别。通常分为两类即单阶段目标检测器和两阶段目标检测器。</p>
 <ul>
-<li><strong>two stage：</strong> R-CNN系列，包括fast R-CNN、faster R-CNN、R-FCN和Libra R-CNN。</li>
-<li><strong>one stage：</strong> 最具代表性的模型有YOLO、SSD和RetinaNet。</li>
+<li><strong>two stage：</strong> R-CNN系列，包括fast R-CNN、faster
+R-CNN、R-FCN和Libra R-CNN。</li>
+<li><strong>one stage：</strong>
+最具代表性的模型有YOLO、SSD和RetinaNet。</li>
 </ul>
-<p><strong>（3）颈部neck：</strong> 近年来发展起来的目标检测器常常在主干和头部之间插入一系列混合和组合图像特征的网络层，并将图像特征传递到预测层。称之为目标检测器的颈部neck。</p>
+<p><strong>（3）颈部neck：</strong>
+近年来发展起来的目标检测器常常在主干和头部之间插入一系列混合和组合图像特征的网络层，并将图像特征传递到预测层。称之为目标检测器的颈部neck。</p>
 <p>通常，一个颈部neck由几个自下而上的路径和几个自上而下的路径组成。具有该机制的网络包括特征金字塔网络(FPN)、路径汇聚网络(PAN)、BiFPN和NAS-FPN。</p>
 <p>综上所述，一个普通的物体探测器是由“特征输入、骨干网络、颈部和头部”四部分组成的：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-%E7%89%A9%E4%BD%93%E6%8E%A2%E6%B5%8B%E5%99%A8%E7%BB%84%E6%88%90.png" alt=""></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-%E7%89%A9%E4%BD%93%E6%8E%A2%E6%B5%8B%E5%99%A8%E7%BB%84%E6%88%90.png" /></p>
 </blockquote>
-<h3 id="2-2-Bag-of-freebies"><a href="#2-2-Bag-of-freebies" class="headerlink" title="2.2 Bag of freebies"></a>2.2 Bag of freebies</h3><p>通常，一个传统的目标检测器是离线训练的。因此，研究者总是喜欢利用这一优势，开发出更好的训练方法，使目标检测器在不增加推理成本的情况下获得更好的精度。我们把这些只会改变培训策略或只增加培训成本的方法称为“bag of freebies”。目标检测方法经常采用的、满足bag of freebies.定义的是数据增强。数据增强的目的是为了增加输入图像的可变性，从而使所设计的目标检测模型对在不同环境下获得的图像具有更高的鲁棒性。例如，光度畸变和几何畸变是两种常用的数据增强方法，它们肯定有利于目标检测任务。在处理光度失真时，我们会调整图像的亮度、对比度、色调、饱和度和噪声。对于几何失真，我们添加了随机缩放、裁剪、翻转和旋转。 </p>
-<p>上述数据增强方法都是像素级调整，并保留调整区域中的所有原始像素信息。此外，一些从事数据增强工作的研究人员将其重点放在了模拟对象遮挡问题上。它们在图像分类和目标检测方面取得了良好的效果。例如，随机擦除[100]和CutOut[11]可以随机选择图像中的矩形区域，并填充一个随机的或互补的零值。对于hide-and-seek[69]和grid mask[6]，它们随机或均匀地选择一个图像中的多个矩形区域，并将它们替换为所有的零。如果将类似的概念应用于特征映射，则会有DropOut[71]、Drop连接[80]和DropBlock[16]方法。此外，一些研究者提出了使用多个图像一起进行数据增强的方法。例如，MixUp[92]使用两幅图像用不同的系数比进行乘法和叠加，然后用这些叠加的比率来调整标签。 </p>
+<h3 id="bag-of-freebies">2.2 Bag of freebies</h3>
+<p>通常，一个传统的目标检测器是离线训练的。因此，研究者总是喜欢利用这一优势，开发出更好的训练方法，使目标检测器在不增加推理成本的情况下获得更好的精度。我们把这些只会改变培训策略或只增加培训成本的方法称为“bag
+of freebies”。目标检测方法经常采用的、满足bag of
+freebies.定义的是数据增强。数据增强的目的是为了增加输入图像的可变性，从而使所设计的目标检测模型对在不同环境下获得的图像具有更高的鲁棒性。例如，光度畸变和几何畸变是两种常用的数据增强方法，它们肯定有利于目标检测任务。在处理光度失真时，我们会调整图像的亮度、对比度、色调、饱和度和噪声。对于几何失真，我们添加了随机缩放、裁剪、翻转和旋转。</p>
+<p>上述数据增强方法都是像素级调整，并保留调整区域中的所有原始像素信息。此外，一些从事数据增强工作的研究人员将其重点放在了模拟对象遮挡问题上。它们在图像分类和目标检测方面取得了良好的效果。例如，随机擦除[100]和CutOut[11]可以随机选择图像中的矩形区域，并填充一个随机的或互补的零值。对于hide-and-seek[69]和grid
+mask[6]，它们随机或均匀地选择一个图像中的多个矩形区域，并将它们替换为所有的零。如果将类似的概念应用于特征映射，则会有DropOut[71]、Drop连接[80]和DropBlock[16]方法。此外，一些研究者提出了使用多个图像一起进行数据增强的方法。例如，MixUp[92]使用两幅图像用不同的系数比进行乘法和叠加，然后用这些叠加的比率来调整标签。</p>
 <p>CutMix[91]是将裁剪后的图像覆盖到其他图像的矩形区域，并根据混合区域的大小调整标签。除上述方法外，还采用了样式转移GAN[15]进行数据增强，这种使用可以有效地减少CNN学习到的纹理偏差。</p>
-<p>与上面提出的各种方法不同，其他一些bag of freebies都致力于解决数据集中的语义分布可能存在偏差的问题。在处理语义分布偏差问题时，一个非常重要的问题是不同类之间存在数据不平衡的问题，这个问题通常通过两级对象检测器中的硬负例挖掘[72]或在线硬例挖掘[67]来解决。但该示例挖掘方法不适用于单级对象检测器，因为这种检测器属于密集预测体系结构。因此，Lin等人[45]提出了焦点损失来解决不同类之间存在的数据不平衡问题。另一个非常重要的问题是，很难表达不同类别之间的关联程度与单一热硬表示之间的关系。这种表示方案经常用于执行标记。[73]中提出的标签平滑方法是将硬标签转换为软标签进行训练，使模型的鲁棒性更强。为了获得更好的软标签，Islam等人引入了知识精馏的概念来设计标签细化网络</p>
-<p>最后bag of freebies是边界盒(BBox)回归的目标函数。传统的对象检测器通常使用均方误差(MSE)直接对BBox的中心点坐标和高度和宽度进行回归，{,w、h}或左上角点和右下角点。对于基于锚的方法，是估计相应的偏移量，例如和,然而，直接估计BBox中每个点的坐标值是要将这些点作为自变量来处理，但实际上并没有考虑对象本身的完整性。为了更好地处理这一问题，一些研究人员最近提出了IoU损失[90]，它考虑了预测的BBox区域和地面真实BBox区域的覆盖范围。IoU损失计算过程将通过使用地面真相执行IoU，触发BBox的四个坐标点的计算，然后将生成的结果连接到一个整个代码中。由于IoU是一种尺度不变表示，它可以解决传统方法计算{x、y、w、h}的l1或l2损失时，损失会随着尺度的增加而增加的问题。最近，一些研究人员继续改善IoU的损失。例如，GIoU损失[65]除了包括覆盖区域外，还包括物体的形状和方向。他们提出找到能够同时覆盖预测的BBox和地面真实BBox的最小面积的BBox，并使用该BBox作为分母来代替IoU损失中最初使用的分母。对于DIoU损失[99]，它另外考虑了物体中心的距离，而CIoU损失[99]则同时考虑了重叠面积、中心点之间的距离和高宽比。CIoU在BBox回归问题上可以获得更好的收敛速度和精度。</p>
+<p>与上面提出的各种方法不同，其他一些bag of
+freebies都致力于解决数据集中的语义分布可能存在偏差的问题。在处理语义分布偏差问题时，一个非常重要的问题是不同类之间存在数据不平衡的问题，这个问题通常通过两级对象检测器中的硬负例挖掘[72]或在线硬例挖掘[67]来解决。但该示例挖掘方法不适用于单级对象检测器，因为这种检测器属于密集预测体系结构。因此，Lin等人[45]提出了焦点损失来解决不同类之间存在的数据不平衡问题。另一个非常重要的问题是，很难表达不同类别之间的关联程度与单一热硬表示之间的关系。这种表示方案经常用于执行标记。[73]中提出的标签平滑方法是将硬标签转换为软标签进行训练，使模型的鲁棒性更强。为了获得更好的软标签，Islam等人引入了知识精馏的概念来设计标签细化网络</p>
+<p>最后bag of
+freebies是边界盒(BBox)回归的目标函数。传统的对象检测器通常使用均方误差(MSE)直接对BBox的中心点坐标和高度和宽度进行回归，{,w、h}或左上角点和右下角点。对于基于锚的方法，是估计相应的偏移量，例如和,然而，直接估计BBox中每个点的坐标值是要将这些点作为自变量来处理，但实际上并没有考虑对象本身的完整性。为了更好地处理这一问题，一些研究人员最近提出了IoU损失[90]，它考虑了预测的BBox区域和地面真实BBox区域的覆盖范围。IoU损失计算过程将通过使用地面真相执行IoU，触发BBox的四个坐标点的计算，然后将生成的结果连接到一个整个代码中。由于IoU是一种尺度不变表示，它可以解决传统方法计算{x、y、w、h}的l1或l2损失时，损失会随着尺度的增加而增加的问题。最近，一些研究人员继续改善IoU的损失。例如，GIoU损失[65]除了包括覆盖区域外，还包括物体的形状和方向。他们提出找到能够同时覆盖预测的BBox和地面真实BBox的最小面积的BBox，并使用该BBox作为分母来代替IoU损失中最初使用的分母。对于DIoU损失[99]，它另外考虑了物体中心的距离，而CIoU损失[99]则同时考虑了重叠面积、中心点之间的距离和高宽比。CIoU在BBox回归问题上可以获得更好的收敛速度和精度。</p>
 <blockquote>
-<h4 id="BoF方法一：数据增强"><a href="#BoF方法一：数据增强" class="headerlink" title="BoF方法一：数据增强"></a>BoF方法一：数据增强</h4><p><strong>（1）像素级调整</strong></p>
-<p>①光度失真： brightness(亮度)、contrast(对比度)、hue(色度)、saturation(饱和度)、noise(噪声)</p>
-<p>②几何失真： scaling(缩放尺寸)、cropping(裁剪)、flipping(翻转)、rotating(旋转)</p>
+<h4 id="bof方法一数据增强">BoF方法一：数据增强</h4>
+<p><strong>（1）像素级调整</strong></p>
+<p>①光度失真：
+brightness(亮度)、contrast(对比度)、hue(色度)、saturation(饱和度)、noise(噪声)</p>
+<p>②几何失真：
+scaling(缩放尺寸)、cropping(裁剪)、flipping(翻转)、rotating(旋转)</p>
 <p><strong>（2）模拟目标遮挡</strong></p>
-<p>①erase(擦除)、CutOut(剪切)： 随机选择图像的矩形区域，并填充随机或互补的零值</p>
-<p>②hide-and-seek和grid mask： 随机或均匀地选择图像中的多个矩形区域，并将它们替换为全零</p>
+<p>①erase(擦除)、CutOut(剪切)：
+随机选择图像的矩形区域，并填充随机或互补的零值</p>
+<p>②hide-and-seek和grid mask：
+随机或均匀地选择图像中的多个矩形区域，并将它们替换为全零</p>
 <p>③将上述方式作用于特征图上： DropOut、DropConnect、DropBlock</p>
 <p><strong>（3）将多张图像组合在一起</strong></p>
-<p>①MixUp： 使用两个图像以不同的系数比率相乘后叠加，利用叠加比率调整标签</p>
-<p>②CutMix： 将裁剪的图像覆盖到其他图像的矩形区域，并根据混合区域大小调整标签</p>
-<p><strong>（4）使用style transfer GAN进行数据扩充，有效减少CNN学习到的纹理偏差。</strong></p>
-<h4 id="BoF方法二：解决数据集中语义分布偏差问题"><a href="#BoF方法二：解决数据集中语义分布偏差问题" class="headerlink" title="BoF方法二：解决数据集中语义分布偏差问题"></a>BoF方法二：解决数据集中语义分布偏差问题</h4><p><strong>①两阶段对象检测器：</strong> 使用硬反例挖掘或在线硬例挖掘来解决。不适用于单级目标检测。</p>
-<p><strong>②单阶段目标检测器：</strong> focal损来处理各个类之间存在的数据不平衡问题。</p>
-<h4 id="BoF方法三：边界框-BBox-回归的目标函数"><a href="#BoF方法三：边界框-BBox-回归的目标函数" class="headerlink" title="BoF方法三：边界框(BBox)回归的目标函数"></a>BoF方法三：边界框(BBox)回归的目标函数</h4><p><strong>①IoU损失：</strong> 将预测BBox区域的区域和真实BBox区域考虑在内。由于IoU是尺度不变的表示，它可以解决传统方法在计算{x, y, w, h}的l1或l2损耗时，损耗会随着尺度的增大而增大的问题。</p>
-<p><strong>②GIoU loss：</strong> 除了覆盖区域外，还包括了物体的形状和方向。他们提出寻找能够同时覆盖预测BBox和地面真实BBox的最小面积BBox，并以此BBox作为分母来代替IoU损失中原来使用的分母。</p>
+<p>①MixUp：
+使用两个图像以不同的系数比率相乘后叠加，利用叠加比率调整标签</p>
+<p>②CutMix：
+将裁剪的图像覆盖到其他图像的矩形区域，并根据混合区域大小调整标签</p>
+<p><strong>（4）使用style transfer
+GAN进行数据扩充，有效减少CNN学习到的纹理偏差。</strong></p>
+<h4
+id="bof方法二解决数据集中语义分布偏差问题">BoF方法二：解决数据集中语义分布偏差问题</h4>
+<p><strong>①两阶段对象检测器：</strong>
+使用硬反例挖掘或在线硬例挖掘来解决。不适用于单级目标检测。</p>
+<p><strong>②单阶段目标检测器：</strong>
+focal损来处理各个类之间存在的数据不平衡问题。</p>
+<h4
+id="bof方法三边界框bbox回归的目标函数">BoF方法三：边界框(BBox)回归的目标函数</h4>
+<p><strong>①IoU损失：</strong>
+将预测BBox区域的区域和真实BBox区域考虑在内。由于IoU是尺度不变的表示，它可以解决传统方法在计算{x,
+y, w, h}的l1或l2损耗时，损耗会随着尺度的增大而增大的问题。</p>
+<p><strong>②GIoU loss：</strong>
+除了覆盖区域外，还包括了物体的形状和方向。他们提出寻找能够同时覆盖预测BBox和地面真实BBox的最小面积BBox，并以此BBox作为分母来代替IoU损失中原来使用的分母。</p>
 <p><strong>③DIoU loss：</strong> 它额外考虑了物体中心的距离。</p>
-<p><strong>④CIoU loss ：</strong> 同时考虑了重叠区域、中心点之间的距离和纵横比。对于BBox回归问题，CIoU具有更好的收敛速度和精度。</p>
+<p><strong>④CIoU loss ：</strong>
+同时考虑了重叠区域、中心点之间的距离和纵横比。对于BBox回归问题，CIoU具有更好的收敛速度和精度。</p>
 </blockquote>
-<h3 id="2-3-Bag-of-specials"><a href="#2-3-Bag-of-specials" class="headerlink" title="2.3 Bag of specials"></a>2.3 Bag of specials</h3><p>对于那些只增加少量推理成本但又能显著提高目标检测精度的插件模块和后处理方法，我们称它们为“bag of specials”。一般来说，这些插件模块是用于增强模型中的某些属性，如扩大接受域、引入注意机制或增强特征整合能力等，而后处理是筛选模型预测结果的一种方法。 </p>
-<p>可用于增强感受野的常见模块是SPP[25]、ASPP[5]和RFB[47]。SPP模块起源于空间金字塔匹配(SPM)[39]，SPMs的原始方法是将特征映射分割成几个d×d相等的块，其中d可以是{1,2,3，…}，从而形成空间金字塔，然后提取bag-of-word特征。SPP将SPM集成到CNN中，使用最大池化操作，而不是bag-of-word操作。由于He等人[25]提出的SPP模块将输出一维特征向量，因此在全卷积网络(FCN)中应用是不可行的。因此，在YOLOv3[63]的设计中，Redmon和Farhadi将SPP模块改进为核大小为k×k，其中k={1,5,9,13}，步幅等于1。在这种设计下，相对较大的最大池有效地增加了主干特征的接受域。 在添加改进版本的SPP模块后，YOLOv3-608在MS COCO目标检测任务上将AP50升级了2.7%，额外计算0.5%。ASPP[5]模块与改进的SPP模块在操作上的差异主要是从原始的k×k核大小，步幅最大池化等于1到多个3×3核大小，扩张比等于k，步幅等于1。RFB模块采用k×k核的多个扩张卷积，扩张比等于k，步幅等于1，以获得比ASPP更全面的空间覆盖。RFB[47]只需要花费7%的额外推理时间，就可以使MS COCO上的SSD的AP50增加5.7%。</p>
-<p>目标检测中常用的注意模块主要分为通道式注意和点态注意，这两种注意模型的代表分别是Squeeze-and-Excitation (SE)[29]和空间注意模块(SAM)[85]。虽然SE模块可以提高ResNet50的力量在ImageNet图像分类任务1%top-1精度的只增加2%计算，但在GPU通常将使推理时间增加约10%，所以它更适合用于移动设备。但对于SAM，它只需要额外支付0.1%的计算量，就可以将ResNet50-SE提高到ImageNet图像分类任务的0.5%的top-1精度。最重要的是，它根本不影响GPU上的推理速度。</p>
-<p>在特征集成方面，早期的实践是使用skip connection[51]或hyper-column[22]将低级物理特征与高级语义特征进行集成。随着FPN等多尺度预测方法越来越流行，人们提出了许多整合不同特征金字塔的轻量级模块。这类模块包括SFAM[98]、ASFF[48]和BiFPN[77]。SFAM的主要思想是利用SE模块在多尺度连接的特征图上执行信道级重加权。对于ASFF，它使用softmax作为点级重新加权，然后添加不同尺度的特征图。在BiFPN中，提出了多输入加权残差连接来进行尺度水平重加权，然后添加不同尺度的特征图。</p>
-<p>在深度学习的研究中，一些人将重点放在寻找良好的激活函数上。一个好的激活函数可以使梯度更有效地传播，同时也不会造成太多的额外计算成本。2010年，Nair和Hinton[56]提出ReLU来实质上解决传统的tanh和s型激活函数中经常遇到的梯度消失问题。随后，提出了LReLU[54]、PReLU[24]、ReLU6[28]、尺度指数线性单位(SELU)[35]、Swish[59]、hard-Swish[27]、Mish[55]等，它们也被用于解决梯度消失问题。LReLU和PReLU的主要目的是解决当输出小于零时，ReLU的梯度为零的问题。对于ReLU6和hard-swish，它们是专门为量化网络设计的。对于神经网络的自归一化，提出了SELU激活函数来满足该目标。需要注意的一点是，Swish和Mish都是连续可区分的激活函数。 </p>
-<p>在基于深度学习的对象检测中常用的后处理方法是NMS，它可以用于过滤那些预测同一对象不好的预测框，并且只保留响应率较高的候框。NMS试图改进的方法与优化目标函数的方法是一致的。NMS提出的原始方法不考虑上下文信息，因此Girshick等[19]在R-CNN中添加分类置信分数作为参考，根据置信分数的顺序，按照高到低的顺序进行greedy NMS。对于soft NMS[1]，它考虑了对象的遮挡在greedy NMS中可能导致置信度分数下降的问题。DIoU NMS[99]开发者的思维方式是在soft NMS的基础上，将中心点距离的信息添加到BBox的筛选过程中。值得一提的是，由于上述所有的后处理方法都没有直接涉及到所捕获的图像特征，因此在后续的无锚定方法的开发中，不再需要后处理。</p>
+<h3 id="bag-of-specials">2.3 Bag of specials</h3>
+<p>对于那些只增加少量推理成本但又能显著提高目标检测精度的插件模块和后处理方法，我们称它们为“bag
+of
+specials"。一般来说，这些插件模块是用于增强模型中的某些属性，如扩大接受域、引入注意机制或增强特征整合能力等，而后处理是筛选模型预测结果的一种方法。</p>
+<p>可用于增强感受野的常见模块是SPP[25]、ASPP[5]和RFB[47]。SPP模块起源于空间金字塔匹配(SPM)[39]，SPMs的原始方法是将特征映射分割成几个d×d相等的块，其中d可以是{1,2,3，…}，从而形成空间金字塔，然后提取bag-of-word特征。SPP将SPM集成到CNN中，使用最大池化操作，而不是bag-of-word操作。由于He等人[25]提出的SPP模块将输出一维特征向量，因此在全卷积网络(FCN)中应用是不可行的。因此，在YOLOv3[63]的设计中，Redmon和Farhadi将SPP模块改进为核大小为k×k，其中k={1,5,9,13}，步幅等于1。在这种设计下，相对较大的最大池有效地增加了主干特征的接受域。
+在添加改进版本的SPP模块后，YOLOv3-608在MS
+COCO目标检测任务上将AP50升级了2.7%，额外计算0.5%。ASPP[5]模块与改进的SPP模块在操作上的差异主要是从原始的k×k核大小，步幅最大池化等于1到多个3×3核大小，扩张比等于k，步幅等于1。RFB模块采用k×k核的多个扩张卷积，扩张比等于k，步幅等于1，以获得比ASPP更全面的空间覆盖。RFB[47]只需要花费7%的额外推理时间，就可以使MS
+COCO上的SSD的AP50增加5.7%。</p>
+<p>目标检测中常用的注意模块主要分为通道式注意和点态注意，这两种注意模型的代表分别是Squeeze-and-Excitation
+(SE)[29]和空间注意模块(SAM)[85]。虽然SE模块可以提高ResNet50的力量在ImageNet图像分类任务1%top-1精度的只增加2%计算，但在GPU通常将使推理时间增加约10%，所以它更适合用于移动设备。但对于SAM，它只需要额外支付0.1%的计算量，就可以将ResNet50-SE提高到ImageNet图像分类任务的0.5%的top-1精度。最重要的是，它根本不影响GPU上的推理速度。</p>
+<p>在特征集成方面，早期的实践是使用skip
+connection[51]或hyper-column[22]将低级物理特征与高级语义特征进行集成。随着FPN等多尺度预测方法越来越流行，人们提出了许多整合不同特征金字塔的轻量级模块。这类模块包括SFAM[98]、ASFF[48]和BiFPN[77]。SFAM的主要思想是利用SE模块在多尺度连接的特征图上执行信道级重加权。对于ASFF，它使用softmax作为点级重新加权，然后添加不同尺度的特征图。在BiFPN中，提出了多输入加权残差连接来进行尺度水平重加权，然后添加不同尺度的特征图。</p>
+<p>在深度学习的研究中，一些人将重点放在寻找良好的激活函数上。一个好的激活函数可以使梯度更有效地传播，同时也不会造成太多的额外计算成本。2010年，Nair和Hinton[56]提出ReLU来实质上解决传统的tanh和s型激活函数中经常遇到的梯度消失问题。随后，提出了LReLU[54]、PReLU[24]、ReLU6[28]、尺度指数线性单位(SELU)[35]、Swish[59]、hard-Swish[27]、Mish[55]等，它们也被用于解决梯度消失问题。LReLU和PReLU的主要目的是解决当输出小于零时，ReLU的梯度为零的问题。对于ReLU6和hard-swish，它们是专门为量化网络设计的。对于神经网络的自归一化，提出了SELU激活函数来满足该目标。需要注意的一点是，Swish和Mish都是连续可区分的激活函数。</p>
+<p>在基于深度学习的对象检测中常用的后处理方法是NMS，它可以用于过滤那些预测同一对象不好的预测框，并且只保留响应率较高的候框。NMS试图改进的方法与优化目标函数的方法是一致的。NMS提出的原始方法不考虑上下文信息，因此Girshick等[19]在R-CNN中添加分类置信分数作为参考，根据置信分数的顺序，按照高到低的顺序进行greedy
+NMS。对于soft NMS[1]，它考虑了对象的遮挡在greedy
+NMS中可能导致置信度分数下降的问题。DIoU NMS[99]开发者的思维方式是在soft
+NMS的基础上，将中心点距离的信息添加到BBox的筛选过程中。值得一提的是，由于上述所有的后处理方法都没有直接涉及到所捕获的图像特征，因此在后续的无锚定方法的开发中，不再需要后处理。</p>
 <blockquote>
-<h4 id="BoS方法一：插件模块之增强感受野"><a href="#BoS方法一：插件模块之增强感受野" class="headerlink" title="BoS方法一：插件模块之增强感受野"></a>BoS方法一：插件模块之增强感受野</h4><p><strong>①改进的SPP模块</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SPP.png" alt=""></p>
+<h4
+id="bos方法一插件模块之增强感受野">BoS方法一：插件模块之增强感受野</h4>
+<p><strong>①改进的SPP模块</strong></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SPP.png" /></p>
 <p><strong>②ASPP模块</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-ASPP.png" alt=""></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-ASPP.png" /></p>
 <p><strong>③RFB模块</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-RFB.png" alt=""></p>
-<h4 id="BoS方法二：插件模块之注意力机制"><a href="#BoS方法二：插件模块之注意力机制" class="headerlink" title="BoS方法二：插件模块之注意力机制"></a>BoS方法二：插件模块之注意力机制</h4><p><strong>①channel-wise注意力：</strong> 代表是Squeeze-and-Excitation挤压激励模块(SE)。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SE.png" alt=""></p>
-<p><strong>②point-wise注意力：</strong> 代表是Spatial Attention Module空间注意模块(SAM)。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SAM.png" alt=""></p>
-<h4 id="BoS方法三：插件模块之特征融合"><a href="#BoS方法三：插件模块之特征融合" class="headerlink" title="BoS方法三：插件模块之特征融合"></a>BoS方法三：插件模块之特征融合</h4><p><strong>①SFAM：</strong> 主要思想是利用SE模块在多尺度的拼接特征图上进行信道级重加权。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SFAM.png" alt=""></p>
-<p><strong>②ASFF：</strong> 使用softmax对多尺度拼接特征图在点维度进行加权。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-ASFF.png" alt=""></p>
-<p><strong>③BiFPN：</strong> 提出了多输入加权剩余连接来执行按比例的水平重加权，然后添加不同比例的特征图。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-BiFPN.png" alt=""></p>
-<h4 id="BoS方法四：激活函数"><a href="#BoS方法四：激活函数" class="headerlink" title="BoS方法四：激活函数"></a>BoS方法四：激活函数</h4><p><strong>①LReLU和PReLU：</strong> 主要目的是解决输出小于0时ReLU的梯度为零的问题。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-RFB.png" /></p>
+<h4
+id="bos方法二插件模块之注意力机制">BoS方法二：插件模块之注意力机制</h4>
+<p><strong>①channel-wise注意力：</strong>
+代表是Squeeze-and-Excitation挤压激励模块(SE)。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SE.png" /></p>
+<p><strong>②point-wise注意力：</strong> 代表是Spatial Attention
+Module空间注意模块(SAM)。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SAM.png" /></p>
+<h4 id="bos方法三插件模块之特征融合">BoS方法三：插件模块之特征融合</h4>
+<p><strong>①SFAM：</strong>
+主要思想是利用SE模块在多尺度的拼接特征图上进行信道级重加权。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SFAM.png" /></p>
+<p><strong>②ASFF：</strong>
+使用softmax对多尺度拼接特征图在点维度进行加权。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-ASFF.png" /></p>
+<p><strong>③BiFPN：</strong>
+提出了多输入加权剩余连接来执行按比例的水平重加权，然后添加不同比例的特征图。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-BiFPN.png" /></p>
+<h4 id="bos方法四激活函数">BoS方法四：激活函数</h4>
+<p><strong>①LReLU和PReLU：</strong>
+主要目的是解决输出小于0时ReLU的梯度为零的问题。</p>
 <p><strong>②ReLU6和hard-Swish：</strong> 专门为量化网络设计的。</p>
 <p><strong>③SELU：</strong> 针对神经网络的自归一化问题。</p>
 <p><strong>④Swish和Mish：</strong> 都是连续可微的激活函数。</p>
-<h4 id="BoS方法五：后处理"><a href="#BoS方法五：后处理" class="headerlink" title="BoS方法五：后处理"></a>BoS方法五：后处理</h4><p><strong>①NMS：</strong> 目标检测中常用的后处理方法是NMS, NMS可以对预测较差的bbox进行过滤，只保留响应较高的候选bbox。NMS试图改进的方法与优化目标函数的方法是一致的。NMS提出的原始方法没有考虑上下文信息，所以在R-CNN中加入了分类的置信分作为参考，按照置信分的顺序，从高到低依次进行贪心NMS。</p>
-<p><strong>②soft NMS：</strong> 考虑了对象的遮挡可能导致带IoU分数的贪婪NMS的信心分数下降的问题。</p>
-<p><strong>③DIoU NMS：</strong> 在soft NMS的基础上，将中心点距离信息添加到BBox筛选过程中。值得一提的是，由于以上的后处理方法都没有直接引用捕获的图像特征，因此在后续的无锚方法开发中不再需要后处理。</p>
+<h4 id="bos方法五后处理">BoS方法五：后处理</h4>
+<p><strong>①NMS：</strong> 目标检测中常用的后处理方法是NMS,
+NMS可以对预测较差的bbox进行过滤，只保留响应较高的候选bbox。NMS试图改进的方法与优化目标函数的方法是一致的。NMS提出的原始方法没有考虑上下文信息，所以在R-CNN中加入了分类的置信分作为参考，按照置信分的顺序，从高到低依次进行贪心NMS。</p>
+<p><strong>②soft NMS：</strong>
+考虑了对象的遮挡可能导致带IoU分数的贪婪NMS的信心分数下降的问题。</p>
+<p><strong>③DIoU NMS：</strong> 在soft
+NMS的基础上，将中心点距离信息添加到BBox筛选过程中。值得一提的是，由于以上的后处理方法都没有直接引用捕获的图像特征，因此在后续的无锚方法开发中不再需要后处理。</p>
 </blockquote>
-<h2 id="三、Methodology—方法"><a href="#三、Methodology—方法" class="headerlink" title="三、Methodology—方法"></a><strong>三、Methodology—方法</strong></h2><h3 id="3-1-Selection-of-architecture—架构选择"><a href="#3-1-Selection-of-architecture—架构选择" class="headerlink" title="3.1 Selection of architecture—架构选择"></a>3.1 Selection of architecture—架构选择</h3><p>我们的目标是在输入网络分辨率、卷积层数、参数数（滤波器大小2<em>滤波器</em>通道/组）和层输出数（滤波器）之间找到最优的平衡。例如，我们的大量研究表明，在ILSVRC2012(ImageNet)数据集[10]上，CSPResNext50比CSPDarknet53要好得多。然而，相反地，在检测MS COCO数据集[46]上的对象方面，CSPDarknet53比CSPResNext50更好。</p>
-<p>下一个目标是选择额外的块来增加感受野，以及从不同检测器级别的参数聚合的最佳方法：例如FPN、PAN、ASFF、BiFPN。 </p>
+<h2 id="三methodology方法"><strong>三、Methodology—方法</strong></h2>
+<h3 id="selection-of-architecture架构选择">3.1 Selection of
+architecture—架构选择</h3>
+<p>我们的目标是在输入网络分辨率、卷积层数、参数数（滤波器大小2<em>滤波器</em>通道/组）和层输出数（滤波器）之间找到最优的平衡。例如，我们的大量研究表明，在ILSVRC2012(ImageNet)数据集[10]上，CSPResNext50比CSPDarknet53要好得多。然而，相反地，在检测MS
+COCO数据集[46]上的对象方面，CSPDarknet53比CSPResNext50更好。</p>
+<p>下一个目标是选择额外的块来增加感受野，以及从不同检测器级别的参数聚合的最佳方法：例如FPN、PAN、ASFF、BiFPN。</p>
 <p>对于分类最优的参考模型对于探测器来说并不总是最优的。与分类器相比，该探测器需要以下条件：</p>
 <ul>
 <li>更高的输入网络大小（分辨率）</li>
@@ -268,93 +372,142 @@
 <li>更高的接受域以覆盖增加的输入网络大小更多的参数</li>
 <li>模型更大的能力来检测单一图像中多个不同大小的物体</li>
 </ul>
-<p>假设来说，我们可以假设应该选择一个具有更大的接受场大小（具有更多的卷积层3×3）和更多的参数的模型作为主干。表1显示了CSPResNeXt50、CSPDarknet53和efficientnetB3的信息。CSPResNext50只包含16个卷积层3×3、一个425×425感受野和20.6 M参数，而CSPDarknet53包含29个卷积层3×3、一个725×725感受野和27.6 M参数。这一理论证明，加上我们进行的大量实验，表明CSPDarknet53神经网络是两者作为探测器主干的最佳模型。 </p>
+<p>假设来说，我们可以假设应该选择一个具有更大的接受场大小（具有更多的卷积层3×3）和更多的参数的模型作为主干。表1显示了CSPResNeXt50、CSPDarknet53和efficientnetB3的信息。CSPResNext50只包含16个卷积层3×3、一个425×425感受野和20.6
+M参数，而CSPDarknet53包含29个卷积层3×3、一个725×725感受野和27.6
+M参数。这一理论证明，加上我们进行的大量实验，表明CSPDarknet53神经网络是两者作为探测器主干的最佳模型。</p>
 <p>不同大小的感受野的影响总结如下：</p>
 <ul>
 <li>到对象大小，允许查看整个对象到网络大小</li>
 <li>允许查看对象周围的上下文</li>
-<li>增加图像点和最终激活之间的连接数量 </li>
+<li>增加图像点和最终激活之间的连接数量</li>
 </ul>
 <p>我们在CSPDarknet53上添加了SPP块，因为它显著地增加了接受域，分离出了最重要的上下文特征，并且几乎不会导致降低网络运行速度。我们使用PANet作为来自不同检测器级别的不同主干级别的参数聚合的方法，而不是在YOLOv3中使用的FPN。</p>
 <p>最后，我们选择CSPDarknet53主干、SPP附加模块、PANet路径聚合颈和YOLOv3（基于锚点）的头作为YOLOv4的体系结构。</p>
-<p>未来，我们计划显著扩展检测器的f Bag of Freebies(BoF)的内容，理论上可以解决一些问题，提高检测器的精度，并以实验方式依次检查每个特征的影响。<br>我们不使用Cross-GPU批处理归一化(CGBN或SyncBN)或昂贵的专用设备。这允许任何人都可以在传统的图形处理器上再现我们最先进的结果，例如GTX 1080Ti或RTX 2080Ti。 </p>
+<p>未来，我们计划显著扩展检测器的f Bag of
+Freebies(BoF)的内容，理论上可以解决一些问题，提高检测器的精度，并以实验方式依次检查每个特征的影响。
+我们不使用Cross-GPU批处理归一化(CGBN或SyncBN)或昂贵的专用设备。这允许任何人都可以在传统的图形处理器上再现我们最先进的结果，例如GTX
+1080Ti或RTX 2080Ti。</p>
 <blockquote>
-<h4 id="架构选择目标"><a href="#架构选择目标" class="headerlink" title="架构选择目标"></a>架构选择目标</h4><p><strong>目标一：在输入网络分辨率、卷积层数、参数数(filter size2×filters × channel / groups)和层输出数(filters)之间找到最优平衡。</strong></p>
+<h4 id="架构选择目标">架构选择目标</h4>
+<p><strong>目标一：在输入网络分辨率、卷积层数、参数数(filter
+size2×filters × channel /
+groups)和层输出数(filters)之间找到最优平衡。</strong></p>
 <p>检测器需要满足以下条件：</p>
-<p><strong>①更高的输入网络大小(分辨率)：</strong> 用于检测多个小型对象</p>
-<p><strong>②更多的层：</strong> 一个更高的接受域，以覆盖增加的输入网络的大小</p>
-<p><strong>③更多的参数：</strong> 模型有更强大的能力，以检测单个图像中的多个不同大小的对象。</p>
+<p><strong>①更高的输入网络大小(分辨率)：</strong>
+用于检测多个小型对象</p>
+<p><strong>②更多的层：</strong>
+一个更高的接受域，以覆盖增加的输入网络的大小</p>
+<p><strong>③更多的参数：</strong>
+模型有更强大的能力，以检测单个图像中的多个不同大小的对象。</p>
 <p><strong>目标二：选择额外的块来增加感受野</strong></p>
 <p>不同大小的感受野的影响总结如下：</p>
 <p><strong>①对象大小：</strong> 允许查看整个对象</p>
 <p><strong>②网络大小：</strong> 允许查看对象周围的上下文</p>
 <p><strong>③超过网络大小：</strong> 增加图像点和最终激活之间的连接数</p>
 <p><strong>目标三：选择不同的主干层对不同的检测器层(如FPN、PAN、ASFF、BiFPN)进行参数聚合的最佳方法。</strong></p>
-<h4 id="YOLOv4架构"><a href="#YOLOv4架构" class="headerlink" title="YOLOv4架构"></a>YOLOv4架构</h4><p><strong>（1）CSPDarknet53主干（backbone）：</strong> 作者实验对比了CSPResNext50、CSPDarknet53和EfficientNet-B3。从理论与实验角度表明：CSPDarkNet53更适合作为检测模型的Backbone。（还是自家的网络结构好用）</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-backbone.png" alt=""></p>
+<h4 id="yolov4架构">YOLOv4架构</h4>
+<p><strong>（1）CSPDarknet53主干（backbone）：</strong>
+作者实验对比了CSPResNext50、CSPDarknet53和EfficientNet-B3。从理论与实验角度表明：CSPDarkNet53更适合作为检测模型的Backbone。（还是自家的网络结构好用）</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-backbone.png" /></p>
 <blockquote>
 <p>CSP介绍：</p>
 <p>CSP是可以增强CNN学习能力的新型backbone，论文发表2019年11月份</p>
 <p><strong>主要技巧：</strong>CSPNet将底层的特征映射分为两部分，一部分经过密集块和过渡层，另一部分与传输的特征映射结合到下一阶段。</p>
 </blockquote>
-<p><strong>（2）SPP附加模块增加感受野：</strong> 在CSPDarknet53上添加了SPP块，SPP来源于何恺明大佬的SPP Net因为它显著增加了接受域，分离出了最重要的上下文特性，并且几乎不会降低网络运行速度。</p>
-<p><strong>（3）PANet路径聚合（neck）：</strong> PANet主要是特征融合的改进，使用PANet作为不同检测层的不同主干层的参数聚合方法。而不是YOLOv3中使用的FPN。</p>
-<p><strong>（4）基于锚的YOLOv3头部（head）：</strong> 因为是anchor-base方法，因此分类、回归分支没有改变。</p>
-<p><strong>总结：</strong> YOLOv4模型 = CSPDarkNet53 + SPP + PANet(path-aggregation neck) + YOLOv3-head</p>
+<p><strong>（2）SPP附加模块增加感受野：</strong>
+在CSPDarknet53上添加了SPP块，SPP来源于何恺明大佬的SPP
+Net因为它显著增加了接受域，分离出了最重要的上下文特性，并且几乎不会降低网络运行速度。</p>
+<p><strong>（3）PANet路径聚合（neck）：</strong>
+PANet主要是特征融合的改进，使用PANet作为不同检测层的不同主干层的参数聚合方法。而不是YOLOv3中使用的FPN。</p>
+<p><strong>（4）基于锚的YOLOv3头部（head）：</strong>
+因为是anchor-base方法，因此分类、回归分支没有改变。</p>
+<p><strong>总结：</strong> YOLOv4模型 = CSPDarkNet53 + SPP +
+PANet(path-aggregation neck) + YOLOv3-head</p>
 </blockquote>
-<h3 id="3-2-Selection-of-BoF-and-BoS—BoF和BoS的选择"><a href="#3-2-Selection-of-BoF-and-BoS—BoF和BoS的选择" class="headerlink" title="3.2 Selection of BoF and BoS—BoF和BoS的选择"></a>3.2 Selection of BoF and BoS—BoF和BoS的选择</h3><p>为了改进目标检测训练，CNN通常使用以下：</p>
+<h3 id="selection-of-bof-and-bosbof和bos的选择">3.2 Selection of BoF and
+BoS—BoF和BoS的选择</h3>
+<p>为了改进目标检测训练，CNN通常使用以下：</p>
 <ul>
-<li>激活：ReLU, leaky-ReLU, parametric-ReLU,ReLU6, SELU, Swish, or Mish</li>
+<li>激活：ReLU, leaky-ReLU, parametric-ReLU,ReLU6, SELU, Swish, or
+Mish</li>
 <li>边界盒回归损失：MSE，IoU、GIoU、CIoU、DIoU</li>
 <li>数据增强：CutOut, MixUp, CutMix</li>
-<li>正则化方法：DropOut, DropPath，Spatial DropOut [79], or DropBlock</li>
-<li>规范化的网络激活（通过均值和方差）：批标准化(BN)[32]，Cross-GPU Batch Normalization(CGBN或SyncBN)[93]，Filter Response Normalization(FRN)[70]，或交叉迭代批标准化(CBN)[89]</li>
-<li>Skip-connections：Residual connections，加权Residual connections、多输入加权Residual connections或Cross stage partial连接(CSP) </li>
+<li>正则化方法：DropOut, DropPath，Spatial DropOut [79], or
+DropBlock</li>
+<li>规范化的网络激活（通过均值和方差）：批标准化(BN)[32]，Cross-GPU
+Batch Normalization(CGBN或SyncBN)[93]，Filter Response
+Normalization(FRN)[70]，或交叉迭代批标准化(CBN)[89]</li>
+<li>Skip-connections：Residual connections，加权Residual
+connections、多输入加权Residual connections或Cross stage
+partial连接(CSP)</li>
 </ul>
-<p>对于训练激活函数，由于PReLU和SELU更难训练，而且ReLU6是专门为量化网络设计的，因此我们将上述激活函数从候选列表中删除。在需求化方法上，发表DropBlock的人将其方法与其他方法进行了详细的比较，其正则化方法获得了很大的成功。因此，我们毫不犹豫地选择了DropBlock作为我们的正则化方法。至于归一化方法的选择，由于我们关注于只使用一个GPU的训练策略，因此不考虑syncBN。 </p>
-<blockquote>
-<p>为了提高目标检测训练，CNN通常使用以上提到的方法</p>
-<ul>
-<li><p><strong>（1）激活函数：</strong> 由于PReLU和SELU更难训练，我们选择专门为量化网络设计的ReLU6</p>
-</li>
-<li><p><strong>（2）正则化：</strong> 我们选择DropBlock</p>
-</li>
-<li><strong>（3）归一化：</strong> 由于是单GPU，所以没有考虑syncBN</li>
-</ul>
-</blockquote>
-<h3 id="3-3-Additional-improvements—进一步改进"><a href="#3-3-Additional-improvements—进一步改进" class="headerlink" title="3.3 Additional improvements—进一步改进"></a>3.3 Additional improvements—进一步改进</h3><p>为了使设计的探测器更适合训练单GPU上，我们做了额外的设计和改进如下：</p>
-<p> 我们引入了一种新的数据增强Mosic，和自我对抗训练（SAT）<br>我们选择最优超参数而应用遗传算法<br>我们修改一些现有方法使设计适合有效的训练和检测，modifified SAM，modifified PAN，和交叉小批归一化(CmBN) </p>
+<p>对于训练激活函数，由于PReLU和SELU更难训练，而且ReLU6是专门为量化网络设计的，因此我们将上述激活函数从候选列表中删除。在需求化方法上，发表DropBlock的人将其方法与其他方法进行了详细的比较，其正则化方法获得了很大的成功。因此，我们毫不犹豫地选择了DropBlock作为我们的正则化方法。至于归一化方法的选择，由于我们关注于只使用一个GPU的训练策略，因此不考虑syncBN。
+&gt;为了提高目标检测训练，CNN通常使用以上提到的方法 &gt; &gt;-
+<strong>（1）激活函数：</strong>
+由于PReLU和SELU更难训练，我们选择专门为量化网络设计的ReLU6 &gt; &gt;-
+<strong>（2）正则化：</strong> 我们选择DropBlock &gt;-
+<strong>（3）归一化：</strong> 由于是单GPU，所以没有考虑syncBN</p>
+<h3 id="additional-improvements进一步改进">3.3 Additional
+improvements—进一步改进</h3>
+<p>为了使设计的探测器更适合训练单GPU上，我们做了额外的设计和改进如下：</p>
+<p>我们引入了一种新的数据增强Mosic，和自我对抗训练（SAT）
+我们选择最优超参数而应用遗传算法
+我们修改一些现有方法使设计适合有效的训练和检测，modifified
+SAM，modifified PAN，和交叉小批归一化(CmBN)</p>
 <p>Mosaic代表了一种新的数据增强方法，它混合了4个训练图像。因此，混合了4种不同的上下文，而CutMix只混合了2个输入图像。这允许检测其正常上下文之外的对象。此外，批归一化计算每一层上4个不同图像的激活统计信息。这大大减少了对大型小批量处理的需求</p>
-<p>自对抗训练(SAT)也代表了一种新的数据增强技术，可以在2个向前向后的阶段运行。在第一阶段，神经网络改变了原始图像，而不是网络的权值。通过这种方式，神经网络对自己进行敌对性攻击，改变原始图像，以制造出图像上没有想要的目标的欺骗。在第二阶段，神经网络被训练以正常的方式检测修改后的图像上的对象。 </p>
+<p>自对抗训练(SAT)也代表了一种新的数据增强技术，可以在2个向前向后的阶段运行。在第一阶段，神经网络改变了原始图像，而不是网络的权值。通过这种方式，神经网络对自己进行敌对性攻击，改变原始图像，以制造出图像上没有想要的目标的欺骗。在第二阶段，神经网络被训练以正常的方式检测修改后的图像上的对象。</p>
 <blockquote>
-<p><strong>（1）新的数据增强Mosic和自我对抗训练（SAT）</strong><br>①Mosaic： Mosaic代表了一种新的数据增强方法，它混合了4幅训练图像。基于现有数据极大的丰富了样本的多样性，极大程度降低了模型对于多样性学习的难度。</p>
+<p><strong>（1）新的数据增强Mosic和自我对抗训练（SAT）</strong>
+①Mosaic：
+Mosaic代表了一种新的数据增强方法，它混合了4幅训练图像。基于现有数据极大的丰富了样本的多样性，极大程度降低了模型对于多样性学习的难度。</p>
 <p><strong>②自对抗训练（SAT）：</strong></p>
-<p>在第一阶段，神经网络改变原始图像而不是网络权值。通过这种方式，神经网络对自己执行一种对抗性攻击，改变原始图像，以制造图像上没有期望对象的假象。<br>在第二阶段，神经网络以正常的方式对这个修改后的图像进行检测。<br><strong>（2）应用遗传算法选择最优超参数</strong><br><strong>（3）修改现有的方法，使设计适合于有效的训练和检测</strong><br><strong>①修改的SAM：</strong> 将SAM从空间上的注意修改为点态注意</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SAMpro.png" alt=""></p>
+<p>在第一阶段，神经网络改变原始图像而不是网络权值。通过这种方式，神经网络对自己执行一种对抗性攻击，改变原始图像，以制造图像上没有期望对象的假象。
+在第二阶段，神经网络以正常的方式对这个修改后的图像进行检测。
+<strong>（2）应用遗传算法选择最优超参数</strong>
+<strong>（3）修改现有的方法，使设计适合于有效的训练和检测</strong>
+<strong>①修改的SAM：</strong> 将SAM从空间上的注意修改为点态注意</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-SAMpro.png" /></p>
 <p><strong>②修改PAN：</strong> 将PAN的快捷连接替换为shortcut 连接</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-PANpro.png" alt=""></p>
-<p><strong>③交叉小批量标准化(CmBN)：</strong> CmBN表示CBN修改后的版本，如图所示，只在单个批内的小批之间收集统计信息。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-CmBNpro.png" alt=""></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-PANpro.png" /></p>
+<p><strong>③交叉小批量标准化(CmBN)：</strong>
+CmBN表示CBN修改后的版本，如图所示，只在单个批内的小批之间收集统计信息。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-CmBNpro.png" /></p>
 </blockquote>
-<h3 id="3-4-YOLOv4"><a href="#3-4-YOLOv4" class="headerlink" title="3.4 YOLOv4"></a>3.4 YOLOv4</h3><p> 在本节中，我们将详细说明YOLOv4的细节。</p>
-<p>YOLOv4 consists of :<br>• Backbone: CSPDarknet53 [ 81 ]<br>• Neck: SPP [ 25 ], PAN [ 49 ]<br>• Head: YOLOv3 [ 63 ]</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-bag.png" alt=""></p>
+<h3 id="yolov4">3.4 YOLOv4</h3>
+<p>在本节中，我们将详细说明YOLOv4的细节。</p>
+<p>YOLOv4 consists of : • Backbone: CSPDarknet53 [ 81 ] • Neck: SPP [ 25
+], PAN [ 49 ] • Head: YOLOv3 [ 63 ]</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-bag.png" /></p>
 <blockquote>
-<h4 id="YOLOv4包括"><a href="#YOLOv4包括" class="headerlink" title="YOLOv4包括"></a>YOLOv4包括</h4><ul>
+<h4 id="yolov4包括">YOLOv4包括</h4>
+<ul>
 <li><strong>主干(backbone)：</strong> CSPDarknet53</li>
 <li><strong>颈部(neck)：</strong> SPP ， PAN</li>
 <li><strong>头(head)：</strong> YOLOv3</li>
 </ul>
 <p>YOLO v4使用</p>
 <ul>
-<li>Bag of Freebies 外在引入技巧： CutMix和Mosaic数据增强，DropBlock正则化，类标签平滑</li>
-<li>Bag of Specials 网络改进技巧： Mish激活、跨级部分连接(CSP)、多输入加权剩余连接(MiWRC)</li>
-<li>Bag of Freebies 外在检测器引入技巧： CIoU loss, CmBN, DropBlock正则化，Mosaic数据增强，自对抗训练，消除网格敏感性，为一个真值使用多个锚，余弦退火调度，最优超参数，随机训练形状</li>
-<li>Bag of Specials检测器网络改进技巧： Mish激活、SPP-block、SAM-block、PAN路径聚合块、DIoU-NMS</li>
+<li>Bag of Freebies 外在引入技巧：
+CutMix和Mosaic数据增强，DropBlock正则化，类标签平滑</li>
+<li>Bag of Specials 网络改进技巧：
+Mish激活、跨级部分连接(CSP)、多输入加权剩余连接(MiWRC)</li>
+<li>Bag of Freebies 外在检测器引入技巧： CIoU loss, CmBN,
+DropBlock正则化，Mosaic数据增强，自对抗训练，消除网格敏感性，为一个真值使用多个锚，余弦退火调度，最优超参数，随机训练形状</li>
+<li>Bag of Specials检测器网络改进技巧：
+Mish激活、SPP-block、SAM-block、PAN路径聚合块、DIoU-NMS</li>
 </ul>
 </blockquote>
-<h2 id="四、Experiments—实验"><a href="#四、Experiments—实验" class="headerlink" title="四、Experiments—实验"></a><strong>四、Experiments—实验</strong></h2><h3 id="4-1-Experimental-setup—实验设置"><a href="#4-1-Experimental-setup—实验设置" class="headerlink" title="4.1 Experimental setup—实验设置"></a>4.1 Experimental setup—实验设置</h3><p>在ImageNet图像分类实验中，默认的超参数如下：训练步骤为8000000；批大小和小批量大小分别为128和32；采用多项式衰减学习率调度策略，初始学习率为0.1；预热步骤为1000；动量衰减和权重衰减分别设置为0.9和0.005。我们所有的BoS实验都使用与默认设置相同的超参数，在BoF实验中，我们额外添加了50%的训练步骤。在BoF实验中，我们验证了MixUp、CutMix、Mosaic、模糊数据增强和标签平滑正则化方法。在BoS实验中，我们比较了LReLU、Swish和Mish激活功能的影响。所有实验均采用1080 Ti或2080TiGPU进行训练。 </p>
-<p>在MS COCO目标检测实验中，默认的超参数如下：训练步长为500,500；采用步长衰减学习率调度策略，初始学习率为0.01，在400000步和450000步时分别乘以0.1倍；动量和权重衰减分别设置为0.9和0.0005。所有架构都使用一个GPU来执行批处理大小为64的多规模训练，而小批处理大小为8或4，这取决于架构和GPU内存限制。除在超参数搜索实验中使用遗传算法外，所有其他实验均使用默认设置。遗传算法使用YOLOv3-SPP对GIoU损失进行训练，并搜索300个时元的最小值5k集。我们采用搜索学习率0.00261，动量0.949，IoU阈值分配地面真值0.213，遗传算法实验采用损失归一化器0.07。我们验证了大量的BoF，包括网格灵敏度消除、Mosaic数据增强、IoU阈值、遗传算法、类标签平滑、交叉小批归一化、自对抗训练、余弦退火调度器、动态小批大小、dropblock、优化锚点、不同类型的IoU损失。我们还在各种BoS上进行了实验，包括Mish、SPP、SAM、RFB、BiFPN和高斯YOLO[8]。对于所有的实验，我们只使用一个GPU来进行训练，因此不使用优化多个GPU的像syncBN这样的技术。</p>
+<h2 id="四experiments实验"><strong>四、Experiments—实验</strong></h2>
+<h3 id="experimental-setup实验设置">4.1 Experimental setup—实验设置</h3>
+<p>在ImageNet图像分类实验中，默认的超参数如下：训练步骤为8000000；批大小和小批量大小分别为128和32；采用多项式衰减学习率调度策略，初始学习率为0.1；预热步骤为1000；动量衰减和权重衰减分别设置为0.9和0.005。我们所有的BoS实验都使用与默认设置相同的超参数，在BoF实验中，我们额外添加了50%的训练步骤。在BoF实验中，我们验证了MixUp、CutMix、Mosaic、模糊数据增强和标签平滑正则化方法。在BoS实验中，我们比较了LReLU、Swish和Mish激活功能的影响。所有实验均采用1080
+Ti或2080TiGPU进行训练。</p>
+<p>在MS
+COCO目标检测实验中，默认的超参数如下：训练步长为500,500；采用步长衰减学习率调度策略，初始学习率为0.01，在400000步和450000步时分别乘以0.1倍；动量和权重衰减分别设置为0.9和0.0005。所有架构都使用一个GPU来执行批处理大小为64的多规模训练，而小批处理大小为8或4，这取决于架构和GPU内存限制。除在超参数搜索实验中使用遗传算法外，所有其他实验均使用默认设置。遗传算法使用YOLOv3-SPP对GIoU损失进行训练，并搜索300个时元的最小值5k集。我们采用搜索学习率0.00261，动量0.949，IoU阈值分配地面真值0.213，遗传算法实验采用损失归一化器0.07。我们验证了大量的BoF，包括网格灵敏度消除、Mosaic数据增强、IoU阈值、遗传算法、类标签平滑、交叉小批归一化、自对抗训练、余弦退火调度器、动态小批大小、dropblock、优化锚点、不同类型的IoU损失。我们还在各种BoS上进行了实验，包括Mish、SPP、SAM、RFB、BiFPN和高斯YOLO[8]。对于所有的实验，我们只使用一个GPU来进行训练，因此不使用优化多个GPU的像syncBN这样的技术。</p>
 <blockquote>
 <p>（1）在ImageNet图像分类实验中，默认超参数为：</p>
 <ul>
@@ -369,76 +522,136 @@
 <ul>
 <li><strong>训练步骤：</strong> 500500</li>
 <li><strong>初始学习率：</strong> 0.01</li>
-<li><strong>warm-up步长：</strong> 在400,000步和450,000步分别乘以因子0.1</li>
+<li><strong>warm-up步长：</strong>
+在400,000步和450,000步分别乘以因子0.1</li>
 <li><strong>动量衰减：</strong> 0.9</li>
 <li><strong>权重衰减：</strong> 0.0005</li>
 <li><strong>GPU数量：</strong> 1个</li>
 <li><strong>批处理大小：</strong> 64</li>
 </ul>
 </blockquote>
-<h3 id="4-2-Influence-of-different-features-on-Classifier-training—不同特征对分类器训练的影响"><a href="#4-2-Influence-of-different-features-on-Classifier-training—不同特征对分类器训练的影响" class="headerlink" title="4.2 Influence of different features on Classifier training—不同特征对分类器训练的影响"></a>4.2 Influence of different features on Classifier training—不同特征对分类器训练的影响</h3><p>首先，我们研究了不同特征对分类器训练的影响；具体来说，类标签平滑的影响，不同数据增强技术的影响，bilateral blurring, MixUp, CutMix and Mosaic，如Fugure7所示，以及不同激活的影响，如Leaky-relu（默认）、Swish和Mish。 </p>
-<p>在我们的实验中，如表2所示，通过引入：CutMix和Mosaic数据增强、类标签平滑和Mish激活等特征，提高了分类器的精度。因此，我们用于分类器训练的BoF backbone(Bag of Freebies)包括以下内容：CutMix和Mosaic数据增强和类标签平滑。此外，我们使用Mish激活作为补充。 </p>
+<h3
+id="influence-of-different-features-on-classifier-training不同特征对分类器训练的影响">4.2
+Influence of different features on Classifier
+training—不同特征对分类器训练的影响</h3>
+<p>首先，我们研究了不同特征对分类器训练的影响；具体来说，类标签平滑的影响，不同数据增强技术的影响，bilateral
+blurring, MixUp, CutMix and
+Mosaic，如Fugure7所示，以及不同激活的影响，如Leaky-relu（默认）、Swish和Mish。</p>
+<p>在我们的实验中，如表2所示，通过引入：CutMix和Mosaic数据增强、类标签平滑和Mish激活等特征，提高了分类器的精度。因此，我们用于分类器训练的BoF
+backbone(Bag of
+Freebies)包括以下内容：CutMix和Mosaic数据增强和类标签平滑。此外，我们使用Mish激活作为补充。</p>
 <blockquote>
 <p>研究了不同特征对分类器训练的影响：类标签平滑的影响，不同数据增强技术的影响，不同的激活的影响。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-augmentation.png" alt=""></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table23.png" alt=""></p>
-<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>（1）通过引入特征如：CutMix和Mosaic数据增强、类标签平滑、Mish激活等，可以提高分类器的准确率。</p>
-<p>（2）CutMix和Mosaic数据增强和类标签平滑可用于分类器训练的BoF backbone，此外，还可以使用Mish激活作为补充选项。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-augmentation.png" /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table23.png" /></p>
+<h4 id="结论">结论</h4>
+<p>（1）通过引入特征如：CutMix和Mosaic数据增强、类标签平滑、Mish激活等，可以提高分类器的准确率。</p>
+<p>（2）CutMix和Mosaic数据增强和类标签平滑可用于分类器训练的BoF
+backbone，此外，还可以使用Mish激活作为补充选项。</p>
 </blockquote>
-<h3 id="4-3-Influence-of-different-features-on-Detector-training—不同特征对检测器训练的影响"><a href="#4-3-Influence-of-different-features-on-Detector-training—不同特征对检测器训练的影响" class="headerlink" title="4.3 Influence of different features on Detector training—不同特征对检测器训练的影响"></a><strong>4.3 Influence of different features on Detector training—不同特征对检测器训练的影响</strong></h3><p> 进一步研究了不同的Bag-of Freebies(BoF-detector)对探测器训练精度的影响，如表4所示。通过研究在不影响FPS的情况下提高检测器精度的不同特征，我们显著地扩展了BoF列表： </p>
-<p> S：消除网格灵敏度的公式 其中cx和cy总是整数，在YOLOv3中用于计算对象坐标，因此，对于接近cx或cx+1值的bx值，需要极高的tx绝对值。我们通过将s型矩阵乘以一个超过1.0的因子来解决这个问题，从而消除了对象无法检测到的网格的影响。</p>
+<h3
+id="influence-of-different-features-on-detector-training不同特征对检测器训练的影响"><strong>4.3
+Influence of different features on Detector
+training—不同特征对检测器训练的影响</strong></h3>
+<p>进一步研究了不同的Bag-of
+Freebies(BoF-detector)对探测器训练精度的影响，如表4所示。通过研究在不影响FPS的情况下提高检测器精度的不同特征，我们显著地扩展了BoF列表：</p>
+<p>S：消除网格灵敏度的公式
+其中cx和cy总是整数，在YOLOv3中用于计算对象坐标，因此，对于接近cx或cx+1值的bx值，需要极高的tx绝对值。我们通过将s型矩阵乘以一个超过1.0的因子来解决这个问题，从而消除了对象无法检测到的网格的影响。</p>
 <ul>
-<li>M：Mosaic data-在训练期间使用4张图像的马赛克，而不是单一的图像 </li>
-<li>IT：IoU阈值-使用多个锚作为单一地面真实IoU(truth, anchor) &gt;IoU阈值</li>
-<li>GA：Genetic algorithms-在前10%的时间段内使用遗传算法选择最优超参数</li>
-<li>LS:类标签平滑-使用类标签平滑的s型符号激活 </li>
+<li>M：Mosaic data-在训练期间使用4张图像的马赛克，而不是单一的图像</li>
+<li>IT：IoU阈值-使用多个锚作为单一地面真实IoU(truth, anchor)
+&gt;IoU阈值</li>
+<li>GA：Genetic
+algorithms-在前10%的时间段内使用遗传算法选择最优超参数</li>
+<li>LS:类标签平滑-使用类标签平滑的s型符号激活</li>
 <li>CBN：CmBN-使用交叉小批标准化来收集整个批内的统计信息，而不是在单个小批内收集统计数据</li>
 <li>CA:余弦退火调度器-改变正弦波训练过程中的学习速率</li>
 <li>DM：动态小批量大小-在小分辨率训练中，通过使用随机训练形状自动增加小批量大小</li>
 <li>OA：优化的锚-使用优化的锚与512x512网络分辨率进行训练</li>
-<li>GIoU，CIoU，DIoU，MSE-使用不同的损失算法进行边界框回归 </li>
+<li>GIoU，CIoU，DIoU，MSE-使用不同的损失算法进行边界框回归</li>
 </ul>
-<p>进一步研究了不同的Bag-of-Specials (bos-检测器)对检测器训练精度的影响，包括PAN、RFB、SAM、高斯YOLO(G)和ASFF，如表5所示。在我们的实验中，检测器在使用SPP、PAN和SAM时性能最好。</p>
+<p>进一步研究了不同的Bag-of-Specials
+(bos-检测器)对检测器训练精度的影响，包括PAN、RFB、SAM、高斯YOLO(G)和ASFF，如表5所示。在我们的实验中，检测器在使用SPP、PAN和SAM时性能最好。</p>
 <blockquote>
-<p>进一步的研究关注不同Bag-of-Freebies免费包 (BoF-detector)对检测器训练精度的影响，通过研究在不影响FPS（帧率：每秒传输的帧数）的情况下提高检测器精度的不同特征，我们显著扩展了BoF列表：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table4.png" alt=""></p>
-<p>表4：Bag-of-Freebies 的消融研究。( CSPResNeXt50 - PANet - SPP , 512 × 512)。 粗体黑色表示有效</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table5.png" alt=""></p>
-<h4 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h4><p>当使用SPP、PAN和SAM时，检测器的性能最佳。</p>
+<p>进一步的研究关注不同Bag-of-Freebies免费包
+(BoF-detector)对检测器训练精度的影响，通过研究在不影响FPS（帧率：每秒传输的帧数）的情况下提高检测器精度的不同特征，我们显著扩展了BoF列表：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table4.png" /></p>
+<p>表4：Bag-of-Freebies 的消融研究。( CSPResNeXt50 - PANet - SPP , 512 ×
+512)。 粗体黑色表示有效</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table5.png" /></p>
+<h4 id="结论-1">结论</h4>
+<p>当使用SPP、PAN和SAM时，检测器的性能最佳。</p>
 </blockquote>
-<h3 id="4-4-Influence-of-different-backbones-and-pre-trained-weightings-on-Detector-training—不同的backbone和预先训练权重对检测器训练的影响"><a href="#4-4-Influence-of-different-backbones-and-pre-trained-weightings-on-Detector-training—不同的backbone和预先训练权重对检测器训练的影响" class="headerlink" title="4.4 Influence of different backbones and pre- trained weightings on Detector training—不同的backbone和预先训练权重对检测器训练的影响"></a>4.4 Influence of different backbones and pre- trained weightings on Detector training—不同的backbone和预先训练权重对检测器训练的影响</h3><p>进一步研究了不同主干模型对检测器精度的影响，如表6所示。我们注意到，具有最佳分类精度特征的模型在检测器精度方面并不总是最好的。</p>
+<h3
+id="influence-of-different-backbones-and-pre--trained-weightings-on-detector-training不同的backbone和预先训练权重对检测器训练的影响">4.4
+Influence of different backbones and pre- trained weightings on Detector
+training—不同的backbone和预先训练权重对检测器训练的影响</h3>
+<p>进一步研究了不同主干模型对检测器精度的影响，如表6所示。我们注意到，具有最佳分类精度特征的模型在检测器精度方面并不总是最好的。</p>
 <p>首先，虽然使用不同特征训练的CSPResNeXt-50模型的分类精度高于CSPDarknet53模型，但CSPDarknet53模型在目标检测方面具有更高的精度。</p>
 <p>其次，使用CSPResF和Mish进行50分类器训练可以提高分类精度，但进一步应用这些预先训练的权重用于检测器训练会降低检测器的精度。然而，在CSPDarknet53分类器训练中使用BoF和Mish可以提高分类器和使用该分类器预训练的加权的检测器的准确性。最终的结果是，主干CSPDarknet53比CSPResNeXt50更适合用于检测器。</p>
 <p>我们观察到，CSPDarknet53模型由于各种改进，显示出更大的能力来提高探测器的精度。</p>
 <blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table6.png" alt=""></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table6.png" /></p>
 <p>表6：使用不同的分类器预训练权重进行检测器训练(所有其他训练参数在所有模型中都是相似的)。</p>
-<h4 id="结论-2"><a href="#结论-2" class="headerlink" title="结论"></a>结论</h4><ul>
+<h4 id="结论-2">结论</h4>
+<ul>
 <li>具有最佳分类精度的模型在检测器精度方面并不总是最佳的。</li>
 <li>骨干CSPDarknet53比CSPResNeXt50更适合于检测器。</li>
 <li>由于各种改进，CSPDarknet53模型展示了更大的能力来提高检测器的精度。</li>
 </ul>
 </blockquote>
-<h3 id="4-5-Influence-of-different-mini-batch-size-on-Detec-tor-training—不同的小批尺寸对检测器培训的影响"><a href="#4-5-Influence-of-different-mini-batch-size-on-Detec-tor-training—不同的小批尺寸对检测器培训的影响" class="headerlink" title="4.5 Influence of different mini-batch size on Detec- tor training—不同的小批尺寸对检测器培训的影响"></a>4.5 Influence of different mini-batch size on Detec- tor training—不同的小批尺寸对检测器培训的影响</h3><p>最后，我们分析了用不同的小批量训练的模型得到的结果，结果如表7所示。从表7所示的结果中，我们发现在添加BoF和BoS训练策略后，小批量大小对检测器的性能几乎没有影响。这一结果表明，在引入BoF和BoS后，不再需要使用昂贵的gpu进行训练。换句话说，任何人都只能使用一个普通的GPU来训练一个优秀的探测器。</p>
+<h3
+id="influence-of-different-mini-batch-size-on-detec--tor-training不同的小批尺寸对检测器培训的影响">4.5
+Influence of different mini-batch size on Detec- tor
+training—不同的小批尺寸对检测器培训的影响</h3>
+<p>最后，我们分析了用不同的小批量训练的模型得到的结果，结果如表7所示。从表7所示的结果中，我们发现在添加BoF和BoS训练策略后，小批量大小对检测器的性能几乎没有影响。这一结果表明，在引入BoF和BoS后，不再需要使用昂贵的gpu进行训练。换句话说，任何人都只能使用一个普通的GPU来训练一个优秀的探测器。</p>
 <blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table7.png" alt=""></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Table7.png" /></p>
 <p>表7：使用不同的 mini-batch size 进行检测器训练。</p>
-<h4 id="结论-3"><a href="#结论-3" class="headerlink" title="结论"></a>结论</h4><ul>
+<h4 id="结论-3">结论</h4>
+<ul>
 <li>加入BoF和BoS训练策略后，小批量大小对检测器的性能几乎没有影响。</li>
 <li>minibatch越大越好，CSPDarknet53对minibatch不敏感，利于单卡训练。</li>
 <li>在引入BoF和BoS之后，不再需要使用昂贵的GPU进行训练。</li>
 </ul>
 </blockquote>
-<h2 id="五、Results—结果"><a href="#五、Results—结果" class="headerlink" title="五、Results—结果"></a>五、Results—结果</h2><p>与其他最先进的对象检测器所获得的结果的比较如图8所示。我们的YOLOv4位于Pareto最优性曲线上，在速度和精度方面都优于最快和最精确的探测器。 </p>
-<p>由于不同的方法使用不同架构的gpu进行推理时间验证，我们在通常采用的Maxwell、Pascal和Volta架构的gpu上操作YOLOv4，并将它们与其他最先进的方法进行比较。表8列出了使用MaxwellGPU的帧率比较结果，它可以是GTX TitanX（Maxwell）或TeslaM40GPU。表9列出了使用PascalGPU的帧率比较结果，可以是TitanX(Pascal)、TitanXp、GTX 1080Ti或特斯拉P100GPU。如表10所述，它列出了使用VoltaGPU的帧率比较结果，可以是Titan Volta或Tesla V100GPU。 </p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Figure8.png" alt=""></p>
-<p>图8 不同物体探测器的速度和精度比较。(一些文章只针对其中一个GPU : Maxwell / Pascal / Volta ，阐述了它们探测器的FPS)</p>
+<h2 id="五results结果">五、Results—结果</h2>
+<p>与其他最先进的对象检测器所获得的结果的比较如图8所示。我们的YOLOv4位于Pareto最优性曲线上，在速度和精度方面都优于最快和最精确的探测器。</p>
+<p>由于不同的方法使用不同架构的gpu进行推理时间验证，我们在通常采用的Maxwell、Pascal和Volta架构的gpu上操作YOLOv4，并将它们与其他最先进的方法进行比较。表8列出了使用MaxwellGPU的帧率比较结果，它可以是GTX
+TitanX（Maxwell）或TeslaM40GPU。表9列出了使用PascalGPU的帧率比较结果，可以是TitanX(Pascal)、TitanXp、GTX
+1080Ti或特斯拉P100GPU。如表10所述，它列出了使用VoltaGPU的帧率比较结果，可以是Titan
+Volta或Tesla V100GPU。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/yolov4-Figure8.png" /></p>
+<p>图8 不同物体探测器的速度和精度比较。(一些文章只针对其中一个GPU :
+Maxwell / Pascal / Volta ，阐述了它们探测器的FPS)</p>
 <p><strong>结论</strong></p>
 <ul>
 <li>得到的结果与其他最先进的物体探测器的比较如图8所示。我们的YOLOv4位于Pareto最优曲线上，无论是速度还是精度都优于最快最准确的检测器。</li>
 <li>由于不同的方法使用不同架构的gpu进行推理时间验证，我们在Maxwell架构、Pascal架构和Volta架构常用的gpu上运行YOLOv4，并与其他最先进的方法进行比较。</li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.chitose.cn">Chitose</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.chitose.cn/yolov4-paper/">https://www.chitose.cn/yolov4-paper/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.chitose.cn" target="_blank">Chitose-Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_7.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/yolov6-paper/" title="yolov6-paper"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">yolov6-paper</div></div></a></div><div class="next-post pull-right"><a href="/ET/" title="ET"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_9.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ET</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Face.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chitose</div><div class="author-info__description">Hahaha</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/chitose-r"><i class="fab fa-github"></i><span>🛴/前往小家..</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/chitose-r" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:171450290@qq.com" target="_blank" title="Email"><i class="fa-solid fa-square-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/qq/" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12b7f5;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8AYOLOv4%EF%BC%9AOptimal-Speed-and-Accuracy-of-Object-Detection%E3%80%8B"><span class="toc-text">《YOLOv4：Optimal Speed and Accuracy of Object Detection》</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract%E2%80%94%E6%91%98%E8%A6%81"><span class="toc-text">Abstract—摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E9%AB%98CNN%E5%87%86%E7%A1%AE%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">提高CNN准确性的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLOv4%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7"><span class="toc-text">YOLOv4使用的技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%93%E6%9E%9C"><span class="toc-text">实现结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81-Introduction%E2%80%94%E7%AE%80%E4%BB%8B"><span class="toc-text">一、 Introduction—简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8F%91"><span class="toc-text">启发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%A1%E7%8C%AE"><span class="toc-text">贡献</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Related-work%E2%80%94%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-text">二、Related work—相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Object-detection-models%E2%80%94%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.1 Object detection models—目标检测模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%99%A8%E7%BB%84%E6%88%90"><span class="toc-text">现代目标检测器组成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Bag-of-freebies"><span class="toc-text">2.2 Bag of freebies</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BoF%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="toc-text">BoF方法一：数据增强</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BoF%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E8%A7%A3%E5%86%B3%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E8%AF%AD%E4%B9%89%E5%88%86%E5%B8%83%E5%81%8F%E5%B7%AE%E9%97%AE%E9%A2%98"><span class="toc-text">BoF方法二：解决数据集中语义分布偏差问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BoF%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E8%BE%B9%E7%95%8C%E6%A1%86-BBox-%E5%9B%9E%E5%BD%92%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0"><span class="toc-text">BoF方法三：边界框(BBox)回归的目标函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Bag-of-specials"><span class="toc-text">2.3 Bag of specials</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BoS%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%B9%8B%E5%A2%9E%E5%BC%BA%E6%84%9F%E5%8F%97%E9%87%8E"><span class="toc-text">BoS方法一：插件模块之增强感受野</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BoS%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%B9%8B%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-text">BoS方法二：插件模块之注意力机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BoS%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%B9%8B%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88"><span class="toc-text">BoS方法三：插件模块之特征融合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BoS%E6%96%B9%E6%B3%95%E5%9B%9B%EF%BC%9A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-text">BoS方法四：激活函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BoS%E6%96%B9%E6%B3%95%E4%BA%94%EF%BC%9A%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-text">BoS方法五：后处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Methodology%E2%80%94%E6%96%B9%E6%B3%95"><span class="toc-text">三、Methodology—方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Selection-of-architecture%E2%80%94%E6%9E%B6%E6%9E%84%E9%80%89%E6%8B%A9"><span class="toc-text">3.1 Selection of architecture—架构选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87"><span class="toc-text">架构选择目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLOv4%E6%9E%B6%E6%9E%84"><span class="toc-text">YOLOv4架构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Selection-of-BoF-and-BoS%E2%80%94BoF%E5%92%8CBoS%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-text">3.2 Selection of BoF and BoS—BoF和BoS的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Additional-improvements%E2%80%94%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%94%B9%E8%BF%9B"><span class="toc-text">3.3 Additional improvements—进一步改进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-YOLOv4"><span class="toc-text">3.4 YOLOv4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLOv4%E5%8C%85%E6%8B%AC"><span class="toc-text">YOLOv4包括</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Experiments%E2%80%94%E5%AE%9E%E9%AA%8C"><span class="toc-text">四、Experiments—实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Experimental-setup%E2%80%94%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-text">4.1 Experimental setup—实验设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Influence-of-different-features-on-Classifier-training%E2%80%94%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E5%AF%B9%E5%88%86%E7%B1%BB%E5%99%A8%E8%AE%AD%E7%BB%83%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">4.2 Influence of different features on Classifier training—不同特征对分类器训练的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Influence-of-different-features-on-Detector-training%E2%80%94%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E5%AF%B9%E6%A3%80%E6%B5%8B%E5%99%A8%E8%AE%AD%E7%BB%83%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">4.3 Influence of different features on Detector training—不同特征对检测器训练的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-1"><span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-Influence-of-different-backbones-and-pre-trained-weightings-on-Detector-training%E2%80%94%E4%B8%8D%E5%90%8C%E7%9A%84backbone%E5%92%8C%E9%A2%84%E5%85%88%E8%AE%AD%E7%BB%83%E6%9D%83%E9%87%8D%E5%AF%B9%E6%A3%80%E6%B5%8B%E5%99%A8%E8%AE%AD%E7%BB%83%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">4.4 Influence of different backbones and pre- trained weightings on Detector training—不同的backbone和预先训练权重对检测器训练的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-2"><span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-Influence-of-different-mini-batch-size-on-Detec-tor-training%E2%80%94%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B0%8F%E6%89%B9%E5%B0%BA%E5%AF%B8%E5%AF%B9%E6%A3%80%E6%B5%8B%E5%99%A8%E5%9F%B9%E8%AE%AD%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">4.5 Influence of different mini-batch size on Detec- tor training—不同的小批尺寸对检测器培训的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-3"><span class="toc-text">结论</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Results%E2%80%94%E7%BB%93%E6%9E%9C"><span class="toc-text">五、Results—结果</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Chitose</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.chitose.cn">Chitose</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.chitose.cn/yolov4-paper/">https://www.chitose.cn/yolov4-paper/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.chitose.cn" target="_blank">Chitose-Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/yolov6-paper/" title="yolov6-paper"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_4.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">yolov6-paper</div></div></a></div><div class="next-post pull-right"><a href="/ET/" title="ET"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_5.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ET</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/Face.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chitose</div><div class="author-info__description">Hahaha</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/chitose-r"><i class="fab fa-github"></i><span>🛴/前往小家..</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/chitose-r" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:171450290@qq.com" target="_blank" title="Email"><i class="fa-solid fa-square-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/qq/" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12b7f5;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#yolov4optimal-speed-and-accuracy-of-object-detection"><span class="toc-text">《YOLOv4：Optimal
+Speed and Accuracy of Object Detection》</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#abstract%E6%91%98%E8%A6%81"><span class="toc-text">Abstract—摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-introduction%E7%AE%80%E4%BB%8B"><span class="toc-text">一、
+Introduction—简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8F%91"><span class="toc-text">启发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%A1%E7%8C%AE"><span class="toc-text">贡献</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8Crelated-work%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-text">二、Related
+work—相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#object-detection-models%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.1 Object detection
+models—目标检测模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%99%A8%E7%BB%84%E6%88%90"><span class="toc-text">现代目标检测器组成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bag-of-freebies"><span class="toc-text">2.2 Bag of freebies</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bof%E6%96%B9%E6%B3%95%E4%B8%80%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="toc-text">BoF方法一：数据增强</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bof%E6%96%B9%E6%B3%95%E4%BA%8C%E8%A7%A3%E5%86%B3%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E8%AF%AD%E4%B9%89%E5%88%86%E5%B8%83%E5%81%8F%E5%B7%AE%E9%97%AE%E9%A2%98"><span class="toc-text">BoF方法二：解决数据集中语义分布偏差问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bof%E6%96%B9%E6%B3%95%E4%B8%89%E8%BE%B9%E7%95%8C%E6%A1%86bbox%E5%9B%9E%E5%BD%92%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0"><span class="toc-text">BoF方法三：边界框(BBox)回归的目标函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bag-of-specials"><span class="toc-text">2.3 Bag of specials</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bos%E6%96%B9%E6%B3%95%E4%B8%80%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%B9%8B%E5%A2%9E%E5%BC%BA%E6%84%9F%E5%8F%97%E9%87%8E"><span class="toc-text">BoS方法一：插件模块之增强感受野</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bos%E6%96%B9%E6%B3%95%E4%BA%8C%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%B9%8B%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-text">BoS方法二：插件模块之注意力机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bos%E6%96%B9%E6%B3%95%E4%B8%89%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%B9%8B%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88"><span class="toc-text">BoS方法三：插件模块之特征融合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bos%E6%96%B9%E6%B3%95%E5%9B%9B%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-text">BoS方法四：激活函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bos%E6%96%B9%E6%B3%95%E4%BA%94%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-text">BoS方法五：后处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89methodology%E6%96%B9%E6%B3%95"><span class="toc-text">三、Methodology—方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#selection-of-architecture%E6%9E%B6%E6%9E%84%E9%80%89%E6%8B%A9"><span class="toc-text">3.1 Selection of
+architecture—架构选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87"><span class="toc-text">架构选择目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yolov4%E6%9E%B6%E6%9E%84"><span class="toc-text">YOLOv4架构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#selection-of-bof-and-bosbof%E5%92%8Cbos%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-text">3.2 Selection of BoF and
+BoS—BoF和BoS的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#additional-improvements%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%94%B9%E8%BF%9B"><span class="toc-text">3.3 Additional
+improvements—进一步改进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yolov4"><span class="toc-text">3.4 YOLOv4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#yolov4%E5%8C%85%E6%8B%AC"><span class="toc-text">YOLOv4包括</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9Bexperiments%E5%AE%9E%E9%AA%8C"><span class="toc-text">四、Experiments—实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#experimental-setup%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-text">4.1 Experimental setup—实验设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#influence-of-different-features-on-classifier-training%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E5%AF%B9%E5%88%86%E7%B1%BB%E5%99%A8%E8%AE%AD%E7%BB%83%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">4.2
+Influence of different features on Classifier
+training—不同特征对分类器训练的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#influence-of-different-features-on-detector-training%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E5%AF%B9%E6%A3%80%E6%B5%8B%E5%99%A8%E8%AE%AD%E7%BB%83%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">4.3
+Influence of different features on Detector
+training—不同特征对检测器训练的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-1"><span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#influence-of-different-backbones-and-pre--trained-weightings-on-detector-training%E4%B8%8D%E5%90%8C%E7%9A%84backbone%E5%92%8C%E9%A2%84%E5%85%88%E8%AE%AD%E7%BB%83%E6%9D%83%E9%87%8D%E5%AF%B9%E6%A3%80%E6%B5%8B%E5%99%A8%E8%AE%AD%E7%BB%83%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">4.4
+Influence of different backbones and pre- trained weightings on Detector
+training—不同的backbone和预先训练权重对检测器训练的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-2"><span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#influence-of-different-mini-batch-size-on-detec--tor-training%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B0%8F%E6%89%B9%E5%B0%BA%E5%AF%B8%E5%AF%B9%E6%A3%80%E6%B5%8B%E5%99%A8%E5%9F%B9%E8%AE%AD%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">4.5
+Influence of different mini-batch size on Detec- tor
+training—不同的小批尺寸对检测器培训的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-3"><span class="toc-text">结论</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94results%E7%BB%93%E6%9E%9C"><span class="toc-text">五、Results—结果</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Chitose</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
   if (typeof pangu === 'object') pangu.autoSpacingPage()
   else {
     getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
@@ -456,7 +669,13 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer src="/js/cursor.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer src="/js/cursor.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🥩 Python (19)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/C/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🕶️ C (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Embedded/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💳 Embedded (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Pytorch/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📯 Pytorch (9)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/Paper/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📰 Paper (18)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/others/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🤡 others (15)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.chitose.cn/categories/segmentation/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔪 segmentation (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://www.chitose.cn/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(33.333333333333336% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
   function butterfly_clock_anzhiyu_injector_config(){
     var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
     var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
@@ -488,6 +707,30 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
     butterfly_clock_anzhiyu_injector_config();
   }
   </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023-12-17-2/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_6.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-17</span><a class="blog-slider__title" href="2023-12-17-2/" alt="">第二篇文章</a><div class="blog-slider__text">这是第二篇文章</div><a class="blog-slider__button" href="2023-12-17-2/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="Pytorch-6/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_1.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-19</span><a class="blog-slider__title" href="Pytorch-6/" alt="">Pytorch(6)-张量可微性</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="Pytorch-6/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023-12-17-3/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_3.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-17</span><a class="blog-slider__title" href="2023-12-17-3/" alt="">第三篇文章</a><div class="blog-slider__text">这是第三篇文章</div><a class="blog-slider__button" href="2023-12-17-3/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
   function butterfly_footer_beautify_injector_config(){
     var parent_div_git = document.getElementById('footer-wrap');
     var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
@@ -511,28 +754,4 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
   else if (epage === cpage){
     butterfly_footer_beautify_injector_config();
   }
-  </script><script async src="/js/runtime.js"></script><script data-pjax>
-  function butterfly_swiper_injector_config(){
-    var parent_div_git = document.getElementById('recent-posts');
-    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023-12-17-2/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_9.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-17</span><a class="blog-slider__title" href="2023-12-17-2/" alt="">第二篇文章</a><div class="blog-slider__text">这是第二篇文章</div><a class="blog-slider__button" href="2023-12-17-2/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="Pytorch-6/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_3.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-19</span><a class="blog-slider__title" href="Pytorch-6/" alt="">Pytorch(6)-张量可微性</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="Pytorch-6/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023-12-17-3/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/chitose-r/pic_bed@master/img/default_cover_8.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-17</span><a class="blog-slider__title" href="2023-12-17-3/" alt="">第三篇文章</a><div class="blog-slider__text">这是第三篇文章</div><a class="blog-slider__button" href="2023-12-17-3/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
-    console.log('已挂载butterfly_swiper')
-    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
-    }
-  var elist = 'undefined'.split(',');
-  var cpage = location.pathname;
-  var epage = '/';
-  var flag = 0;
-
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
-
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_swiper_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_swiper_injector_config();
-  }
-  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
+  </script><script async src="/js/runtime.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
